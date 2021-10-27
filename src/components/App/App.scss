@@ -1,0 +1,47 @@
+.wrapper {
+  position: relative;
+  max-width: 1130px;
+  margin: 0 auto;
+}
+
+.header {
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 60px;
+}
+
+.header__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1130px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 15px;
+  background-color: #6891b4;
+}
+
+.header__title {
+  font-size: 25px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.body {
+  display: flex;
+  max-width: 1130px;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 70px 15px 52px 15px;
+  background-color: #dee7ef;
+}
+
+.body__task-list {
+  position: relative;
+  flex: 0 0 55%;
+}
+
