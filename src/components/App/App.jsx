@@ -1,14 +1,18 @@
 import React, {useState} from 'react';
-import {dataBase} from './database';
 import TaskList from '../TaskList/TaskList';
+import TaskForm from '../TaskForm/TaskForm';
+import TaskFilter from '../TaskFilter/TaskFilter';
 import TaskDescription from '../TaskDescription/TaskDescription';
+import TaskSearch from '../TaskSearch/TaskSearch';
+import Button from '../UI/Button/Button';
+import Show from '../UI/Show/Show';
+import {dataBase} from './database';
 import {useTasks} from '../../hooks/useTask';
 import './App.scss';
-import TaskSearch from "../TaskSearch/TaskSearch";
-import TaskFilter from "../TaskFilter/TaskFilter";
 
 const App = () => {
     const [tasks, setTasks] = useState(dataBase);
+    const [showTaskForm, setShowTaskForm] = useState(false);
     const [taskDescription, setTaskDescription] = useState('');
     const [selectedTaskId, setSelectedTaskId] = useState('');
     const [filter, setFilter] = useState('time');
@@ -19,8 +23,22 @@ const App = () => {
         setSelectedTaskId(id);
     };
 
+    const createTask = (newTask) => {
+        setTasks([...tasks, newTask]);
+        setShowTaskForm(false);
+    };
+
     const taskDesc = (task) => {
         setTaskDescription(task);
+    };
+
+    const collapseTask = (e) => {
+        e.preventDefault();
+    };
+
+    const closeTask = (e) => {
+        e.preventDefault();
+        setShowTaskForm(false);
     };
 
     const removeTask = (task) => {
@@ -37,6 +55,9 @@ const App = () => {
                 <div className="header__container">
                     <div>
                         <span className="header__title">Менеджер задач</span>
+                        <Button className="header__button" onClick={() => setShowTaskForm(true)}>
+                            Создать новую задачу
+                        </Button>
                     </div>
                     <TaskSearch search={search} setSearch={setSearch} />
                 </div>
@@ -59,6 +80,13 @@ const App = () => {
                     <TaskDescription taskDescription={taskDescription} />
                 </div>
             </div>
+            <Show show={showTaskForm}>
+                <TaskForm
+                    createTask={createTask}
+                    collapseTask={collapseTask}
+                    closeTask={closeTask}
+                />
+            </Show>
         </div>
     );
 };

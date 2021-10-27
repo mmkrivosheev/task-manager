@@ -1,0 +1,125 @@
+.task-form {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.task-form.collapse {
+  transform: translateY(281px);
+}
+
+.task-form__container {
+  max-width: 1130px;
+  height: 100%;
+  margin: 0 auto;
+  background-color: #efefef;
+}
+
+.task-form__form {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  padding: 28px 10px 10px 10px;
+  border-top: 1px solid #ced4da;
+}
+
+.task-form__body {
+  align-self: stretch;
+}
+
+.task-form.collapse .task-form__body {
+  visibility: hidden;
+}
+
+.task-form__body label {
+  color: #65696d;
+  display: block;
+  margin-bottom: 3px;
+  margin-left: 3px;
+}
+
+.task-form__input {
+  margin-bottom: 10px;
+}
+
+.task-form__input:focus {
+  border: 1px solid #6891b4;
+}
+
+.task-form__textarea {
+  height: 160px;
+  margin-bottom: 10px;
+  resize: none;
+}
+
+.task-form__textarea:focus {
+  border: 1px solid #6891b4;
+}
+
+.task-form__btn_collapse {
+  position: absolute;
+  top: 9px;
+  right: 40px;
+  width: 30px;
+  height: 30px;
+  opacity: 0.8;
+  cursor: pointer;
+  border: none;
+  background-color: #efefef;
+  background-image: url('../../images/collapse.svg');
+  background-repeat: no-repeat;
+}
+
+.task-form__btn_collapse:hover {
+  opacity: 1;
+}
+
+.task-form__btn_collapse:active {
+  opacity: 0.8;
+}
+
+.task-form__btn_close {
+  position: absolute;
+  top: 9px;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  opacity: 0.8;
+  cursor: pointer;
+  border: none;
+  background-color: #efefef;
+  background-image: url('../../images/close.svg');
+  background-repeat: no-repeat;
+}
+
+.task-form__btn_close:hover {
+  opacity: 1;
+}
+
+.task-form__btn_close:active {
+  opacity: 0.8;
+}
+
+.task-form__btn_send {
+  font-size: 19px;
+  color: #fff;
+  align-self: flex-end;
+  width: 100px;
+  height: 40px;
+  opacity: 0.8;
+  cursor: pointer;
+  border: none;
+  border-radius: 3px;
+  background-color: #447298;
+}
+
+.task-form__btn_send:hover {
+  opacity: 1;
+}
+
+.task-form__btn_send:active {
+  opacity: 0.8;
+}
