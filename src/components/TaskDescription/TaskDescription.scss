@@ -1,0 +1,36 @@
+.task-description {
+  position: fixed;
+  top: 70px;
+  right: calc(50% - 550px);
+  width: 500px;
+  padding: 5px 0 0 20px;
+}
+
+.task-description__body {
+  font-weight: 500;
+  overflow-wrap: anywhere;
+  overflow-y: auto;
+  height: 400px;
+  margin-bottom: 15px;
+  padding: 5px 10px;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  background-color: #ffffff;
+}
+
+.task-description h1 {
+  font-weight: 500;
+  color: #778899;
+  text-align: center;
+  margin-bottom: 14px;
+}
+
+.task-description__field {
+  margin-bottom: 5px;
+}
+
+.task-description__prop {
+  color: #bdb76b;
+  margin-right: 8px;
+}
+

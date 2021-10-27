@@ -1,10 +1,21 @@
 import React, {useState} from 'react';
 import {dataBase} from './database';
 import TaskList from '../TaskList/TaskList';
+import TaskDescription from '../TaskDescription/TaskDescription';
 import './App.scss';
 
 const App = () => {
     const [tasks, setTasks] = useState(dataBase);
+    const [taskDescription, setTaskDescription] = useState('');
+    const [selectedTaskId, setSelectedTaskId] = useState('');
+
+    const changeSelectedTaskId = (id) => {
+        setSelectedTaskId(id);
+    };
+
+    const taskDesc = (task) => {
+        setTaskDescription(task);
+    };
 
     return (
         <div className="wrapper">
@@ -20,7 +31,13 @@ const App = () => {
                     <TaskList
                         title={"Список задач"}
                         tasks={tasks}
+                        selectedTaskId={selectedTaskId}
+                        changeSelectedTaskId={changeSelectedTaskId}
+                        taskDesc={taskDesc}
                     />
+                </div>
+                <div className="body__task-description">
+                    <TaskDescription taskDescription={taskDescription} />
                 </div>
             </div>
         </div>
