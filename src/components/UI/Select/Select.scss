@@ -1,0 +1,19 @@
+.select {
+  font-family: 'Roboto', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: #778899;
+  display: inline-block;
+  width: 90px;
+  height: 28px;
+  padding: 3px 3px;
+  border: 1px solid #ced4da;
+  border-radius: 3px;
+  outline: none;
+  background-color: #fff;
+  background-image: url('sort-down.svg');
+  background-repeat: no-repeat;
+  background-position: bottom 100% right 6px;
+  background-size: 12px auto;
+  appearance: none;
+}

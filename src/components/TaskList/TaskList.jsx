@@ -2,9 +2,9 @@ import React from 'react';
 import TaskItem from '../TaskItem/TaskItem';
 import './TaskList.scss';
 
-const TaskList = ({tasks, title, selectedTaskId, changeSelectedTaskId, taskDesc, removeTask}) => {
+const TaskList = ({selectedTaskId, changeSelectedTaskId, sortedAndSearchedTask, title, removeTask, taskDesc}) => {
 
-    if(!tasks.length) {
+    if(!sortedAndSearchedTask.length) {
         return (
             <div className="task-list">
                 <h1>Задачи не найдены!</h1>
@@ -15,7 +15,7 @@ const TaskList = ({tasks, title, selectedTaskId, changeSelectedTaskId, taskDesc,
     return (
         <div className="task-list">
             <h1>{title}</h1>
-            {tasks.map(task => {
+            {sortedAndSearchedTask.map(task => {
                 return (
                     <TaskItem
                         key={task.id}

@@ -1,0 +1,20 @@
+.task-search__input {
+  width: 300px;
+  padding: 5px 10px;
+}
+
+.task-search__input:focus::-webkit-input-placeholder {
+  color:transparent;
+}
+
+.task-search__input:focus:-moz-placeholder {
+  color:transparent;
+}
+
+.task-search__input:focus::-moz-placeholder {
+  color:transparent;
+}
+
+.task-search__input:focus:-ms-input-placeholder {
+  color:transparent;
+}
