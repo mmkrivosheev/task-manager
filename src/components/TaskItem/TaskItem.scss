@@ -23,3 +23,29 @@
   display: inline-block;
   margin-right: 5px;
 }
+
+.task-item__btn {
+  flex: 0 0 40px;
+  height: 30px;
+}
+
+.task-item button {
+  width: 100%;
+  height: 100%;
+  opacity: 0.3;
+  cursor: pointer;
+  border: none;
+  background-color: #fff;
+  background-image: url('../../images/delete.svg');
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-size: contain;
+}
+
+.task-item button:hover {
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  cursor: pointer;
+  border: none;
+}

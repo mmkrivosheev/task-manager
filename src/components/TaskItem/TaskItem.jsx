@@ -23,6 +23,9 @@ const TaskItem = props => {
                     <strong>{props.task.title}</strong>
                 </div>
             </div>
+            <div className="task-item__btn" onClick={e => e.stopPropagation()}>
+                <button onClick={() => props.removeTask(props.task)}> </button>
+            </div>
         </div>
     );
 };

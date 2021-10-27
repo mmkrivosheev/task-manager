@@ -2,7 +2,7 @@ import React from 'react';
 import TaskItem from '../TaskItem/TaskItem';
 import './TaskList.scss';
 
-const TaskList = ({tasks, title, selectedTaskId, changeSelectedTaskId, taskDesc}) => {
+const TaskList = ({tasks, title, selectedTaskId, changeSelectedTaskId, taskDesc, removeTask}) => {
 
     if(!tasks.length) {
         return (
@@ -23,6 +23,7 @@ const TaskList = ({tasks, title, selectedTaskId, changeSelectedTaskId, taskDesc}
                         selectedTaskId={selectedTaskId}
                         changeSelectedTaskId={changeSelectedTaskId}
                         taskDesc={taskDesc}
+                        removeTask={removeTask}
                     />
                 );
             })}

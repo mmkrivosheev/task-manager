@@ -17,6 +17,14 @@ const App = () => {
         setTaskDescription(task);
     };
 
+    const removeTask = (task) => {
+        setTasks(tasks.filter(p => p.id !== task.id));
+
+        if(task.id === selectedTaskId) {
+            setTaskDescription('');
+        }
+    };
+
     return (
         <div className="wrapper">
             <div className="header">
@@ -34,6 +42,7 @@ const App = () => {
                         selectedTaskId={selectedTaskId}
                         changeSelectedTaskId={changeSelectedTaskId}
                         taskDesc={taskDesc}
+                        removeTask={removeTask}
                     />
                 </div>
                 <div className="body__task-description">
