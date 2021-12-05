@@ -10,12 +10,11 @@ const TaskItem = props => {
 
     return (
         <div
-            className="task-item"
-            style={{outline: props.selectedTaskId === props.task.id
-                    ? '2px solid #778899'
-                    : '1px solid #ced4da'
-            }}
-            onClick={click}
+            className={props.selectedTaskId === props.task.id
+                ? "task-item selected"
+                : "task-item"
+            }
+             onClick={click}
         >
             <div  className="task-item__content">
                 <span>{new Date(props.task.time).toLocaleDateString()}</span>

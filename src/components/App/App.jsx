@@ -32,12 +32,7 @@ const App = () => {
         setTaskDescription(task);
     };
 
-    const collapseTask = (e) => {
-        e.preventDefault();
-    };
-
-    const closeTask = (e) => {
-        e.preventDefault();
+    const closeTask = () => {
         setShowTaskForm(false);
     };
 
@@ -56,7 +51,7 @@ const App = () => {
                     <div>
                         <span className="header__title">Менеджер задач</span>
                         <Button className="header__button" onClick={() => setShowTaskForm(true)}>
-                            Создать новую задачу
+                            Добавить новую задачу
                         </Button>
                     </div>
                     <TaskSearch search={search} setSearch={setSearch} />
@@ -83,7 +78,6 @@ const App = () => {
             <Show show={showTaskForm}>
                 <TaskForm
                     createTask={createTask}
-                    collapseTask={collapseTask}
                     closeTask={closeTask}
                 />
             </Show>

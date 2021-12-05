@@ -1,13 +1,12 @@
-import React, {useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import Input from '../UI/Input/Input';
 import Button from '../UI/Button/Button';
 import Textarea from '../UI/Textarea/Textarea';
 import './TaskForm.scss';
 
-const TaskForm = ({createTask, collapseTask, closeTask}) => {
+const TaskForm = ({createTask, closeTask}) => {
     const [task, setTask] = useState({title: '', body: ''});
     const [collapse, setCollapse] = useState(false);
-    const styles = ['task-form'];
 
     const addNewPost = (e) => {
         e.preventDefault();
@@ -21,20 +20,19 @@ const TaskForm = ({createTask, collapseTask, closeTask}) => {
     };
 
     const collapseNewPost = (e) => {
-        collapseTask(e);
+        e.preventDefault();
         setCollapse(!collapse);
     };
 
     const closeNewPost = (e) => {
-        closeTask(e);
+        e.preventDefault();
+        closeTask();
         setTask({title: '', body: ''});
         setCollapse(false);
     };
 
-    collapse ? styles.push('collapse') : '';
-
     return (
-        <div className={styles.join(' ')}>
+        <div className={collapse ? "task-form collapse" : "task-form"}>
             <div className="task-form__container">
                 <form className="task-form__form" onSubmit={addNewPost}>
                     <div className="task-form__body">
@@ -58,8 +56,13 @@ const TaskForm = ({createTask, collapseTask, closeTask}) => {
                         </div>
                     </div>
                     <Button className="task-form__btn_send">Записать</Button>
-                    <Button className="task-form__btn_collapse" onClick={collapseNewPost}> </Button>
-                    <Button className="task-form__btn_close" onClick={closeNewPost}> </Button>
+                    <Button className="task-form__btn_collapse" onClick={collapseNewPost}>
+                        <span> </span>
+                    </Button>
+                    <Button className="task-form__btn_close" onClick={closeNewPost}>
+                        <span> </span>
+                        <span> </span>
+                    </Button>
                 </form>
             </div>
         </div>
