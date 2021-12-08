@@ -17,6 +17,8 @@ const App = () => {
     const [selectedTaskId, setSelectedTaskId] = useState('');
     const [filter, setFilter] = useState('time');
     const [search, setSearch] = useState('');
+    const [warning, setWarning] = useState(false);
+    const [collapse, setCollapse] = useState(false);
     const sortedAndSearchedTask = useTasks(tasks, filter, search);
 
     const changeSelectedTaskId = (id) => {
@@ -34,6 +36,7 @@ const App = () => {
 
     const closeTask = () => {
         setShowTaskForm(false);
+        setWarning(false);
     };
 
     const removeTask = (task) => {
@@ -44,13 +47,21 @@ const App = () => {
         }
     };
 
+    const showTaskFormHandler = () => {
+        if(showTaskForm && collapse) {
+            setWarning(true);
+        }
+
+        setShowTaskForm(true);
+    }
+
     return (
         <div className="wrapper">
             <div className="header">
                 <div className="header__container">
                     <div>
                         <span className="header__title">Менеджер задач</span>
-                        <Button className="header__button" onClick={() => setShowTaskForm(true)}>
+                        <Button className="header__button" onClick={showTaskFormHandler}>
                             Добавить новую задачу
                         </Button>
                     </div>
@@ -79,6 +90,10 @@ const App = () => {
                 <TaskForm
                     createTask={createTask}
                     closeTask={closeTask}
+                    warning={warning}
+                    setWarning={setWarning}
+                    collapse={collapse}
+                    setCollapse={setCollapse}
                 />
             </Show>
         </div>

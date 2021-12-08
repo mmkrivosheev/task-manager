@@ -4,9 +4,8 @@ import Button from '../UI/Button/Button';
 import Textarea from '../UI/Textarea/Textarea';
 import './TaskForm.scss';
 
-const TaskForm = ({createTask, closeTask}) => {
+const TaskForm = ({createTask, closeTask, warning, setWarning, collapse, setCollapse}) => {
     const [task, setTask] = useState({title: '', body: ''});
-    const [collapse, setCollapse] = useState(false);
 
     const addNewPost = (e) => {
         e.preventDefault();
@@ -30,6 +29,10 @@ const TaskForm = ({createTask, closeTask}) => {
         setTask({title: '', body: ''});
         setCollapse(false);
     };
+
+    useEffect(() => {
+        setTimeout(() => setWarning(false), 300);
+    });
 
     return (
         <div className={collapse ? "task-form collapse" : "task-form"}>
@@ -55,11 +58,19 @@ const TaskForm = ({createTask, closeTask}) => {
                             />
                         </div>
                     </div>
-                    <Button className="task-form__btn_send">Записать</Button>
-                    <Button className="task-form__btn_collapse" onClick={collapseNewPost}>
+                    <Button className="task-form__btn_send">
+                        Записать
+                    </Button>
+                    <Button
+                        className={warning ? "task-form__btn_collapse warning" : "task-form__btn_collapse"}
+                        onClick={collapseNewPost}
+                    >
                         <span> </span>
                     </Button>
-                    <Button className="task-form__btn_close" onClick={closeNewPost}>
+                    <Button
+                        className={warning ? "task-form__btn_close warning" : "task-form__btn_close"}
+                        onClick={closeNewPost}
+                    >
                         <span> </span>
                         <span> </span>
                     </Button>

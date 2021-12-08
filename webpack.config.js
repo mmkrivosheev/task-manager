@@ -16,6 +16,7 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: filename('js'),
+        // publicPath: '/'
     },
     devServer: {
         host: '192.168.0.101',
