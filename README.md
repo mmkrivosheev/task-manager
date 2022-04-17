@@ -1,4 +1,5 @@
 Приложение task-manager позволяет вести список текущих задач.
+Ссылка на GitHub Pages: https://mmkrivosheev.github.io/task-manager
 
 КАКИЕ ТЕХНОЛОГИИ ПРИМЕНИЛ?<br>
 • Приложение написано на React.
