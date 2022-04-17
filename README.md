@@ -1,4 +1,4 @@
-Приложение task-manager позволяет вести список текущих задач.
+Приложение task-manager позволяет вести список текущих задач.<br>
 Ссылка на GitHub Pages: https://mmkrivosheev.github.io/task-manager
 
 КАКИЕ ТЕХНОЛОГИИ ПРИМЕНИЛ?<br>
