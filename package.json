@@ -1,0 +1,18 @@
+{
+  "name": "task-manager",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Task manager application",
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "scripts": {
+    "start:client": "npm run start -w client",
+    "start:server": "npm run start -w server",
+    "start:all": "npm run start:client & npm run start:server"
+  },
+  "devDependencies": {
+    "prettier": "^3.6.2"
+  }
+}
