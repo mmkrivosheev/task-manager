@@ -32,6 +32,8 @@ module.exports = {
 			"@store": path.resolve(__dirname, "src/store"),
 			"@api": path.resolve(__dirname, "src/api"),
 			"@styles": path.resolve(__dirname, "src/styles"),
+			"@assets": path.resolve(__dirname, "src/assets"),
+			"@types": path.resolve(__dirname, "src/types"),
 		},
 	},
 	plugins: [
@@ -69,24 +71,54 @@ module.exports = {
 				},
 			},
 			{
-				test: /\.(css|scss)$/,
+				test: /\.module\.(scss|css)$/,
 				use: [
 					isDev ? "style-loader" : MiniCssExtractPlugin.loader,
 					{
 						loader: "css-loader",
 						options: {
 							modules: {
-								auto: true,
-								localIdentName: isDev ? "[path][name]__[local]" : "[hash:base64]",
+								localIdentName: isDev
+									? "[path][name]__[local]--[hash:base64:5]"
+									: "[hash:base64:8]",
 							},
 							sourceMap: isDev,
 						},
 					},
-					"sass-loader",
+					{
+						loader: "sass-loader",
+						options: {
+							sourceMap: isDev,
+						},
+					},
 				],
 			},
 			{
-				test: /\.(png|svg|jpg|jpeg|gif)$/i,
+				test: /\.(scss|css)$/,
+				exclude: /\.module\.(scss|css)$/,
+				use: [
+					isDev ? "style-loader" : MiniCssExtractPlugin.loader,
+					{
+						loader: "css-loader",
+						options: {
+							sourceMap: isDev,
+						},
+					},
+					{
+						loader: "sass-loader",
+						options: {
+							sourceMap: isDev,
+						},
+					},
+				],
+			},
+			{
+				test: /\.svg$/i,
+				issuer: /\.[jt]sx?$/,
+				use: ["@svgr/webpack"],
+			},
+			{
+				test: /\.(png|jpg|jpeg|gif)$/i,
 				type: "asset/resource",
 			},
 		],
