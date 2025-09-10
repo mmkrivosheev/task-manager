@@ -1,0 +1,21 @@
+*,
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+:is(button, input, select, textarea) {
+	font-family: inherit;
+	font-size: inherit;
+	line-height: inherit;
+}
+
+:is(button, input, select, textarea, a):focus {
+	outline: none;
+}
+
+a:is(:link, :visited, :hover, :active) {
+	text-decoration: none;
+}
