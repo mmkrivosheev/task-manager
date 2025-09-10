@@ -1,0 +1,37 @@
+.logo {
+	position: absolute;
+	top: 50%;
+	left: 0;
+	color: var(--primary-color);
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	transform: translateY(-50%);
+}
+
+.type {
+	--cursor-color: rgba(var(--border-color), 0.5);
+	width: 0;
+	overflow: hidden;
+	border-right: 0.5rem solid var(--cursor-color);
+	white-space: nowrap;
+	animation:
+		blink 1.2s step-end 2 forwards,
+		typing calc(var(--text-type-width) * 0.0091s) steps(round(calc(var(--text-type-width) * 0.11))) 3s forwards;
+}
+
+
+@keyframes blink {
+	0%, 100% {
+		border-color: var(--cursor-color);
+	}
+	50% {
+		border-color: transparent;
+	}
+}
+
+@keyframes typing {
+	to {
+		width: calc(var(--text-type-width) * 1px + 0.7rem);
+	}
+}

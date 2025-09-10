@@ -1,0 +1,16 @@
+.link {
+	display: flex;
+	align-items: center;
+	color: var(--secondary-color);
+	cursor: pointer;
+
+	&:hover {
+		color: var(--primary-color);
+	}
+}
+
+.icon {
+	width: 24px;
+	height: 24px;
+	fill: currentColor;
+}

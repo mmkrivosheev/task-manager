@@ -1,0 +1,40 @@
+.footer {
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	font-size: 0.9rem;
+}
+
+
+	.inner {
+		position: relative;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: var(--footer-height);
+		max-width: var(--width-content);
+		margin: 0 auto;
+		background: var(--footer-bg);
+	}
+
+
+.wrapper {
+	max-width: var(--width-content);
+	margin: 0 auto;
+	padding: 0 11px;
+	background: var(--footer-bg);
+}
+
+.content {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: var(--footer-height);
+}
+
+.clockWrapper {
+	position: absolute;
+	right: 0;
+}
