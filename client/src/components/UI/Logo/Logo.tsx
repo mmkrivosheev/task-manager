@@ -16,9 +16,7 @@ export const Logo = ({ children }: LogoProps) => {
 			el.classList.add(styles.type);
 		};
 
-		if (document.readyState === "complete") {
-			setWidth(el);
-		} else {
+		if (document.readyState !== "complete") {
 			window.addEventListener("load", () => {
 				setWidth(el);
 			});
