@@ -1,7 +1,6 @@
 {
-	"name": "task-manager-client",
+	"name": "@task-manager/client",
 	"version": "1.0.0",
-	"private": true,
 	"description": "Client for task manager",
 	"scripts": {
 		"start": "webpack serve --mode development",
@@ -11,6 +10,7 @@
 		"@fontsource/roboto": "^5.2.6",
 		"@reduxjs/toolkit": "^2.9.0",
 		"axios": "^1.11.0",
+		"clsx": "^2.1.1",
 		"react": "^19.1.1",
 		"react-dom": "^19.1.1",
 		"react-redux": "^9.2.0",
@@ -29,9 +29,6 @@
 		"@typescript-eslint/parser": "^8.42.0",
 		"babel-loader": "^10.0.0",
 		"css-loader": "^6.11.0",
-		"eslint": "^8.56.0",
-		"eslint-config-prettier": "^10.1.8",
-		"eslint-plugin-prettier": "^5.5.4",
 		"eslint-plugin-react": "^7.37.5",
 		"eslint-plugin-react-hooks": "^5.2.0",
 		"html-webpack-plugin": "^5.6.4",
