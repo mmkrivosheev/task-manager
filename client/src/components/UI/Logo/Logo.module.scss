@@ -1,28 +1,11 @@
 .logo {
-	position: absolute;
-	top: 50%;
-	left: 0;
-	padding-top: 0.12em;
-	color: var(--primary-color);
-	font-weight: 100;
+	margin-right: auto;
+	padding: 0 4px;
+	border: 1px solid #C4C4C4;
+	color: #5A3E00;
+	font-size: 1.1rem;
 	text-transform: uppercase;
-	letter-spacing: 0.05em;
-	transform: translateY(-50%);
-}
-
-.type {
-	--cursor-color: rgba(var(--border-color), 0.5);
-	width: 0;
-	overflow: hidden;
-	border-right: 0.12rem solid var(--cursor-color);
+	letter-spacing: 0.03em;
 	white-space: nowrap;
-	animation:
-		typing calc(var(--text-type-width) * 0.0091s) steps(round(calc(var(--text-type-width) * 0.11))) 0.16s forwards;
-}
-
-@keyframes typing {
-	to {
-		width: calc(var(--text-type-width) * 1px);
-		border-right-width: 0;
-	}
+	background-color: #FFF5C2;
 }

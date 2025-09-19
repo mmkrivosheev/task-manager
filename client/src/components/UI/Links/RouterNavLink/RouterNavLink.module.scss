@@ -1,0 +1,22 @@
+.link {
+	display: flex;
+	align-items: center;
+	gap: 0.1em;
+	padding: 3px 1px;
+	color: var(--secondary-color);
+	line-height: 1;
+	cursor: pointer;
+
+	&.active {
+		box-shadow: 0 1px 0 var(--secondary-color);
+	}
+	&:hover {
+		color: var(--primary-color);
+	}
+}
+
+.icon {
+	width: 1.3em;
+	height: 1.3em;
+	fill: currentColor;
+}

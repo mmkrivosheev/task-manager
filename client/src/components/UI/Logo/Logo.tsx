@@ -1,31 +1,16 @@
-import { ReactNode, useEffect, useRef } from "react";
+import { ReactNode } from "react";
+import { Link } from "react-router-dom";
 import styles from "./Logo.module.scss";
 
-interface LogoProps {
+interface ILogoProps {
+	to: string;
 	children: ReactNode;
 }
-export const Logo = ({ children }: LogoProps) => {
-	const ref = useRef<HTMLAnchorElement>(null);
 
-	useEffect(() => {
-		const el = ref.current;
-		if (!el) return;
-
-		const setWidth = (el: HTMLAnchorElement): void => {
-			el.style.setProperty("--text-type-width", Math.ceil(el.scrollWidth).toString());
-			el.classList.add(styles.type);
-		};
-
-		if (document.readyState !== "complete") {
-			window.addEventListener("load", () => {
-				setWidth(el);
-			});
-		}
-	}, []);
-
+export const Logo = ({ children, to }: ILogoProps) => {
 	return (
-		<a ref={ref} className={styles.logo}>
+		<Link to={to} className={styles.logo}>
 			{children}
-		</a>
+		</Link>
 	);
 };
