@@ -1,0 +1,13 @@
+.main {
+	min-height: 100vh;
+	padding: var(--header-height) 0.5em var(--footer-height);
+}
+
+.formWrapper {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	gap: 40px;
+	margin-top: 10%;
+}
