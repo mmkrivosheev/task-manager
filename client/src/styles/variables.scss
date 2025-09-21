@@ -1,0 +1,43 @@
+:root {
+	/* layout */
+	--header-height: 46px;
+	--footer-height: 30px;
+	--app-max-width: 1200px;
+
+	/* typography  */
+	--font-family-base: "Roboto", sans-serif;
+	--font-size-base: 16px;
+	--font-size-sm: 0.9rem;
+	--font-size-lg: 1.2rem;
+	--font-weight-regular: 400;
+	--font-weight-bold: 700;
+	--color-text-base: #3E5A74;
+
+	/* background */
+	--color-bg-page: #F3F3F3;
+	--color-bg-app: #FFF;
+	--color-bg-header: #E2F3FF;
+	--color-bg-footer: #F7F9FA;
+
+	/* border */
+	--color-border-base: #EBEBEB;
+
+	/* link */
+	--color-link: #3E5A74;
+	--color-link-hover: #00A0B6;
+
+	/* button */
+	--color-btn-bg: #E5EAEC;
+	--color-btn-hover: #D0D6D9;
+	--color-btn-active: #B8C0C4;
+	--color-btn-border: #C5CCD0;
+	--color-btn-text: #3E5A74;
+
+	/* input */
+	--color-input-border: #C5CCD0;
+	--color-input-focus-shadow: #C5CCD066;
+	--color-input-error-shadow: #DC354540;
+
+	/* required */
+	--color-required: #DC3545;
+}
