@@ -2,6 +2,7 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const ReactRefreshWebpackPlugin = require("@pmmmwh/react-refresh-webpack-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
 
 const isDev = process.env.NODE_ENV !== "production";
 
@@ -9,7 +10,7 @@ module.exports = {
 	mode: isDev ? "development" : "production",
 	entry: "./src/index.tsx",
 	output: {
-		path: path.resolve(__dirname, "dist"),
+		path: path.resolve(__dirname, "build"),
 		filename: isDev ? "[name].js" : "[name].[contenthash].js",
 		publicPath: "/",
 		assetModuleFilename: "assets/[hash][ext]",
@@ -53,6 +54,12 @@ module.exports = {
 			chunks: "all",
 		},
 		runtimeChunk: "single",
+		minimize: true,
+		minimizer: [
+			new TerserPlugin({
+				extractComments: false,
+			}),
+		],
 	},
 	module: {
 		rules: [

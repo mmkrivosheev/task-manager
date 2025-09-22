@@ -8,9 +8,16 @@
     "server"
   ],
   "scripts": {
-    "start:client": "npm run start -w client",
-    "start:server": "npm run dev -w server",
-    "start:all": "npm-run-all start:server start:client"
+    "dev:client": "npm run dev -w client",
+    "dev:server": "npm run dev -w server",
+    "dev:all": "npm-run-all -p dev:server dev:client",
+    "build:client": "npm run build -w client",
+    "start:server": "npm run start -w server",
+    "serve:client": "npm run build:client && npm run serve -w client",
+    "serve:all": "npm-run-all -p start:server serve:client",
+
+    "render-build": "npm install && npm run build:client",
+    "start": "npm run start:server"
   },
   "devDependencies": {
     "eslint": "^8.56.0",
