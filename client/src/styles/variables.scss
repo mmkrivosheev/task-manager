@@ -7,6 +7,7 @@
 	/* typography  */
 	--font-family-base: "Roboto", sans-serif;
 	--font-size-base: 16px;
+	--font-size-xs: 0.75rem;
 	--font-size-sm: 0.9rem;
 	--font-size-lg: 1.2rem;
 	--font-weight-regular: 400;
@@ -20,7 +21,8 @@
 	--color-bg-footer: #F7F9FA;
 
 	/* border */
-	--color-border-base: #EBEBEB;
+	--color-border-app: #EBEBEB;
+	--color-border-base: #D9DEE4;
 
 	/* link */
 	--color-link: #3E5A74;
@@ -39,5 +41,5 @@
 	--color-input-error-shadow: #DC354540;
 
 	/* required */
-	--color-required: #DC3545;
+	--color-required: #F44336;
 }
