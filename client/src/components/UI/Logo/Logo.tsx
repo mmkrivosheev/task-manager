@@ -1,16 +1,15 @@
-import { ReactNode } from "react";
 import { Link } from "react-router-dom";
+import logo from "@assets/icons/logo.png";
 import styles from "./Logo.module.scss";
 
 interface ILogoProps {
 	to: string;
-	children: ReactNode;
 }
 
-export const Logo = ({ children, to }: ILogoProps) => {
+export const Logo = ({ to }: ILogoProps) => {
 	return (
-		<Link to={to} className={styles.logo}>
-			{children}
+		<Link to={to} className={styles.wrapper}>
+			<img className={styles.logo} src={logo} alt="logo" />
 		</Link>
 	);
 };

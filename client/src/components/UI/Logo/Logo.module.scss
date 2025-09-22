@@ -1,11 +1,9 @@
-.logo {
+.wrapper {
+	display: flex;
+	align-items: center;
 	margin-right: auto;
-	padding: 0 4px;
-	border: 1px solid #C4C4C4;
-	color: #5A3E00;
-	font-size: 1.1rem;
-	text-transform: uppercase;
-	letter-spacing: 0.03em;
-	white-space: nowrap;
-	background-color: #FFF5C2;
+}
+
+.logo {
+	height: 20px;
 }
