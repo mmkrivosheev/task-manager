@@ -27,6 +27,7 @@ export const Input = ({ label, error, required = false, ...props }: InputProps) 
 				onChange={e => setValue(e.target.value)}
 				{...props}
 			/>
+			{error && <p className={styles.errorMessage}>{error}</p>}
 		</div>
 	);
 };

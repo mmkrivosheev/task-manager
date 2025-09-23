@@ -3,11 +3,12 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	padding: var(--header-height) 0.5em var(--footer-height);
 	min-height: 100vh;
+	padding: var(--header-height) 0.5em var(--footer-height);
 
 	h1 {
-		margin-bottom: 20px;
-		font-size: 1.6rem;
+		margin-bottom: 16px;
+		font-size: var(--font-size-lg);
+		font-weight: var(-font-weight-bold);
 	}
 }

@@ -6,16 +6,16 @@
 }
 
 .wrapper {
-	max-width: var(--width-content);
+	max-width: var(--app-max-width);
 	margin: 0 auto;
 	padding: 0 11px;
-	background: var(--background-color-header);
+	background-color: var(--color-bg-header);
 }
 
 .content {
-	position: relative;
 	display: flex;
-	justify-content: flex-end;
+	justify-content: space-between;
 	align-items: center;
+	gap: 20px;
 	height: var(--header-height);
 }
