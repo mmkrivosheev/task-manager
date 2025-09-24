@@ -1,5 +1,6 @@
 import { Link } from "@components/UI/Links/Link";
 import { Clock } from "@components/UI/Clock";
+import { Settings } from "@components/Settings";
 import GithubIcon from "@assets/icons/github.svg";
 import styles from "./Footer.module.scss";
 
@@ -12,7 +13,8 @@ export const Footer = () => {
 						GitHub
 					</Link>
 					<div className={styles.clockWrapper}>
-						<Clock />
+						{/*<Clock />*/}
+						<Settings />
 					</div>
 				</div>
 			</div>

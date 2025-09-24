@@ -7,13 +7,25 @@ interface IButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 	onClick?: () => void;
 	icon?: ElementType;
 	block?: boolean;
+	variant?: "outlined" | "link";
 }
 
-export const Button = ({ children, onClick, icon: Icon, block = false, ...props }: IButtonProps) => {
+export const Button = ({
+	children,
+	onClick,
+	icon: Icon,
+	block = false,
+	variant = "outlined",
+	...props
+}: IButtonProps) => {
 	if (!children && !Icon) return;
 
 	return (
-		<button onClick={onClick} className={clsx(styles.button, block && styles.block)} {...props}>
+		<button
+			onClick={onClick}
+			className={clsx(styles.button, block && styles.block, styles[variant])}
+			{...props}
+		>
 			{Icon && <Icon className={styles.icon} />}
 			{children}
 		</button>
