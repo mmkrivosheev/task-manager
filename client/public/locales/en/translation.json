@@ -1,0 +1,38 @@
+{
+	"Home": {
+		"welcome": "Welcome!",
+		"guestInfo": "To login without registration, use the username and password"
+	},
+	"NotFound": {
+		"title": "Page not found",
+		"description": "The URL is incorrect or you don’t have access to this page",
+		"errorCode": "Error 404"
+	},
+	"Navigation": {
+		"login": "Login",
+		"register": "Register"
+	},
+	"Login": {
+		"title": "Login to your account",
+		"email": "Email Address",
+		"password": "Password",
+		"submit": "Login",
+		"error": "Login error"
+	},
+	"Registration": {
+		"title": "Account Registration",
+		"email": "Email Address",
+		"password": "Password",
+		"passwordRepeat": "Confirm Password",
+		"submit": "Register",
+		"error": "Registration error"
+	},
+	"Validation": {
+		"emailRequired": "Email is required",
+		"emailInvalid": "Enter a valid email address",
+		"passwordRequired": "Password is required",
+		"passwordShort": "Password must be at least {{length}} characters long",
+		"passwordRepeatRequired": "Password confirmation is required",
+		"passwordMismatch": "Passwords do not match"
+	}
+}
