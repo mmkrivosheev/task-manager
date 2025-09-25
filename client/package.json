@@ -7,13 +7,29 @@
 		"build": "cross-env NODE_ENV=production webpack --mode production",
 		"serve": "npx serve -s build"
 	},
+	"browserslist": {
+		"production": [
+			"> 0.5%",
+			"last 2 versions",
+			"not dead"
+		],
+		"development": [
+			"last 1 chrome version",
+			"last 1 firefox version",
+			"last 1 safari version"
+		]
+	},
 	"dependencies": {
 		"@fontsource/roboto": "^5.2.6",
 		"@reduxjs/toolkit": "^2.9.0",
 		"axios": "^1.11.0",
 		"clsx": "^2.1.1",
+		"i18next": "^25.5.2",
+		"i18next-browser-languagedetector": "^8.2.0",
+		"i18next-http-backend": "^3.0.2",
 		"react": "^19.1.1",
 		"react-dom": "^19.1.1",
+		"react-i18next": "^15.7.3",
 		"react-redux": "^9.2.0",
 		"react-router-dom": "^7.8.2"
 	},
@@ -29,6 +45,7 @@
 		"@typescript-eslint/eslint-plugin": "^8.42.0",
 		"@typescript-eslint/parser": "^8.42.0",
 		"babel-loader": "^10.0.0",
+		"copy-webpack-plugin": "^13.0.1",
 		"cross-env": "^10.0.0",
 		"css-loader": "^6.11.0",
 		"eslint-plugin-react": "^7.37.5",
