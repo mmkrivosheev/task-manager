@@ -1,17 +1,13 @@
-import { ElementType, ReactNode } from "react";
+import { ILinkProps } from "@components/UI/Links/Link/types";
 import styles from "./Link.module.scss";
 
-interface ILinkProps {
-	children: ReactNode;
-	href: string;
-	icon?: ElementType;
-}
+export function Link({ children, href, icon: Icon }: ILinkProps) {
+	if (!children && !Icon) return;
 
-export const Link = ({ children, href, icon: Icon }: ILinkProps) => {
 	return (
 		<a href={href} target="_blank" rel="noreferrer" className={styles.link}>
 			{Icon && <Icon className={styles.icon} />}
 			{children}
 		</a>
 	);
-};
+}

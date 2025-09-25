@@ -1,14 +1,9 @@
 import { useId, useState } from "react";
 import clsx from "clsx";
+import { InputProps } from "@components/UI/Input/types";
 import styles from "./Input.module.scss";
 
-interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
-	label?: string;
-	error?: string;
-	required?: boolean;
-}
-
-export const Input = ({ label, error, required = false, ...props }: InputProps) => {
+export function Input({ label, error, required = false, ...props }: InputProps) {
 	const [value, setValue] = useState("");
 	const id = useId();
 
@@ -30,4 +25,4 @@ export const Input = ({ label, error, required = false, ...props }: InputProps) 
 			{error && <p className={styles.errorMessage}>{error}</p>}
 		</div>
 	);
-};
+}

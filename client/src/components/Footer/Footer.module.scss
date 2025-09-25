@@ -15,14 +15,8 @@
 }
 
 .content {
-	position: relative;
 	display: flex;
-	justify-content: center;
+	justify-content: space-between;
 	align-items: center;
 	height: var(--footer-height);
-}
-
-.clockWrapper {
-	position: absolute;
-	right: 0;
 }

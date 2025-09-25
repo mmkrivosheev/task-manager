@@ -1,6 +1,6 @@
 import styles from "./Loader.module.scss";
 
-export const Loader = () => {
+export function Loader() {
 	return (
 		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className={styles.loader}>
 			<rect x="1" y="4" width="6" height="14" opacity="1">
@@ -34,4 +34,4 @@ export const Loader = () => {
 			</rect>
 		</svg>
 	);
-};
+}

@@ -1,18 +1,19 @@
 .link {
 	display: flex;
 	align-items: center;
-	gap: 0.1em;
+	gap: 0.2em;
 	color: var(--color-link);
-	line-height: 1;
 	cursor: pointer;
+	transition:	color 0.1s;
 
 	&:hover {
 		color: var(--color-link-hover);
 	}
+	&:focus-visible {
+		outline: 2px solid var(--color-link-active);
+	}
 }
 
 .icon {
-	width: 1.3em;
-	height: 1.3em;
 	fill: currentColor;
 }

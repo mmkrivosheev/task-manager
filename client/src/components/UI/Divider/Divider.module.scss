@@ -1,0 +1,25 @@
+.divider {
+	background-color: var(--color-text-base);
+	opacity: 0.2;
+
+	&.horizontal {
+		width: 100%;
+
+		&.small {
+			height: 1px;
+		}
+		&.middle  {
+			height: 2px;
+		}
+	}
+	&.vertical {
+		height: 100%;
+
+		&.small {
+			width: 1px;
+		}
+		&.middle  {
+			width: 2px;
+		}
+	}
+}
