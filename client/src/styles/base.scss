@@ -16,3 +16,7 @@ body {
 	user-select: none;
 	box-shadow: -1px 0 0 var(--color-border-app), 1px 0 0 var(--color-border-app);
 }
+
+.theme-change * {
+	transition: none !important;
+}
