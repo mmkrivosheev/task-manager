@@ -16,7 +16,7 @@ export function Input({ label, error, required = false, ...props }: InputProps) 
 			)}
 			<input
 				id={id}
-				className={clsx(styles.input, error && styles.error)}
+				className={styles.input}
 				type="text"
 				value={value}
 				onChange={e => setValue(e.target.value)}

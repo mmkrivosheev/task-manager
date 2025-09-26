@@ -22,8 +22,8 @@
 	border-radius: 0.1em;
 	color: inherit;
 	appearance: none;
-	transition:	box-shadow 0.1s;
 	background-color: var(--color-input-bg);
+	transition:	box-shadow 0.1s;
 
 	&:focus {
 		box-shadow: 0 0 0 2px var(--color-input-focus-shadow);

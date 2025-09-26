@@ -1,8 +1,8 @@
 import { useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { RouterNavLink } from "@components/UI/Links/RouterNavLink";
-import { RouterLink } from "@components/UI/Links/RouterLink";
-import { Logo } from "@components/UI/Logo";
+import { RouterLink, RouterNavLink } from "@components/UI/Links";
+import { SizedSVGIcon } from "@HOC/SizedSVGIcon";
+import logo from "@assets/icons/logo.png";
 import HomeIcon from "@assets/icons/home.svg";
 import styles from "./Header.module.scss";
 
@@ -17,7 +17,7 @@ export function Header() {
 			<>
 				<RouterNavLink to="/registration">{t("Navigation.register")}</RouterNavLink>
 				<RouterNavLink to="/login">{t("Navigation.login")}</RouterNavLink>
-				<RouterLink to="/" icon={HomeIcon}></RouterLink>
+				<RouterLink to="/" icon={SizedSVGIcon(HomeIcon, 14, 14)}></RouterLink>
 			</>
 		);
 
@@ -25,8 +25,12 @@ export function Header() {
 		<header className={styles.header}>
 			<div className={styles.wrapper}>
 				<div className={styles.content}>
-					<Logo to="/" />
-					{navigation}
+					<div className={styles.logo}>
+						<RouterLink to="/">
+							<img className={styles.logo} src={logo} alt="logo" />
+						</RouterLink>
+					</div>
+					<nav className={styles.navigation}>{navigation}</nav>
 				</div>
 			</div>
 		</header>

@@ -1,6 +1,6 @@
 .title {
-	font-size: 1rem;
-	font-weight: 400;
+	font-size: var(--font-size-base);
+	font-weight: var(--font-weight-regular);
 }
 
 .form {
@@ -16,4 +16,10 @@
 	display: flex;
 	justify-content: center;
 	padding: 20px 0;
+}
+
+.errorMessage {
+	margin: auto;
+	font-size: var(--font-size-sm);
+	color: var(--color-required);
 }

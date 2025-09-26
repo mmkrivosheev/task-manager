@@ -1,9 +1,9 @@
 import { Header } from "@components/Header";
 import { Footer } from "@components/Footer";
-import { RegistrationForm } from "@components/Forms/RegistrationForm";
+import { RegistrationForm } from "@components/AuthForms";
 import styles from "./RegistrationPage.module.scss";
 
-export const RegistrationPage = () => {
+export function RegistrationPage() {
 	return (
 		<>
 			<Header />
@@ -15,4 +15,4 @@ export const RegistrationPage = () => {
 			<Footer />
 		</>
 	);
-};
+}

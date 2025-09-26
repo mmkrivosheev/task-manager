@@ -17,6 +17,17 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	gap: 20px;
 	height: var(--header-height);
+}
+
+.logo {
+	height: 20px;
+	margin-right: auto;
+}
+
+.navigation {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 20px;
 }
