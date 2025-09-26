@@ -14,16 +14,16 @@
 	},
 	"Login": {
 		"title": "Login to your account",
-		"email": "Email Address",
+		"email": "Email address",
 		"password": "Password",
 		"submit": "Login",
 		"error": "Login error"
 	},
 	"Registration": {
-		"title": "Account Registration",
-		"email": "Email Address",
+		"title": "Account registration",
+		"email": "Email address",
 		"password": "Password",
-		"passwordRepeat": "Confirm Password",
+		"passwordRepeat": "Confirm password",
 		"submit": "Register",
 		"error": "Registration error"
 	},
