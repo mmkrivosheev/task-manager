@@ -19,14 +19,12 @@
 .input {
 	padding: 0.375rem 0.75rem;
 	border: 1px solid var(--color-input-border);
-	border-radius: 0.1em;
 	color: inherit;
 	appearance: none;
 	background-color: var(--color-input-bg);
-	transition:	box-shadow 0.1s;
 
 	&:focus {
-		box-shadow: 0 0 0 2px var(--color-input-focus-shadow);
+		border-color: var(--color-link-active);
 	}
 }
 

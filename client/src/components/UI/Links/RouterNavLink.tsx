@@ -7,7 +7,10 @@ export function RouterNavLink({ to, children, icon: Icon }: IRouterLinkProps) {
 	if (!children && !Icon) return;
 
 	return (
-		<NavLink className={({ isActive }) => clsx(styles.link, isActive && styles.active)} to={to}>
+		<NavLink
+			className={({ isActive }) => clsx(styles.link, styles.routerNavLink, isActive && styles.active)}
+			to={to}
+		>
 			{Icon && <Icon className={styles.icon} />}
 			{children}
 		</NavLink>

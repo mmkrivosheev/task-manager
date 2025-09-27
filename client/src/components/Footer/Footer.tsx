@@ -11,7 +11,7 @@ export function Footer() {
 				<div className={styles.content}>
 					<Link
 						href="https://mmkrivosheev.github.io/task-manager"
-						icon={SizedSVGIcon(GithubIcon, 22, 22)}
+						icon={SizedSVGIcon(GithubIcon, 24, 24)}
 					>
 						GitHub
 					</Link>

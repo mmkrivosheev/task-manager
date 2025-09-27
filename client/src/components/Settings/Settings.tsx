@@ -37,8 +37,9 @@ export function Settings() {
 			</div>
 			<Divider type="vertical" size="small" />
 			<Button
-				icon={SizedSVGIcon(ThemeIcon, 22, 22)}
+				icon={SizedSVGIcon(ThemeIcon, 24, 24)}
 				variant="link"
+				type="button"
 				onClick={() => setTheme(theme === "light" ? "dark" : "light")}
 			/>
 		</div>

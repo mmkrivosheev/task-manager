@@ -1,14 +1,16 @@
-import { isDefined, isValidEmail } from "@utils/common";
+import { isDefined, isEmptyObj, isValidEmail } from "@utils/common";
 import { ICredentials, IPayload } from "@components/AuthForms/types";
 
-export function validateForm(formData: FormData): { errors: Partial<ICredentials>; payload: IPayload } {
-	const credentials = Object.fromEntries(formData) as unknown as ICredentials;
-	console.log(credentials);
+export function validateForm(form: HTMLFormElement): {
+	errors: Partial<ICredentials> | null;
+	payload: IPayload;
+} {
+	const credentials = getFormData(form);
 	const errors: Partial<ICredentials> = {};
 	const payload = {} as IPayload;
 
 	if (isDefined(credentials.email)) {
-		const email = credentials.email.trim();
+		const email = (credentials.email as string).trim();
 		payload.email = email;
 		if (!email) {
 			errors.email = "Validation.emailRequired";
@@ -32,7 +34,7 @@ export function validateForm(formData: FormData): { errors: Partial<ICredentials
 	}
 
 	if (isDefined(credentials.passwordRepeat)) {
-		const passwordRepeat = credentials.passwordRepeat.trim();
+		const passwordRepeat = (credentials.passwordRepeat as string).trim();
 		if (!passwordRepeat) {
 			errors.passwordRepeat = "Validation.passwordRepeatRequired";
 		} else if (payload.password !== passwordRepeat) {
@@ -40,5 +42,24 @@ export function validateForm(formData: FormData): { errors: Partial<ICredentials
 		}
 	}
 
-	return { errors, payload };
+	return { errors: isEmptyObj(errors) ? null : errors, payload };
+}
+
+function getFormData(form: HTMLFormElement): Record<string, string | string[]> {
+	const formData = new FormData(form);
+	const data: Record<string, string | string[]> = {};
+
+	for (const [key, value] of formData.entries()) {
+		if (data[key]) {
+			if (Array.isArray(data[key])) {
+				data[key].push(value as string);
+			} else {
+				data[key] = [data[key], value as string];
+			}
+		} else {
+			data[key] = value as string;
+		}
+	}
+
+	return data;
 }

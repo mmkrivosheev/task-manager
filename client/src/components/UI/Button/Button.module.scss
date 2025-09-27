@@ -11,7 +11,6 @@
 	&.outlined {
 		padding: 0.375rem 0.75rem;
 		border: 1px solid var(--color-btn-border);
-		border-radius: 0.1em;
 		background-color: var(--color-btn-bg);
 		transition:	background-color 0.1s;
 
@@ -20,6 +19,9 @@
 		}
 		&:active {
 			background-color: var(--color-btn-active);
+		}
+		&:focus-visible {
+			border-color: var(--color-link-active);
 		}
 	}
 	&.link {
@@ -32,10 +34,9 @@
 		&:active {
 			color: var(--color-link-active);
 		}
-	}
-	&:focus-visible {
-		border: none;
-		outline: 2px solid var(--color-link-active);
+		&:focus-visible {
+			outline: 1px solid var(--color-link-active);
+		}
 	}
 }
 

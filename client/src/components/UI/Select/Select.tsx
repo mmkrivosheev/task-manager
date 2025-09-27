@@ -26,7 +26,7 @@ export function Select({ options, onChange, value: initValue, placeholder }: ISe
 		if (!isOpen) {
 			setSelectedIndex(options.findIndex(option => option.value === value));
 		}
-	}
+	};
 
 	const handleSelect = (value: string) => {
 		onChange(value);

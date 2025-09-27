@@ -4,19 +4,20 @@ import axios, { AxiosError } from "axios";
 import { Input } from "@components/UI/Input";
 import { Button } from "@components/UI/Button";
 import { validateForm } from "@components/AuthForms/helpers";
-import { isEmptyObj } from "@utils/common";
 import { IRegistrationFormErrors } from "@components/AuthForms/types";
 import styles from "./AuthForms.module.scss";
 
 export function RegistrationForm() {
-	const { t } = useTranslation();
 	const [errors, setErrors] = useState<IRegistrationFormErrors>({});
+	const { t } = useTranslation();
 
 	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
-		const { errors, payload } = validateForm(new FormData(e.currentTarget));
-		setErrors(errors);
-		if (!isEmptyObj(errors)) return;
+		const { errors: errs, payload } = validateForm(e.currentTarget);
+		if (errs) {
+			setErrors(errs);
+			return;
+		}
 
 		try {
 			const res = await axios.post("/api/auth/register", payload);
