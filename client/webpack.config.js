@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const ReactRefreshWebpackPlugin = require("@pmmmwh/react-refresh-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
+const CopyPlugin = require("copy-webpack-plugin");
 
 const isDev = process.env.NODE_ENV !== "production";
 
@@ -20,6 +21,13 @@ module.exports = {
 		static: {
 			directory: path.join(__dirname, "public"),
 		},
+		proxy: [
+			{
+				context: ["/api"],
+				target: "http://localhost:4000",
+				changeOrigin: true,
+			},
+		],
 		historyApiFallback: true,
 		compress: true,
 		port: 3000,
@@ -36,6 +44,8 @@ module.exports = {
 			"@store": path.resolve(__dirname, "src/store"),
 			"@styles": path.resolve(__dirname, "src/styles"),
 			"@types": path.resolve(__dirname, "src/types"),
+			"@utils": path.resolve(__dirname, "src/utils"),
+			"@HOC": path.resolve(__dirname, "src/HOC"),
 		},
 	},
 	plugins: [
@@ -48,6 +58,9 @@ module.exports = {
 				filename: "[name].[contenthash].css",
 			}),
 		isDev && new ReactRefreshWebpackPlugin(),
+		new CopyPlugin({
+			patterns: [{ from: "public/locales", to: "locales" }],
+		}),
 	].filter(Boolean),
 	optimization: {
 		splitChunks: {
