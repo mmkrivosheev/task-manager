@@ -10,7 +10,7 @@ export function validateForm(form: HTMLFormElement): {
 	const payload = {} as IPayload;
 
 	if (isDefined(credentials.email)) {
-		const email = (credentials.email as string).trim();
+		const email = credentials.email.trim();
 		payload.email = email;
 		if (!email) {
 			errors.email = "Validation.emailRequired";
@@ -21,7 +21,7 @@ export function validateForm(form: HTMLFormElement): {
 
 	if (isDefined(credentials.password)) {
 		const MIN_PASS_LENGTH = 6;
-		const password = (credentials.password as string).trim();
+		const password = credentials.password.trim();
 		payload.password = password;
 		if (!password) {
 			errors.password = "Validation.passwordRequired";
@@ -34,7 +34,7 @@ export function validateForm(form: HTMLFormElement): {
 	}
 
 	if (isDefined(credentials.passwordRepeat)) {
-		const passwordRepeat = (credentials.passwordRepeat as string).trim();
+		const passwordRepeat = credentials.passwordRepeat.trim();
 		if (!passwordRepeat) {
 			errors.passwordRepeat = "Validation.passwordRepeatRequired";
 		} else if (payload.password !== passwordRepeat) {
@@ -45,21 +45,6 @@ export function validateForm(form: HTMLFormElement): {
 	return { errors: isEmptyObj(errors) ? null : errors, payload };
 }
 
-function getFormData(form: HTMLFormElement): Record<string, string | string[]> {
-	const formData = new FormData(form);
-	const data: Record<string, string | string[]> = {};
-
-	for (const [key, value] of formData.entries()) {
-		if (data[key]) {
-			if (Array.isArray(data[key])) {
-				data[key].push(value as string);
-			} else {
-				data[key] = [data[key], value as string];
-			}
-		} else {
-			data[key] = value as string;
-		}
-	}
-
-	return data;
+function getFormData(form: HTMLFormElement): Record<string, string> {
+	return Object.fromEntries(new FormData(form).entries()) as Record<string, string>;
 }
