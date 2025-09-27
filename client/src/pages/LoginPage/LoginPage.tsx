@@ -1,9 +1,9 @@
 import { Header } from "@components/Header";
 import { Footer } from "@components/Footer";
-import { LoginForm } from "@components/Forms/LoginForm";
+import { LoginForm } from "@components/AuthForms";
 import styles from "./LoginPage.module.scss";
 
-export const LoginPage = () => {
+export function LoginPage() {
 	return (
 		<>
 			<Header />
@@ -15,4 +15,4 @@ export const LoginPage = () => {
 			<Footer />
 		</>
 	);
-};
+}

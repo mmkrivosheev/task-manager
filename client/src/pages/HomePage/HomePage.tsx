@@ -1,20 +1,23 @@
+import { useTranslation } from "react-i18next";
 import { Header } from "@components/Header";
 import { Footer } from "@components/Footer";
 import styles from "./HomePage.module.scss";
 
-export const HomePage = () => {
+export function HomePage() {
+	const { t } = useTranslation();
+
 	return (
 		<>
 			<Header />
 			<main className={styles.main}>
 				<div className={styles.welcomeWrapper}>
-					<h1>Приветствую!</h1>
+					<h1>{t("Home.welcome")}</h1>
 					<p>
-						Для входа без регистрации используйте логин и пароль <i>user</i>
+						{t("Home.guestInfo")} <i>user</i>
 					</p>
 				</div>
 			</main>
 			<Footer />
 		</>
 	);
-};
+}
