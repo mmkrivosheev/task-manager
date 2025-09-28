@@ -4,7 +4,7 @@ import { createSizedIcon } from "shared/HOC/createSizedIcon";
 import GithubIcon from "assets/icons/github.svg";
 import styles from "./Footer.module.scss";
 
-const GITHUB_REPO_URL = "https://mmkrivosheev.github.io/task-manager";
+const GITHUB_REPO_URL = "https://github.com/mmkrivosheev/task-manager";
 
 export function Footer() {
 	return (
