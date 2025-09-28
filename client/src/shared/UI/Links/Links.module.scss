@@ -1,0 +1,41 @@
+.link {
+	display: flex;
+	align-items: center;
+	gap: 0.2em;
+	color: var(--color-text-base);
+	line-height: 1;
+	cursor: pointer;
+	transition:	color 0.1s;
+
+	&:hover {
+		color: var(--color-text-hover);
+	}
+
+	&:not(.routerLink, .routerNavLink) {
+		&:focus-visible {
+			outline: 1px solid var(--color-text-hover);
+		}
+	}
+	&.routerLink:focus-visible {
+		outline: 1px solid var(--color-text-hover);
+		outline-offset: 3px;
+	}
+	&.routerNavLink {
+		&.active {
+			padding: 3px 0;
+			box-shadow: 0 1px 0 var(--color-text-base);
+			&:focus-visible {
+				padding: 0;
+				box-shadow: none;
+			}
+		}
+		&:focus-visible {
+			outline: 1px solid var(--color-text-hover);
+			outline-offset: 3px;
+		}
+	}
+}
+
+.icon {
+	fill: currentColor;
+}

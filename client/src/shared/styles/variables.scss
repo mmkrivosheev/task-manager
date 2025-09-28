@@ -1,0 +1,33 @@
+:root {
+	/* layout */
+	--header-height: 46px;
+	--footer-height: 32px;
+	--app-max-width: 1200px;
+
+	/* font  */
+	--font-family-base: "Roboto", sans-serif;
+	--font-size-base: 16px;
+	--font-size-xs: 0.75rem;
+	--font-size-sm: 0.9rem;
+	--font-size-lg: 1.2rem;
+	--font-weight-normal: 400;
+	--font-weight-medium: 500;
+	--font-weight-bold: 700;
+
+	/* colors  */
+	--color-text-base: #3E5A74;
+	--color-text-hover: #00A0B6;
+	--color-text-danger: #EF5350;
+	--color-bg-page: #F3F3F3;
+	--color-bg-app: #FFF;
+	--color-bg-header: #E2F3FF;
+	--color-bg-footer: #F7F9FA;
+	--color-btn-bg: #E5EAEC;
+	--color-btn-bg-hover: #DBE2E5;
+	--color-btn-bg-active: #D0D6D9;
+	--color-select-bg: #FFF;
+	--color-select-bg-selected: #E1E0E8;
+	--color-border-app: #EBEBEB;
+	--color-border: #C5CCD0;
+	--color-border-footer: #D9DEE4;
+}

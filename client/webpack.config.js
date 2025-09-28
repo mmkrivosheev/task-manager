@@ -37,15 +37,10 @@ module.exports = {
 	resolve: {
 		extensions: [".js", ".ts", ".jsx", ".tsx"],
 		alias: {
-			"@api": path.resolve(__dirname, "src/api"),
-			"@assets": path.resolve(__dirname, "src/assets"),
-			"@components": path.resolve(__dirname, "src/components"),
-			"@pages": path.resolve(__dirname, "src/pages"),
-			"@store": path.resolve(__dirname, "src/store"),
-			"@styles": path.resolve(__dirname, "src/styles"),
-			"@types": path.resolve(__dirname, "src/types"),
-			"@utils": path.resolve(__dirname, "src/utils"),
-			"@HOC": path.resolve(__dirname, "src/HOC"),
+			assets: path.resolve(__dirname, "src/assets"),
+			features: path.resolve(__dirname, "src/features"),
+			pages: path.resolve(__dirname, "src/pages"),
+			shared: path.resolve(__dirname, "src/shared"),
 		},
 	},
 	plugins: [

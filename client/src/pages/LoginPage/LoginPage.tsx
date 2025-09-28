@@ -1,6 +1,6 @@
-import { Header } from "@components/Header";
-import { Footer } from "@components/Footer";
-import { LoginForm } from "@components/AuthForms";
+import { Header } from "features/Header";
+import { Footer } from "features/Footer";
+import { LoginForm } from "features/AuthForms";
 import styles from "./LoginPage.module.scss";
 
 export function LoginPage() {

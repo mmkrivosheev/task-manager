@@ -1,0 +1,26 @@
+.wrapper {
+	display: flex;
+	align-items: center;
+	gap: 26px;
+	height: 100%;
+
+	> :not(:first-child) {
+		position: relative;
+
+		::after {
+			content: "";
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: -13px;
+			width: 1px;
+			background-color: var(--color-text-base);
+			opacity: 0.2;
+		}
+	}
+}
+
+.languageSelect {
+	width: 100px;
+	margin-right: 4px;
+}

@@ -19,15 +19,10 @@
 		"allowJs": false,
 		"baseUrl": "./src",
 		"paths": {
-			"@api/*": ["api/*"],
-			"@assets/*": ["assets/*"],
-			"@components/*": ["components/*"],
-			"@pages/*": ["pages/*"],
-			"@store/*": ["store/*"],
-			"@styles/*": ["styles/*"],
-			"@types/*": ["types/*"],
-			"@utils/*": ["utils/*"],
-			"@HOC/*": ["HOC/*"],
+			"assets/*": ["assets/*"],
+			"features/*": ["features/*"],
+			"pages/*": ["pages/*"],
+			"shared/*": ["shared/*"]
 		},
 		"include": [
 			"src/**/*"

@@ -1,0 +1,26 @@
+@use "reset";
+@use "variables";
+@use "themes/dark";
+
+html {
+	font-size: var(--font-size-md);
+	background-color: var(--color-bg-page);
+}
+
+body {
+	min-height: 100vh;
+	max-width: var(--app-max-width);
+	margin: 0 auto;
+	font-family: var(--font-family-base);
+	font-size: 1rem;
+	font-weight: var(--font-weight-normal);
+	color: var(--color-text-base);
+	line-height: 1.5;
+	background-color: var(--color-bg-app);
+	user-select: none;
+	box-shadow: -1px 0 0 var(--color-border-app), 1px 0 0 var(--color-border-app);
+}
+
+.theme-change * {
+	transition: none !important;
+}
