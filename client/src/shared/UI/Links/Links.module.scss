@@ -10,10 +10,10 @@
 	&:hover {
 		color: var(--color-text-hover);
 	}
-
 	&:not(.routerLink, .routerNavLink) {
 		&:focus-visible {
 			outline: 1px solid var(--color-text-hover);
+			outline-offset: -1px;
 		}
 	}
 	&.routerLink:focus-visible {

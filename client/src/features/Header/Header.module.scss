@@ -9,7 +9,7 @@
 .wrapper {
 	max-width: var(--app-max-width);
 	margin: 0 auto;
-	padding: 0 11px;
+	padding: 0 var(--app-padding-x);
 	background-color: var(--color-bg-header);
 }
 

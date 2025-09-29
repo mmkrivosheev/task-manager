@@ -29,7 +29,7 @@ export function Settings() {
 		<div className={styles.wrapper}>
 			<div className={styles.languageSelect}>
 				<Select
-					value={i18n.language.split("-")[0]}
+					value={i18n.language}
 					options={languages}
 					onChange={value => i18n.changeLanguage(value)}
 				/>

@@ -1,6 +1,6 @@
 .main {
 	min-height: 100vh;
-	padding: var(--header-height) 0.5em var(--footer-height);
+	padding: var(--header-height) var(--app-padding-x) var(--footer-height);
 }
 
 .formWrapper {
