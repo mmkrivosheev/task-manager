@@ -1,11 +1,11 @@
 import * as taskService from "../services/taskService.js";
 
-export const getAllTasks = ctx => {
+export function getAllTasks(ctx) {
 	const tasks = taskService.getTasks();
 	ctx.body = tasks;
-};
+}
 
-export const createNewTask = async ctx => {
+export function createNewTask(ctx) {
 	try {
 		const { title, description } = ctx.request.body;
 		const userId = ctx.state.user.id;
@@ -15,4 +15,4 @@ export const createNewTask = async ctx => {
 		ctx.status = 400;
 		ctx.body = { error: err.message };
 	}
-};
+}

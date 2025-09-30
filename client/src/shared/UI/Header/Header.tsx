@@ -1,13 +1,18 @@
 import { useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { RouterLink } from "shared/UI/Links";
-import { authLinks, guestLinks } from "../Header/links";
+import { Button } from "shared/UI/Button";
+import { authLinks, guestLinks } from "./links";
 import { normalizePath } from "shared/utils/common";
+import { useAppDispatch, useAppSelector } from "shared/hooks/redux";
 import logo from "assets/img/logo.png";
-import { INavItem } from "../Header/types";
+import { INavItem } from "./types";
 import styles from "./Header.module.scss";
+import { logout } from "../../../entities/User/authSlice";
 
 export function Header() {
+	const { user } = useAppSelector(state => state.auth);
+	const dispatch = useAppDispatch();
 	const { pathname } = useLocation();
 	const { t } = useTranslation();
 
@@ -19,11 +24,12 @@ export function Header() {
 		));
 	};
 
-	const normalizedPath = normalizePath(pathname);
-	const navLinks =
-		normalizedPath === "/login" || normalizedPath === "/registration"
+	const getCurrentNavLinks = () => {
+		const normalizedPath = normalizePath(pathname);
+		return normalizedPath === "/login" || normalizedPath === "/registration"
 			? getNavLinks(authLinks)
 			: getNavLinks(guestLinks);
+	};
 
 	return (
 		<header className={styles.header}>
@@ -34,13 +40,19 @@ export function Header() {
 							<img className={styles.logo} src={logo} alt="logo" />
 						</RouterLink>
 					</div>
-					<nav>
-						<ul className={styles.navList}>
-							{navLinks.map((navLink, index) => (
-								<li key={index}>{navLink}</li>
-							))}
-						</ul>
-					</nav>
+					{user ? (
+						<Button variant="link" type="button" onClick={() => dispatch(logout())}>
+							{t("Navigation.logout")}
+						</Button>
+					) : (
+						<nav>
+							<ul className={styles.navList}>
+								{getCurrentNavLinks().map((navLink, index) => (
+									<li key={index}>{navLink}</li>
+								))}
+							</ul>
+						</nav>
+					)}
 				</div>
 			</div>
 		</header>

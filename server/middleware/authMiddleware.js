@@ -1,7 +1,7 @@
 import jwt from "jsonwebtoken";
 import { JWT_SECRET } from "../config/index.js";
 
-export const authMiddleware = async (ctx, next) => {
+export async function authMiddleware(ctx, next) {
 	const authHeader = ctx.headers.authorization;
 	if (!authHeader || !authHeader.startsWith("Bearer ")) {
 		ctx.status = 401;
@@ -17,4 +17,4 @@ export const authMiddleware = async (ctx, next) => {
 		ctx.status = 401;
 		ctx.body = { error: "Invalid token" };
 	}
-};
+}

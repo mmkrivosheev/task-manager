@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { IButtonProps } from "shared/UI/Button/types";
+import { IButtonProps } from "./types";
 import styles from "./Button.module.scss";
 
 export function Button({

@@ -10,7 +10,8 @@
 	},
 	"Navigation": {
 		"login": "Вход",
-		"register": "Регистрация"
+		"register": "Регистрация",
+		"logout": "Выход"
 	},
 	"Login": {
 		"title": "Вход в аккаунт",

@@ -1,12 +1,12 @@
 import { isDefined, isEmptyObj, isValidEmail } from "shared/utils/common";
-import { ICredentials, IPayload } from "./types";
+import { IPayload, IRegistrationFormErrors } from "./types";
 
 export function validateForm(form: HTMLFormElement): {
-	errors: Partial<ICredentials> | null;
+	errors: Partial<IRegistrationFormErrors> | null;
 	payload: IPayload;
 } {
 	const credentials = getFormData(form);
-	const errors: Partial<ICredentials> = {};
+	const errors: Partial<IRegistrationFormErrors> = {};
 	const payload = {} as IPayload;
 
 	if (isDefined(credentials.email)) {

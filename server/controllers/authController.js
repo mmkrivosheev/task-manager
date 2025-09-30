@@ -1,26 +1,30 @@
 import * as userService from "../services/userService.js";
+import { getJwtCookieOptions } from "../utils/common.js";
 
-export const register = async ctx => {
+export async function register(ctx) {
 	try {
 		const { email, password } = ctx.request.body;
-		const user = await userService.registerUser(email, password);
-		ctx.body = { message: "User registered", user };
+		const { user, token } = await userService.registerUser(email, password);
+		ctx.cookies.set("jwt", token, getJwtCookieOptions());
+		ctx.body = { user: user };
 	} catch (err) {
 		ctx.status = 420;
 		ctx.body = { error: err.message };
 	}
-};
+}
 
-export const login = async ctx => {
+export async function login(ctx) {
 	try {
 		const { email, password } = ctx.request.body;
-		ctx.body = await userService.loginUser(email, password);
+		const { user, token } = await userService.loginUser(email, password);
+		ctx.cookies.set("jwt", token, getJwtCookieOptions());
+		ctx.body = { user: user };
 	} catch (err) {
-		ctx.status = 400;
+		ctx.status = 401;
 		ctx.body = { error: err.message };
 	}
-};
+}
 
-export const me = async ctx => {
+export function me(ctx) {
 	ctx.body = { user: ctx.state.user };
-};
+}

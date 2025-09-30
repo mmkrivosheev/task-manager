@@ -1,31 +1,29 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import axios, { AxiosError } from "axios";
 import { Input } from "shared/UI/Input";
 import { Button } from "shared/UI/Button";
 import { validateForm } from "./utils";
+import { useAppDispatch, useAppSelector } from "shared/hooks/redux";
+import { registerUser } from "entities/User/authThunk";
 import { IRegistrationFormErrors } from "./types";
 import styles from "./AuthForms.module.scss";
 
 export function RegistrationForm() {
 	const [errors, setErrors] = useState<IRegistrationFormErrors>({});
+	const { error: authError } = useAppSelector(state => state.auth);
+	const dispatch = useAppDispatch();
+	const navigate = useNavigate();
 	const { t } = useTranslation();
 
-	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 		const { errors: errs, payload } = validateForm(e.currentTarget);
 		if (errs) {
 			setErrors(errs);
 			return;
 		}
-
-		try {
-			const res = await axios.post("/api/auth/register", payload);
-			setErrors({ form: "Вы зарегистрировались" });
-		} catch (err) {
-			const error = err as AxiosError<{ error: string }>;
-			setErrors({ form: error.response?.data.error || "Registration.error" });
-		}
+		dispatch(registerUser(payload)).then(result => result && navigate("/tasks"));
 	};
 
 	return (
@@ -60,7 +58,7 @@ export function RegistrationForm() {
 				<div className={styles.buttonWrapper}>
 					<Button block>{t("Registration.submit")}</Button>
 				</div>
-				{errors.form && <p className={styles.errorMessage}>{t(errors.form)}</p>}
+				{authError && <p className={styles.errorMessage}>{authError}</p>}
 			</form>
 		</>
 	);

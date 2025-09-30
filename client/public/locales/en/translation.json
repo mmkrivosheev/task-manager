@@ -10,7 +10,8 @@
 	},
 	"Navigation": {
 		"login": "Login",
-		"register": "Register"
+		"register": "Register",
+		"logout": "Logout"
 	},
 	"Login": {
 		"title": "Login to your account",

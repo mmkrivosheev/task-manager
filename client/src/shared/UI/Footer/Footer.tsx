@@ -1,5 +1,5 @@
 import { Link } from "shared/UI/Links";
-import { Settings } from "../Settings";
+import { Settings } from "shared/UI/Settings";
 import { createSizedIcon } from "shared/HOC/createSizedIcon";
 import GithubIcon from "assets/icons/github.svg";
 import styles from "./Footer.module.scss";

@@ -1,31 +1,29 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import axios, { AxiosError } from "axios";
 import { Input } from "shared/UI/Input";
 import { Button } from "shared/UI/Button";
 import { validateForm } from "./utils";
 import { ILoginFormErrors } from "./types";
 import styles from "./AuthForms.module.scss";
+import { useAppDispatch, useAppSelector } from "shared/hooks/redux";
+import { loginUser } from "entities/User/authThunk";
 
 export function LoginForm() {
 	const [errors, setErrors] = useState<ILoginFormErrors>({});
+	const { error: authError } = useAppSelector(state => state.auth);
+	const dispatch = useAppDispatch();
+	const navigate = useNavigate();
 	const { t } = useTranslation();
 
-	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 		const { errors: errs, payload } = validateForm(e.currentTarget);
 		if (errs) {
 			setErrors(errs);
 			return;
 		}
-
-		try {
-			const res = await axios.post("/api/auth/login", payload);
-			setErrors({ form: "Вы залогинились" });
-		} catch (err) {
-			const error = err as AxiosError<{ error: string }>;
-			setErrors({ form: error.response?.data.error || "Login.error" });
-		}
+		dispatch(loginUser(payload)).then(result => result && navigate("/tasks"));
 	};
 
 	return (
@@ -53,7 +51,7 @@ export function LoginForm() {
 				<div className={styles.buttonWrapper}>
 					<Button block>{t("Login.submit")}</Button>
 				</div>
-				{errors.form && <p className={styles.errorMessage}>{t(errors.form)}</p>}
+				{authError && <p className={styles.errorMessage}>{t(authError)}</p>}
 			</form>
 		</>
 	);

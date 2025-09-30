@@ -3,7 +3,7 @@ import bodyParser from "koa-bodyparser";
 import serve from "koa-static";
 import fs from "fs";
 import path from "path";
-import { rootDir } from "./utils/paths.js";
+import { rootDir } from "./utils/common.js";
 import authRoutes from "./routes/auth.js";
 import taskRoutes from "./routes/tasks.js";
 import { PORT } from "./config/index.js";

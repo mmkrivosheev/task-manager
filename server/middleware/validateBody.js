@@ -1,4 +1,4 @@
-export const validateBody = requiredFields => {
+export function validateBody(requiredFields) {
 	return async (ctx, next) => {
 		const body = ctx.request.body;
 		for (const field of requiredFields) {
@@ -10,4 +10,4 @@ export const validateBody = requiredFields => {
 		}
 		await next();
 	};
-};
+}
