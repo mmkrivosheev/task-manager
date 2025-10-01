@@ -65,7 +65,7 @@ export function Select({ options, onChange, value: initValue, placeholder }: ISe
 			onClick={handleToggle}
 			onKeyDown={handleKeyDown}
 		>
-			{options.find(option => option.value === value)?.label ?? placeholder}
+			<div className={styles.label}>{options.find(option => option.value === value)?.label ?? placeholder}</div>
 			{isOpen ? <ArrowUpIcon className={styles.icon} /> : <ArrowDownIcon className={styles.icon} />}
 			{isOpen && (
 				<ul className={clsx(styles.options, styles[dropdownDir(options, ref.current)])}>

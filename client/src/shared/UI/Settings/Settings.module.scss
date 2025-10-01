@@ -7,7 +7,7 @@
 	> :not(:first-child) {
 		position: relative;
 
-		::after {
+		::before {
 			content: "";
 			position: absolute;
 			top: 0;

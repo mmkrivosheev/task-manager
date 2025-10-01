@@ -7,11 +7,7 @@ import { useLocalStorage } from "shared/hooks/useLocalStorage";
 import SunIcon from "assets/icons/sun.svg";
 import MoonIcon from "assets/icons/moon.svg";
 import styles from "./Settings.module.scss";
-
-const languages = [
-	{ value: "en", label: "English" },
-	{ value: "ru", label: "Русский" },
-];
+import { languages } from "shared/UI/Settings/languages";
 
 export function Settings() {
 	const [theme, setTheme] = useLocalStorage("theme", "light");
