@@ -1,13 +1,8 @@
-.welcomeWrapper {
+.guestWrapper {
 	display: flex;
 	flex-direction: column;
-	justify-content: flex-start;
+	justify-content: center;
 	align-items: center;
 	gap: 16px;
 	margin-top: 15%;
-
-	h1 {
-		font-size: var(--font-size-lg);
-		font-weight: var(-font-weight-bold);
-	}
 }

@@ -1,9 +1,10 @@
 {
-	"Home": {
-		"welcome": "Welcome!",
-		"guestInfo": "To login without registration, use the username and password"
+	"GuestPage": {
+		"info": "Registration is available in the application.",
+		"demoInfo": "Or click <0>«Demo»</0> to start without registration",
+		"demoButton": "Demo"
 	},
-	"NotFound": {
+	"NotFoundPage": {
 		"title": "Page not found",
 		"description": "The URL is incorrect or you don’t have access to this page",
 		"errorCode": "Error 404"

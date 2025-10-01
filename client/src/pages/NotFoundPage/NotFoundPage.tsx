@@ -7,9 +7,9 @@ export function NotFoundPage() {
 	return (
 		<>
 			<div className={styles.welcomeWrapper}>
-				<h1>{t("NotFound.title")}</h1>
-				<p>{t("NotFound.description")}</p>
-				<p>{t("NotFound.errorCode")}</p>
+				<h1>{t("NotFoundPage.title")}</h1>
+				<p>{t("NotFoundPage.description")}</p>
+				<p>{t("NotFoundPage.errorCode")}</p>
 			</div>
 		</>
 	);
