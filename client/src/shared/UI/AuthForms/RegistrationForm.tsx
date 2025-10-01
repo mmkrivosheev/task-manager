@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Input } from "shared/UI/Input";
 import { Button } from "shared/UI/Button";
@@ -13,7 +12,6 @@ export function RegistrationForm() {
 	const [errors, setErrors] = useState<IRegistrationFormErrors>({});
 	const { error: authError } = useAppSelector(state => state.auth);
 	const dispatch = useAppDispatch();
-	const navigate = useNavigate();
 	const { t } = useTranslation();
 
 	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -23,7 +21,7 @@ export function RegistrationForm() {
 			setErrors(errs);
 			return;
 		}
-		dispatch(registerUser(payload)).then(result => result && navigate("/tasks"));
+		dispatch(registerUser(payload));
 	};
 
 	return (

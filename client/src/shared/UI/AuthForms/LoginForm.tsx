@@ -1,19 +1,17 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Input } from "shared/UI/Input";
 import { Button } from "shared/UI/Button";
-import { validateForm } from "./utils";
 import { ILoginFormErrors } from "./types";
-import styles from "./AuthForms.module.scss";
 import { useAppDispatch, useAppSelector } from "shared/hooks/redux";
 import { loginUser } from "entities/User/authThunk";
+import { validateForm } from "./utils";
+import styles from "./AuthForms.module.scss";
 
 export function LoginForm() {
 	const [errors, setErrors] = useState<ILoginFormErrors>({});
 	const { error: authError } = useAppSelector(state => state.auth);
 	const dispatch = useAppDispatch();
-	const navigate = useNavigate();
 	const { t } = useTranslation();
 
 	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -23,7 +21,7 @@ export function LoginForm() {
 			setErrors(errs);
 			return;
 		}
-		dispatch(loginUser(payload)).then(result => result && navigate("/tasks"));
+		dispatch(loginUser(payload));
 	};
 
 	return (
