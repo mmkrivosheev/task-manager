@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router-dom";
 import { MainLayout } from "layouts/MainLayout";
 import { NotFoundPage } from "pages/NotFoundPage";
 import { privateRoutes, publicRoutes } from "./routes";
@@ -11,8 +11,14 @@ export const Router = () => {
 	return (
 		<Routes>
 			<Route element={<MainLayout />}>
-				{routes.map(({ path, component: Component }) => {
-					return <Route key={path} path={path} element={<Component />} />;
+				{routes.map(route => {
+					return (
+						<Route
+							key={route.path}
+							path={route.path}
+							element={"to" in route ? <Navigate to={route.to} replace /> : <route.component />}
+						/>
+					);
 				})}
 				<Route path="*" element={<NotFoundPage />} />
 			</Route>
