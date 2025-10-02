@@ -1,7 +1,7 @@
 {
 	"GuestPage": {
 		"info": "Registration is available in the application.",
-		"demoInfo": "Or click <0>«Demo»</0> to start without registration",
+		"demoInfo": "Or click <0>«Demo»</0> to start working in the demo account",
 		"demoButton": "Demo"
 	},
 	"NotFoundPage": {
