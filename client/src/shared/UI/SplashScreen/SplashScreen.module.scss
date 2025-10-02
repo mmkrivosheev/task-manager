@@ -1,0 +1,24 @@
+.wrapper {
+	position: fixed;
+	inset: 0;
+	z-index: 10;
+	font-size: var(--font-size-base);
+	font-weight: var(--font-weight-normal);
+	background-color: var(--color-bg-page);
+}
+
+.content {
+	display: flex;
+	justify-content: center;
+	width: var(--app-max-width);
+	height: 100%;
+	margin: 0 auto;
+	padding-top: 15%;
+	background-color: var(--color-bg-app);
+	box-shadow: -1px 0 0 var(--color-border-app), 1px 0 0 var(--color-border-app);
+
+	h1 {
+		font-size: var(--font-size-base);
+		font-weight: var(--font-weight-normal);
+	}
+}

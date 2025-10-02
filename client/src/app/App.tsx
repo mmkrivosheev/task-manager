@@ -1,14 +1,20 @@
-import { Provider } from "react-redux";
-import { BrowserRouter } from "react-router-dom";
-import { store } from "./store";
+import { useEffect, useState } from "react";
 import { Router } from "./routes/Router";
+import { useAppDispatch } from "shared/hooks/redux";
+import { fetchCurrentUser } from "entities/User/authThunk";
+import { SplashScreen } from "shared/UI/SplashScreen";
 
 export default function App() {
-	return (
-		<Provider store={store}>
-			<BrowserRouter>
-				<Router />
-			</BrowserRouter>
-		</Provider>
-	);
+	const [authLoading, setAuthLoading] = useState(true);
+	const dispatch = useAppDispatch();
+
+	useEffect(() => {
+		let timer: ReturnType<typeof setTimeout>;
+		dispatch(fetchCurrentUser()).then(() => {
+			timer = setTimeout(() => setAuthLoading(false), 1200);
+		});
+		return () => clearTimeout(timer);
+	}, []);
+
+	return authLoading ? <SplashScreen /> : <Router />;
 }

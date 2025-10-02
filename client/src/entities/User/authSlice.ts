@@ -16,20 +16,20 @@ const authSlice = createSlice({
 			state.error = null;
 		},
 		authSuccess(state, action: PayloadAction<{ user: IUser }>) {
-			state.loading = false;
 			state.user = action.payload.user;
+			state.loading = false;
 		},
 		authFailure(state, action: PayloadAction<string>) {
-			state.loading = false;
 			state.error = action.payload;
-		},
-		logout(state) {
-			state.user = null;
 			state.loading = false;
+		},
+		logoutSuccess(state) {
+			state.user = null;
 			state.error = null;
+			state.loading = false;
 		},
 	},
 });
 
-export const { authStart, authSuccess, authFailure, logout } = authSlice.actions;
+export const { authStart, authSuccess, authFailure, logoutSuccess } = authSlice.actions;
 export default authSlice.reducer;

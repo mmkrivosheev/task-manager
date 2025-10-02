@@ -10,9 +10,9 @@ export function getJwtCookieOptions() {
 	return {
 		httpOnly: true,
 		secure: process.env.NODE_ENV === "production",
-		maxAge: 3600000,
 		sameSite: "Lax",
 		path: "/",
+		maxAge: 3600000,
 	};
 }
 

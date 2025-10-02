@@ -26,5 +26,18 @@ export async function login(ctx) {
 }
 
 export function me(ctx) {
-	ctx.body = { user: ctx.state.user };
+	const { id, email } = ctx.state.user;
+	ctx.body = { user: { id, email } };
+}
+
+export async function logout(ctx) {
+	ctx.cookies.set("jwt", "", {
+		httpOnly: true,
+		secure: process.env.NODE_ENV === "production",
+		sameSite: "Lax",
+		path: "/",
+		maxAge: 0,
+	});
+	ctx.status = 200;
+	ctx.body = { message: "Logged out" };
 }
