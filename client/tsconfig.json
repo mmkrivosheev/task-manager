@@ -22,7 +22,6 @@
 			"app/*": ["app/*"],
 			"assets/*": ["assets/*"],
 			"entities/*": ["entities/*"],
-			"features/*": ["features/*"],
 			"layouts/*": ["layouts/*"],
 			"pages/*": ["pages/*"],
 			"shared/*": ["shared/*"]
