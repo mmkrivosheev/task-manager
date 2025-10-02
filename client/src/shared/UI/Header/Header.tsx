@@ -5,10 +5,10 @@ import { Button } from "shared/UI/Button";
 import { authLinks, guestLinks } from "./links";
 import { normalizePath } from "shared/utils/common";
 import { useAppDispatch, useAppSelector } from "shared/hooks/redux";
+import { logoutUser } from "entities/User/authThunk";
 import logo from "assets/img/logo.png";
 import { INavItem } from "./types";
 import styles from "./Header.module.scss";
-import { logout } from "../../../entities/User/authSlice";
 
 export function Header() {
 	const { user } = useAppSelector(state => state.auth);
@@ -31,6 +31,10 @@ export function Header() {
 			: getNavLinks(guestLinks);
 	};
 
+	const handleLogout = () => {
+		dispatch(logoutUser());
+	};
+
 	return (
 		<header className={styles.header}>
 			<div className={styles.wrapper}>
@@ -41,7 +45,7 @@ export function Header() {
 						</RouterLink>
 					</div>
 					{user ? (
-						<Button variant="link" type="button" onClick={() => dispatch(logout())}>
+						<Button variant="link" type="button" onClick={handleLogout}>
 							{t("Navigation.logout")}
 						</Button>
 					) : (
