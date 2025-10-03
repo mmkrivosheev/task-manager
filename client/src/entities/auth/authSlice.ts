@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { IAuthState, IUser } from "entities/User/types";
+import { IAuthState, IUser } from "entities/auth/types";
 
 const initialState: IAuthState = {
 	user: null,
@@ -28,8 +28,11 @@ const authSlice = createSlice({
 			state.error = null;
 			state.loading = false;
 		},
+		clearError(state) {
+			state.error = null;
+		},
 	},
 });
 
-export const { authStart, authSuccess, authFailure, logoutSuccess } = authSlice.actions;
+export const { authStart, authSuccess, authFailure, logoutSuccess, clearError } = authSlice.actions;
 export default authSlice.reducer;

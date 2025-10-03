@@ -1,10 +1,10 @@
 import { AxiosError } from "axios";
-import { AppDispatch } from "app/store";
+import { AppDispatch } from "app/store/store";
 import { auth, currentUser, logout } from "./authAPI";
 import { authStart, authSuccess, authFailure, logoutSuccess } from "./authSlice";
 import { IPayload } from "shared/UI/AuthForms/types";
 import { API_ENDPOINTS } from "shared/constants/apiEndpoints";
-import { IUser } from "entities/User/types";
+import { IUser } from "entities/auth/types";
 
 function authUser(url: string, payload: IPayload) {
 	return async (dispatch: AppDispatch) => {
@@ -34,9 +34,8 @@ export function fetchCurrentUser() {
 			dispatch(authStart());
 			const data: { user: IUser } = await currentUser(API_ENDPOINTS.AUTH.ME);
 			dispatch(authSuccess(data));
-		} catch (err) {
-			const error = err as AxiosError<{ error: string }>;
-			dispatch(authFailure(error.response?.data.error || error.message));
+		} catch {
+			dispatch(logoutSuccess());
 		}
 	};
 }
