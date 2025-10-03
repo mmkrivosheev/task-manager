@@ -2,9 +2,9 @@ import { Route, Routes, Navigate } from "react-router-dom";
 import { MainLayout } from "layouts/MainLayout";
 import { NotFoundPage } from "pages/NotFoundPage";
 import { privateRoutes, publicRoutes } from "./routes";
-import { useAppSelector } from "shared/hooks/redux";
+import { useAppSelector } from "app/store/hooks";
 
-export const Router = () => {
+export function Router() {
 	const { user } = useAppSelector(state => state.auth);
 	const routes = user ? privateRoutes : publicRoutes;
 
@@ -24,4 +24,4 @@ export const Router = () => {
 			</Route>
 		</Routes>
 	);
-};
+}
