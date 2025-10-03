@@ -29,3 +29,4 @@ npm install
 npm run build:client
 npm run start:server
 ```
+Приложение будет доступно по адресу: http://localhost:4000
