@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useLayoutEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Input } from "shared/UI/Input";
 import { Button } from "shared/UI/Button";
 import { validateForm } from "./utils";
-import { useAppDispatch, useAppSelector } from "shared/hooks/redux";
-import { registerUser } from "entities/User/authThunk";
+import { useAppDispatch, useAppSelector } from "app/store/hooks";
+import { registerUser } from "entities/auth/authThunk";
+import { clearError } from "entities/auth/authSlice";
 import { IRegistrationFormErrors } from "./types";
 import styles from "./AuthForms.module.scss";
 
@@ -13,6 +14,12 @@ export function RegistrationForm() {
 	const { error: authError } = useAppSelector(state => state.auth);
 	const dispatch = useAppDispatch();
 	const { t } = useTranslation();
+
+	useLayoutEffect(() => {
+		return () => {
+			dispatch(clearError());
+		};
+	}, [dispatch]);
 
 	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();

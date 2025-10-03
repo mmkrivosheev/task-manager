@@ -1,27 +1,34 @@
+import { useLayoutEffect } from "react";
 import { Trans, useTranslation } from "react-i18next";
 import styles from "./GuestPage.module.scss";
 import { Button } from "shared/UI/Button";
-import { loginUser } from "entities/User/authThunk";
-import { useAppDispatch } from "shared/hooks/redux";
-import { useNavigate } from "react-router-dom";
+import { loginUser } from "entities/auth/authThunk";
+import { useAppDispatch } from "app/store/hooks";
 import { demoUser } from "pages/GuestPage/demoUser";
+import { clearError } from "entities/auth/authSlice";
 
 export function GuestPage() {
 	const dispatch = useAppDispatch();
-	const navigate = useNavigate();
 	const { t } = useTranslation();
 
+	useLayoutEffect(() => {
+		return () => {
+			dispatch(clearError());
+		};
+	}, [dispatch]);
+
 	const handleClick = async () => {
-		const isLogged = await dispatch(loginUser(demoUser));
-		if (isLogged) navigate("/tasks");
+		await dispatch(loginUser(demoUser));
 	};
 
 	return (
 		<>
 			<div className={styles.guestWrapper}>
 				<p>{t("GuestPage.info")}</p>
-				<p><Trans i18nKey="GuestPage.demoInfo" components={[<i />]} /></p>
-					<Button onClick={handleClick}>{t("GuestPage.demoButton")}</Button>
+				<p>
+					<Trans i18nKey="GuestPage.demoInfo" components={[<i key="italic" />]} />
+				</p>
+				<Button onClick={handleClick}>{t("GuestPage.demoButton")}</Button>
 			</div>
 		</>
 	);
