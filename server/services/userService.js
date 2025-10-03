@@ -1,7 +1,7 @@
 import bcrypt from "bcryptjs";
 import { v4 as uuidv4 } from "uuid";
 import { readData, writeData } from "../db/fileDB.js";
-import { generateJwtToken } from "../utils/common.js";
+import { generateJwtToken } from "../utils/jwt.js";
 
 export async function registerUser(email, password) {
 	const users = readData("users");

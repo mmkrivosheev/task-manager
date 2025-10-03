@@ -1,5 +1,5 @@
 import * as userService from "../services/userService.js";
-import { getJwtCookieOptions } from "../utils/common.js";
+import { getJwtCookieOptions } from "../utils/jwt.js";
 
 export async function register(ctx) {
 	try {
@@ -31,13 +31,7 @@ export function me(ctx) {
 }
 
 export async function logout(ctx) {
-	ctx.cookies.set("jwt", "", {
-		httpOnly: true,
-		secure: process.env.NODE_ENV === "production",
-		sameSite: "Lax",
-		path: "/",
-		maxAge: 0,
-	});
+	ctx.cookies.set("jwt", "", getJwtCookieOptions(0));
 	ctx.status = 200;
 	ctx.body = { message: "Logged out" };
 }
