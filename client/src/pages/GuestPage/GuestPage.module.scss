@@ -5,3 +5,8 @@
 	gap: 16px;
 	margin-top: 19vh;
 }
+
+.errorMessage {
+	font-size: var(--font-size-sm);
+	color: var(--color-text-danger);
+}
