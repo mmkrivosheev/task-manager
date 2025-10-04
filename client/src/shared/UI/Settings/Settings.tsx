@@ -34,7 +34,6 @@ export function Settings() {
 				<Button
 					icon={createSizedIcon(theme === "light" ? MoonIcon : SunIcon, 24, 24)}
 					variant="link"
-					type="button"
 					onClick={() => setTheme(theme === "light" ? "dark" : "light")}
 				/>
 			</div>

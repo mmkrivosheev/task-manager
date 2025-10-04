@@ -1,39 +1,22 @@
-import { useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { RouterLink } from "shared/UI/Links";
 import { Button } from "shared/UI/Button";
-import { authLinks, guestLinks } from "./links";
-import { normalizePath } from "shared/utils/common";
+import { Navigation } from "shared/UI/Navigation";
 import { useAppDispatch, useAppSelector } from "app/store/hooks";
 import { logoutUser } from "entities/auth/authThunk";
 import logo from "assets/img/logo.png";
-import { INavItem } from "./types";
 import styles from "./Header.module.scss";
 
 export function Header() {
 	const { user } = useAppSelector(state => state.auth);
 	const dispatch = useAppDispatch();
-	const { pathname } = useLocation();
 	const { t } = useTranslation();
 
-	const getNavLinks = (links: INavItem[]) => {
-		return links.map(({ to, end, label, icon, component: Component }) => (
-			<Component key={to} to={to} icon={icon} end={end}>
-				{label && t(label)}
-			</Component>
-		));
-	};
-
-	const getCurrentNavLinks = () => {
-		const normalizedPath = normalizePath(pathname);
-		return normalizedPath === "/login" || normalizedPath === "/registration"
-			? getNavLinks(authLinks)
-			: getNavLinks(guestLinks);
-	};
-
-	const handleLogout = () => {
-		dispatch(logoutUser());
-	};
+	const logoutBtn = (
+		<Button variant="link" onClick={() => dispatch(logoutUser())}>
+			{t("Navigation.logout")}
+		</Button>
+	);
 
 	return (
 		<header className={styles.header}>
@@ -44,19 +27,7 @@ export function Header() {
 							<img className={styles.logo} src={logo} alt="logo" />
 						</RouterLink>
 					</div>
-					{user ? (
-						<Button variant="link" type="button" onClick={handleLogout}>
-							{t("Navigation.logout")}
-						</Button>
-					) : (
-						<nav>
-							<ul className={styles.navList}>
-								{getCurrentNavLinks().map((navLink, index) => (
-									<li key={index}>{navLink}</li>
-								))}
-							</ul>
-						</nav>
-					)}
+					{user ? logoutBtn : <Navigation />}
 				</div>
 			</div>
 		</header>

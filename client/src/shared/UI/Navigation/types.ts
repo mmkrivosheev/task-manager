@@ -5,5 +5,4 @@ export interface INavItem {
 	component: React.ElementType;
 	label?: string;
 	icon?: ElementType;
-	end?: boolean;
 }

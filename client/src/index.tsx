@@ -4,7 +4,7 @@ import { Provider } from "react-redux";
 import App from "./app/App";
 import "shared/styles/index.scss";
 import "shared/config/i18n";
-import { store } from "app/store";
+import { store } from "app/store/store";
 
 const rootEl = document.getElementById("root")!;
 const root = createRoot(rootEl);

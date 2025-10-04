@@ -15,6 +15,7 @@ export function Button({
 	return (
 		<button
 			className={clsx(styles.button, block && styles.block, styles[variant])}
+			type="button"
 			onClick={onClick}
 			{...props}
 		>

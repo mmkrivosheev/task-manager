@@ -54,7 +54,9 @@ export function LoginForm() {
 					required
 				/>
 				<div className={styles.buttonWrapper}>
-					<Button block>{t("Login.submit")}</Button>
+					<Button type="submit" block>
+						{t("Login.submit")}
+					</Button>
 				</div>
 				{authError && <p className={styles.errorMessage}>{t(authError)}</p>}
 			</form>

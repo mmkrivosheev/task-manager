@@ -3,7 +3,7 @@ import { IAuthState, IUser } from "entities/auth/types";
 
 const initialState: IAuthState = {
 	user: null,
-	loading: false,
+	isLoading: false,
 	error: null,
 };
 
@@ -12,21 +12,21 @@ const authSlice = createSlice({
 	initialState,
 	reducers: {
 		authStart(state) {
-			state.loading = true;
+			state.isLoading = true;
 			state.error = null;
 		},
 		authSuccess(state, action: PayloadAction<{ user: IUser }>) {
 			state.user = action.payload.user;
-			state.loading = false;
+			state.isLoading = false;
 		},
 		authFailure(state, action: PayloadAction<string>) {
 			state.error = action.payload;
-			state.loading = false;
+			state.isLoading = false;
 		},
-		logoutSuccess(state) {
+		logout(state) {
 			state.user = null;
 			state.error = null;
-			state.loading = false;
+			state.isLoading = false;
 		},
 		clearError(state) {
 			state.error = null;
@@ -34,5 +34,5 @@ const authSlice = createSlice({
 	},
 });
 
-export const { authStart, authSuccess, authFailure, logoutSuccess, clearError } = authSlice.actions;
+export const { authStart, authSuccess, authFailure, logout, clearError } = authSlice.actions;
 export default authSlice.reducer;

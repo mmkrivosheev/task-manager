@@ -5,7 +5,7 @@ export interface IUser {
 
 export interface IAuthState {
 	user: IUser | null;
-	loading: boolean;
+	isLoading: boolean;
 	error: string | null;
 }
 

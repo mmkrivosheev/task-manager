@@ -61,7 +61,9 @@ export function RegistrationForm() {
 					required
 				/>
 				<div className={styles.buttonWrapper}>
-					<Button block>{t("Registration.submit")}</Button>
+					<Button type="submit" block>
+						{t("Registration.submit")}
+					</Button>
 				</div>
 				{authError && <p className={styles.errorMessage}>{authError}</p>}
 			</form>
