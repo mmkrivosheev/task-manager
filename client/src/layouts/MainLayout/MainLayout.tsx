@@ -1,15 +1,15 @@
 import { Outlet } from "react-router-dom";
 import { Header } from "shared/UI/Header";
 import { Footer } from "shared/UI/Footer";
-import { Main } from "shared/UI/Main";
+import styles from "./MainLayout.module.scss";
 
 export function MainLayout() {
 	return (
 		<>
 			<Header />
-			<Main>
-				<Outlet />
-			</Main>
+			<main className={styles.main}>
+					<Outlet />
+			</main>
 			<Footer />
 		</>
 	);
