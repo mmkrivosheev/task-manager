@@ -10,7 +10,7 @@ function authUser(url: string, payload: IPayload) {
 		try {
 			dispatch(authStart());
 			const data = await authAPI(url, payload);
-			dispatch(authSuccess(data));
+			dispatch(authSuccess(data.user));
 			return true;
 		} catch (err) {
 			const error = err as AxiosError<{ error: string }>;
@@ -31,7 +31,7 @@ export function logoutUser() {
 	return async (dispatch: AppDispatch) => {
 		try {
 			dispatch(authStart());
-			await logoutAPI(API_ENDPOINTS.AUTH.LOGOUT);
+			await logoutAPI();
 			dispatch(logout());
 		} catch (err) {
 			const error = err as AxiosError<{ error: string }>;
@@ -44,8 +44,8 @@ export function fetchCurrentUser() {
 	return async (dispatch: AppDispatch) => {
 		try {
 			dispatch(authStart());
-			const data = await currentUserAPI(API_ENDPOINTS.AUTH.ME);
-			dispatch(authSuccess(data));
+			const data = await currentUserAPI();
+			dispatch(authSuccess(data.user));
 		} catch {
 			dispatch(logout());
 		}

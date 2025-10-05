@@ -15,8 +15,8 @@ const authSlice = createSlice({
 			state.isLoading = true;
 			state.error = null;
 		},
-		authSuccess(state, action: PayloadAction<{ user: IUser }>) {
-			state.user = action.payload.user;
+		authSuccess(state, action: PayloadAction<IUser>) {
+			state.user = action.payload;
 			state.isLoading = false;
 		},
 		authFailure(state, action: PayloadAction<string>) {
