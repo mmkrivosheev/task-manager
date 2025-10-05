@@ -24,13 +24,13 @@ export function GuestPage() {
 	};
 
 	return (
-		<div className={styles.guestWrapper}>
+		<main className={styles.guestWrapper}>
 			<p>{t("GuestPage.info")}</p>
 			<p>
 				<Trans i18nKey="GuestPage.demoInfo" components={[<i key="italic" />]} />
 			</p>
 			<Button onClick={handleClick}>{t("GuestPage.demoButton")}</Button>
 			{error && <p className={styles.errorMessage}>{t(error)}</p>}
-		</div>
+		</main>
 	);
 }

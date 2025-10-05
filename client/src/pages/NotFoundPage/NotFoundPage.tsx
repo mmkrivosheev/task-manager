@@ -5,12 +5,10 @@ export function NotFoundPage() {
 	const { t } = useTranslation();
 
 	return (
-		<>
-			<div className={styles.welcomeWrapper}>
-				<h1>{t("NotFoundPage.title")}</h1>
-				<p>{t("NotFoundPage.description")}</p>
-				<p>{t("NotFoundPage.errorCode")}</p>
-			</div>
-		</>
+		<main className={styles.welcomeWrapper}>
+			<h1>{t("NotFoundPage.title")}</h1>
+			<p>{t("NotFoundPage.description")}</p>
+			<p>{t("NotFoundPage.errorCode")}</p>
+		</main>
 	);
 }
