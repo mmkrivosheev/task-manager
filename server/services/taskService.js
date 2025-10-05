@@ -1,12 +1,12 @@
 import { v4 as uuidv4 } from "uuid";
-import { readData, writeData } from "../db/fileDB.js";
+import tasksDB from "../db/tasksDB.js";
 
-export function getTasks() {
-	return readData("tasks");
+export function getTasks(userId) {
+	return tasksDB.read().filter(item => item.userId === userId);
 }
 
 export function createTask(title, description, userId) {
-	const tasks = readData("tasks");
+	const tasks = tasksDB.read();
 	const newTask = {
 		id: uuidv4(),
 		title,
@@ -16,6 +16,6 @@ export function createTask(title, description, userId) {
 		completed: false,
 	};
 	tasks.push(newTask);
-	writeData("tasks", tasks);
+	tasksDB.write(tasks);
 	return newTask;
 }

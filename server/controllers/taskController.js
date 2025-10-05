@@ -1,8 +1,8 @@
 import * as taskService from "../services/taskService.js";
 
 export function getAllTasks(ctx) {
-	const tasks = taskService.getTasks();
-	ctx.body = tasks;
+	const tasks = taskService.getTasks(ctx.state.user.id);
+	ctx.body = { tasks };
 }
 
 export function createNewTask(ctx) {
