@@ -8,7 +8,7 @@ export function MainLayout() {
 		<>
 			<Header />
 			<main className={styles.main}>
-					<Outlet />
+				<Outlet />
 			</main>
 			<Footer />
 		</>

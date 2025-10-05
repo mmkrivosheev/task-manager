@@ -18,7 +18,8 @@ export function Button({
 			className={clsx(
 				styles.button,
 				block && styles.block,
-				styles[variant], styles[color],
+				styles[variant],
+				styles[color],
 				children && styles.text
 			)}
 			type="button"

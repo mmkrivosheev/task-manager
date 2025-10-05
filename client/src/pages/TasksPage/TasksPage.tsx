@@ -20,9 +20,7 @@ export function TasksPage() {
 						onClick={() => setIsCollapsed(!isCollapsed)}
 					/>
 				</div>
-				<div className={styles.asideContent}>
-					{"{{ компонент в разработке }}"}
-				</div>
+				<div className={styles.asideContent}>{"{{ компонент в разработке }}"}</div>
 			</aside>
 			<section className={styles.tasks} tabIndex={-1}>
 				<TasksList />

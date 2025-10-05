@@ -49,6 +49,6 @@ export const {
 	updateTaskSuccess,
 	deleteTaskSuccess,
 	tasksFailure,
-	clearError
+	clearError,
 } = tasksSlice.actions;
 export default tasksSlice.reducer;

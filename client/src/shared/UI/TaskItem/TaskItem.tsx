@@ -17,12 +17,7 @@ export function TaskItem({ title, createdAt, status }: ITask) {
 				<div className={styles.title}>{title}</div>
 			</div>
 			<div className={styles.openBtn}>
-				<Button
-					icon={createSizedIcon(OpenIcon, 24, 24)}
-					variant="link"
-					color="light"
-					tabIndex={-1}
-				/>
+				<Button icon={createSizedIcon(OpenIcon, 24, 24)} variant="link" color="light" tabIndex={-1} />
 			</div>
 		</article>
 	);
