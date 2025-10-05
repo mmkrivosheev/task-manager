@@ -5,5 +5,6 @@ export interface IButtonProps extends React.ButtonHTMLAttributes<HTMLButtonEleme
 	icon?: ElementType;
 	block?: boolean;
 	variant?: "outlined" | "link";
+	color?: "default" | "light",
 	onClick?: () => void;
 }

@@ -8,10 +8,11 @@ import { registerUser } from "entities/auth/authThunk";
 import { clearError } from "entities/auth/authSlice";
 import { IRegistrationFormErrors } from "./types";
 import styles from "./AuthForms.module.scss";
+import { Loader } from "shared/UI/Loader";
 
 export function RegistrationForm() {
 	const [errors, setErrors] = useState<IRegistrationFormErrors>({});
-	const { error: authError } = useAppSelector(state => state.auth);
+	const { error: authError, isLoading } = useAppSelector(state => state.auth);
 	const dispatch = useAppDispatch();
 	const { t } = useTranslation();
 
@@ -66,6 +67,7 @@ export function RegistrationForm() {
 					</Button>
 				</div>
 				{authError && <p className={styles.errorMessage}>{authError}</p>}
+				{isLoading && <Loader delay={500} />}
 			</form>
 		</>
 	);

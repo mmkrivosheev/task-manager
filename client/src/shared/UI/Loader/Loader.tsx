@@ -1,6 +1,18 @@
+import { useEffect, useState } from "react";
+import { ILoaderProps } from "shared/UI/Loader/styles";
 import styles from "./Loader.module.scss";
 
-export function Loader() {
+export function Loader({ delay = 0 }: ILoaderProps) {
+	const [visible, setVisible] = useState(delay === 0);
+
+	useEffect(() => {
+		if (delay === 0) return;
+		const timer = setTimeout(() => setVisible(true), delay);
+		return () => clearTimeout(timer);
+	}, [delay]);
+
+	if (!visible) return;
+
 	return (
 		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className={styles.loader}>
 			<rect x="1" y="4" width="6" height="14" opacity="1">

@@ -8,10 +8,11 @@ import { loginUser } from "entities/auth/authThunk";
 import { clearError } from "entities/auth/authSlice";
 import { validateForm } from "./utils";
 import styles from "./AuthForms.module.scss";
+import { Loader } from "shared/UI/Loader";
 
 export function LoginForm() {
 	const [errors, setErrors] = useState<ILoginFormErrors>({});
-	const { error: authError } = useAppSelector(state => state.auth);
+	const { error: authError, isLoading } = useAppSelector(state => state.auth);
 	const dispatch = useAppDispatch();
 	const { t } = useTranslation();
 
@@ -59,6 +60,7 @@ export function LoginForm() {
 					</Button>
 				</div>
 				{authError && <p className={styles.errorMessage}>{t(authError)}</p>}
+				{isLoading && <Loader delay={500} />}
 			</form>
 		</>
 	);

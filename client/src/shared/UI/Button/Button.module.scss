@@ -28,6 +28,12 @@
 		border: none;
 		background-color: transparent;
 
+		&.text {
+			padding: 0 3px;
+		}
+		&.light {
+			color: var(--color-btn-bg-active);
+		}
 		&:hover {
 			color: var(--color-text-hover);
 		}

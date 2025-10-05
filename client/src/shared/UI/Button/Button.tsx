@@ -7,6 +7,7 @@ export function Button({
 	icon: Icon,
 	block = false,
 	variant = "outlined",
+	color = "default",
 	onClick,
 	...props
 }: IButtonProps) {
@@ -14,7 +15,12 @@ export function Button({
 
 	return (
 		<button
-			className={clsx(styles.button, block && styles.block, styles[variant])}
+			className={clsx(
+				styles.button,
+				block && styles.block,
+				styles[variant], styles[color],
+				children && styles.text
+			)}
 			type="button"
 			onClick={onClick}
 			{...props}
