@@ -9,6 +9,10 @@
 		"description": "The URL is incorrect or you don’t have access to this page",
 		"errorCode": "Error 404"
 	},
+	"TasksPage": {
+		"emptyList": "List is empty",
+		"development": "{{ component in development }}"
+	},
 	"Navigation": {
 		"login": "Login",
 		"register": "Register",
@@ -36,5 +40,9 @@
 		"passwordShort": "Password must be at least {{length}} characters long",
 		"passwordRepeatRequired": "Password confirmation is required",
 		"passwordMismatch": "Passwords do not match"
+	},
+	"Date": {
+		"todayAt": "Today at",
+		"yesterdayAt": "Yesterday at"
 	}
 }

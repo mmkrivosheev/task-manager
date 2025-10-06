@@ -30,7 +30,7 @@ export function Settings() {
 					onChange={value => i18n.changeLanguage(value)}
 				/>
 			</div>
-			<div className={styles.themeButton}>
+			<div className={styles.themeBtn}>
 				<Button
 					icon={createSizedIcon(theme === "light" ? MoonIcon : SunIcon, 24, 24)}
 					variant="link"

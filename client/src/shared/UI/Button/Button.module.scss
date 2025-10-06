@@ -29,7 +29,8 @@
 		background-color: transparent;
 
 		&.text {
-			padding: 0 3px;
+			padding: 0 4px;
+			line-height: 1.4;
 		}
 		&.light {
 			color: var(--color-btn-bg-active);

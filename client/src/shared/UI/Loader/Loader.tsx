@@ -3,10 +3,10 @@ import { ILoaderProps } from "shared/UI/Loader/styles";
 import styles from "./Loader.module.scss";
 
 export function Loader({ delay = 0 }: ILoaderProps) {
-	const [visible, setVisible] = useState(delay === 0);
+	const [visible, setVisible] = useState(!delay);
 
 	useEffect(() => {
-		if (delay === 0) return;
+		if (!delay) return;
 		const timer = setTimeout(() => setVisible(true), delay);
 		return () => clearTimeout(timer);
 	}, [delay]);

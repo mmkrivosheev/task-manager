@@ -1,6 +1,5 @@
 import { useState, useRef, useEffect } from "react";
 import { dropdownDir } from "shared/UI/Select/utils";
-import ArrowUpIcon from "assets/icons/arrowUp.svg";
 import ArrowDownIcon from "assets/icons/arrowDown.svg";
 import { ISelectProps } from "shared/UI/Select/types";
 import styles from "./Select.module.scss";
@@ -68,7 +67,7 @@ export function Select({ options, onChange, value: initValue, placeholder }: ISe
 			<div className={styles.label}>
 				{options.find(option => option.value === value)?.label ?? placeholder}
 			</div>
-			{isOpen ? <ArrowUpIcon className={styles.icon} /> : <ArrowDownIcon className={styles.icon} />}
+			{<ArrowDownIcon className={clsx(styles.icon, isOpen && styles.up)} />}
 			{isOpen && (
 				<ul className={clsx(styles.options, styles[dropdownDir(options, ref.current)])}>
 					{options.map((option, index) => (

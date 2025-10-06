@@ -4,41 +4,8 @@
 	font-size: var(--font-size-sm);
 }
 
-.sidebar {
-	position: relative;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	width: 250px;
-	margin: var(--app-padding-x) 0;
-	padding: 0 var(--app-padding-x);
-	border-right: 1px solid var(--color-border-app);
-	overflow: hidden;
-	white-space: nowrap;
-	transition: width 0.3s;
-
-	&.collapsed {
-		width: 40px;
-
-		.chevronIcon {
-			transform: none;
-		}
-		.asideContent {
-			display: none;
-		}
-	}
-}
-
 .tasks {
 	flex: 1;
 	padding: var(--app-padding-x);
 	overflow: auto;
-}
-
-.chevronIcon {
-	position: absolute;
-	top: 0;
-	right: 8px;
-	transform: rotate(180deg);
 }

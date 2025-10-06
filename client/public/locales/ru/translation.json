@@ -9,6 +9,10 @@
 		"description": "Неправильный адрес или у вас нет доступа к этой странице",
 		"errorCode": "Ошибка 404"
 	},
+	"TasksPage": {
+		"emptyList": "Список пуст",
+		"development": "{{ компонент в разработке }}"
+	},
 	"Navigation": {
 		"login": "Вход",
 		"register": "Регистрация",
@@ -36,5 +40,9 @@
 		"passwordShort": "Пароль должен быть не короче {{length}} символов",
 		"passwordRepeatRequired": "Подтверждение пароля обязательно",
 		"passwordMismatch": "Пароли не совпадают"
+	},
+	"Date": {
+		"todayAt": "Сегодня в",
+		"yesterdayAt": "Вчера в"
 	}
 }
