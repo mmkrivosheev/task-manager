@@ -12,7 +12,7 @@ import { Loader } from "shared/UI/Loader";
 
 export function LoginForm() {
 	const [errors, setErrors] = useState<ILoginFormErrors>({});
-	const { error: authError, isLoading } = useAppSelector(state => state.auth);
+	const { isLoading, error: authError } = useAppSelector(state => state.auth);
 	const dispatch = useAppDispatch();
 	const { t } = useTranslation();
 
@@ -59,8 +59,8 @@ export function LoginForm() {
 						{t("Login.submit")}
 					</Button>
 				</div>
-				{authError && <p className={styles.errorMessage}>{t(authError)}</p>}
 				{isLoading && <Loader delay={500} />}
+				{authError && <p className={styles.errorMessage}>{t(authError)}</p>}
 			</form>
 		</>
 	);

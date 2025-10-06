@@ -7,7 +7,7 @@ import { Loader } from "shared/UI/Loader";
 import styles from "./TasksList.module.scss";
 
 export function TasksList() {
-	const { error, isLoading, items } = useAppSelector(state => state.tasks);
+	const { isLoading, error, items } = useAppSelector(state => state.tasks);
 	const dispatch = useAppDispatch();
 	const { t } = useTranslation();
 
@@ -15,9 +15,15 @@ export function TasksList() {
 		dispatch(fetchTasks());
 	}, [dispatch]);
 
-	if (error) return <p className={styles.error}>{error}</p>;
-	if (isLoading) return <Loader delay={500} />;
-	if (!items.length) return <p className={styles.empty}>{t("TasksPage.emptyList")}</p>;
+	if (isLoading) {
+		return (
+			<div className={styles.loader}>
+				<Loader delay={500} />
+			</div>
+		);
+	}
+	if (error) return <div className={styles.error}>{error}</div>;
+	if (!items.length) return <div className={styles.empty}>{t("TasksPage.emptyList")}</div>;
 
 	return (
 		<ul className={styles.tasksList}>

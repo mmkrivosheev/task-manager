@@ -12,12 +12,13 @@
 	}
 }
 
-.empty {
-	text-align: center;
-}
+:is(.loader, .error, .empty) {
+	display: flex;
+	justify-content: center;
+	margin-top: 10vh;
 
-.error {
-	margin: auto;
-	font-size: var(--font-size-sm);
-	color: var(--color-text-danger);
+	.error {
+		font-size: var(--font-size-sm);
+		color: var(--color-text-danger);
+	}
 }
