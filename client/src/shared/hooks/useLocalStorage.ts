@@ -1,9 +1,14 @@
 import { useState, useEffect } from "react";
 
-export function useLocalStorage(key: string, initialValue: string) {
-	const [value, setValue] = useState<string>(() => {
+export function useLocalStorage(key: string, initialValue: string | boolean) {
+	const [value, setValue] = useState<string | boolean>(() => {
 		try {
-			return localStorage.getItem(key) || initialValue;
+			const stored = localStorage.getItem(key);
+			if (stored === null) return initialValue;
+			if (typeof initialValue === "boolean") {
+				return stored === "true";
+			}
+			return stored;
 		} catch (error) {
 			console.error("Error reading from localStorage:", error);
 			return initialValue;
@@ -12,7 +17,11 @@ export function useLocalStorage(key: string, initialValue: string) {
 
 	useEffect(() => {
 		try {
-			localStorage.setItem(key, value);
+			if (typeof value === "boolean") {
+				localStorage.setItem(key, value ? "true" : "false");
+			} else {
+				localStorage.setItem(key, value);
+			}
 		} catch (error) {
 			console.error("Error writing to localStorage:", error);
 		}
