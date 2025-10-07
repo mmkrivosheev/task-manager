@@ -1,0 +1,20 @@
+.wrapper {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+}
+
+.textarea {
+	width: 100%;
+	padding: 4px 8px 8px 8px;
+	resize: none;
+	overflow: hidden;
+	appearance: none;
+	border: 1px solid var(--color-border);
+	background-color: var(--color-bg-app);
+
+	&:focus {
+		border: 1px solid var(--color-text-hover);
+	}
+}
