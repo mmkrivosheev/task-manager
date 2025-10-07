@@ -1,4 +1,6 @@
-export interface IDividerProps {
-	type?: "vertical" | "horizontal";
-	size?: "small" | "middle";
+export interface IModalProps {
+	isOpen: boolean;
+	onClose: () => void;
+	children: React.ReactNode;
+	title?: string;
 }

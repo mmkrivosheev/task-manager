@@ -1,1 +1,1 @@
-export { Divider } from "./Divider";
+export { Modal } from "./Modal";
