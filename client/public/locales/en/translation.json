@@ -11,7 +11,18 @@
 	},
 	"TasksPage": {
 		"emptyList": "List is empty",
-		"development": "{{ component in development }}"
+		"development": "{{ component in development }}",
+		"card": "Task card",
+		"created": "Created:",
+		"status": "Status:",
+		"title": "Title:",
+		"description": "Description:",
+		"save": "Save",
+		"close": "Close",
+		"delete": "Delete",
+		"todo": "Todo",
+		"inProgress": "In progress",
+		"done": "Done"
 	},
 	"Navigation": {
 		"login": "Login",
