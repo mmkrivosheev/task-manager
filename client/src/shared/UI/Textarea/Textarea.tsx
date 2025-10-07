@@ -2,10 +2,17 @@ import { useId, useLayoutEffect, useRef, useState } from "react";
 import { ITextareaProps } from "shared/UI/Textarea/types";
 import styles from "./Textarea.module.scss";
 
-export function Textarea({ label, value: initValue = "", ...props }: ITextareaProps) {
+export function Textarea({
+	value: initValue = "",
+	label,
+	error,
+	ref: externalRef,
+	...props
+}: ITextareaProps) {
 	const [value, setValue] = useState(initValue);
-	const ref = useRef<HTMLTextAreaElement>(null);
+	const innerRef = useRef<HTMLTextAreaElement>(null);
 	const id = useId();
+	const ref = externalRef || innerRef;
 
 	useLayoutEffect(() => {
 		const textarea = ref.current;
@@ -30,6 +37,7 @@ export function Textarea({ label, value: initValue = "", ...props }: ITextareaPr
 				onChange={e => setValue(e.target.value)}
 				{...props}
 			/>
+			{error && <p className={styles.errorMessage}>{error}</p>}
 		</div>
 	);
 }

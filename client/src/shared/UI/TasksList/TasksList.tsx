@@ -38,8 +38,12 @@ export function TasksList() {
 					</li>
 				))}
 			</ul>
-			<Modal isOpen={!!selectedTaskId} onClose={() => setSelectedTaskId(null)} title="Карточка задачи">
-				<TaskCard {...(items.find(item => item.id === selectedTaskId) as ITask)} />
+			<Modal
+				isOpen={!!selectedTaskId}
+				onClose={() => setSelectedTaskId(null)}
+				title={t("TasksPage.card")}
+			>
+				<TaskCard onClick={() => setSelectedTaskId(null)} {...(items.find(item => item.id === selectedTaskId) as ITask)} />
 			</Modal>
 		</>
 	);

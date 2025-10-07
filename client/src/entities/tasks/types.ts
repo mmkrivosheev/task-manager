@@ -5,6 +5,7 @@ export interface ITask {
 	createdAt: string;
 	status: "todo" | "inProgress" | "done";
 	description?: string;
+	updatedAt?: string;
 }
 
 export interface ITasksState {
