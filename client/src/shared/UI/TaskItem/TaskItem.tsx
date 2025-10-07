@@ -6,11 +6,26 @@ import OpenIcon from "assets/icons/open.svg";
 import { ITask } from "entities/tasks/types";
 import styles from "./TaskItem.module.scss";
 
-export function TaskItem({ title, createdAt, status }: ITask) {
+interface ITaskProps extends ITask {
+	onClick: (id: string) => void;
+}
+
+export function TaskItem({ id, title, createdAt, status, onClick }: ITaskProps) {
 	const formatDate = useFormatDate();
 
+	const handleKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
+		if (e.key === "Enter") {
+			onClick(id);
+		}
+	};
+
 	return (
-		<article className={styles.wrapper} tabIndex={0}>
+		<article
+			className={styles.wrapper}
+			tabIndex={0}
+			onDoubleClick={() => onClick(id)}
+			onKeyDown={handleKeyDown}
+		>
 			<div className={styles.taskInfo}>
 				<div className={styles.header}>
 					<div className={clsx(styles.status, styles[status])}></div>
@@ -19,7 +34,13 @@ export function TaskItem({ title, createdAt, status }: ITask) {
 				<div className={styles.title}>{title}</div>
 			</div>
 			<div className={styles.openBtn}>
-				<Button icon={createSizedIcon(OpenIcon, 24, 24)} variant="link" color="light" tabIndex={-1} />
+				<Button
+					icon={createSizedIcon(OpenIcon, 24, 24)}
+					variant="link"
+					color="light"
+					tabIndex={-1}
+					onClick={() => onClick(id)}
+				/>
 			</div>
 		</article>
 	);
