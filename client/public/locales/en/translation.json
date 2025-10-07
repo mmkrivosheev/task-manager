@@ -14,6 +14,7 @@
 		"development": "{{ component in development }}",
 		"card": "Task card",
 		"created": "Created:",
+		"updated": "Updated:",
 		"status": "Status:",
 		"title": "Title:",
 		"description": "Description:",
@@ -22,7 +23,8 @@
 		"delete": "Delete",
 		"todo": "Todo",
 		"inProgress": "In progress",
-		"done": "Done"
+		"done": "Done",
+		"emptyTitle": "Title cannot be empty"
 	},
 	"Navigation": {
 		"login": "Login",
