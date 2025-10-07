@@ -16,3 +16,28 @@ export function createNewTask(ctx) {
 		ctx.body = { error: err.message };
 	}
 }
+
+export function patchTask(ctx) {
+	try {
+		const { id } = ctx.params;
+		const userId = ctx.state.user.id;
+		const updates = ctx.request.body;
+		const updatedTask = taskService.updateTaskById(id, userId, updates);
+		ctx.body = { message: "Task updated", task: updatedTask };
+	} catch (err) {
+		ctx.status = 404;
+		ctx.body = { error: err.message };
+	}
+}
+
+export async function deleteTask(ctx) {
+	try {
+		const { id } = ctx.params;
+		const userId = ctx.state.user.id;
+		await taskService.deleteTaskById(id, userId);
+		ctx.body = { message: "Task deleted" };
+	} catch (err) {
+		ctx.status = 500;
+		ctx.body = { error: err.message };
+	}
+}

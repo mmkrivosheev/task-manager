@@ -8,7 +8,6 @@ export async function registerUser(email, password) {
 	if (users.find(u => u.email === email)) {
 		throw new Error("User already exists");
 	}
-
 	const hashedPassword = await bcrypt.hash(password, 10);
 	const newUser = { id: uuidv4(), email, password: hashedPassword };
 	users.push(newUser);

@@ -19,3 +19,31 @@ export function createTask(title, description, userId) {
 	tasksDB.write(tasks);
 	return newTask;
 }
+
+export function updateTaskById(taskId, userId, updates) {
+	const tasks = tasksDB.read();
+	const index = tasks.findIndex(task => task.id === taskId && task.userId === userId);
+	if (index === -1) {
+		throw new Error("Task not found");
+	}
+	const updatedTask = {
+		...tasks[index],
+		...updates,
+		updatedAt: new Date().toISOString(),
+	};
+	tasks[index] = updatedTask;
+	tasksDB.write(tasks);
+	return updatedTask;
+}
+
+export function deleteTaskById(taskId, userId) {
+	const tasks = tasksDB.read();
+	const index = tasks.findIndex(task => task.id === taskId && task.userId === userId);
+	if (index === -1) {
+		throw new Error("Task not found");
+	}
+	const deletedTask = tasks[index];
+	tasks.splice(index, 1);
+	tasksDB.write(tasks);
+	return deletedTask;
+}
