@@ -1,5 +1,5 @@
 .main {
 	height: 100vh;
-	padding: var(--header-height) 0 var(--footer-height);
+	padding: var(--header-height) 0 calc(var(--footer-height) + 1px);
 	overflow: hidden;
 }

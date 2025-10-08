@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import { createPortal } from "react-dom";
 import { createSizedIcon } from "shared/HOC/createSizedIcon";
 import { getFocusableElements } from "shared/UI/Modal/utils";
 import { Button } from "shared/UI/Button";
@@ -48,7 +49,7 @@ export function Modal({ isOpen, onClose, children, title }: IModalProps) {
 		if (e.target === e.currentTarget) onClose();
 	};
 
-	return (
+	const modalContent = (
 		<div className={styles.overlay} onClick={handleOverlayClick}>
 			<div ref={ref} tabIndex={-1} className={styles.content}>
 				<div className={styles.header}>
@@ -59,4 +60,6 @@ export function Modal({ isOpen, onClose, children, title }: IModalProps) {
 			</div>
 		</div>
 	);
+
+	return createPortal(modalContent, document.getElementById("modal-root") as HTMLDivElement);
 }

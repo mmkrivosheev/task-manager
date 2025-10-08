@@ -29,6 +29,7 @@
 .taskInfo {
 	overflow: hidden;
 	text-overflow: ellipsis;
+	white-space: nowrap;
 }
 
 .status {
@@ -59,8 +60,7 @@
 }
 
 .title {
-		white-space: nowrap;
-		overflow: hidden;
+	overflow: hidden;
 	text-overflow: ellipsis;
 }
 

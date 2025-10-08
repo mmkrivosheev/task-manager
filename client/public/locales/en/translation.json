@@ -24,7 +24,7 @@
 		"todo": "Todo",
 		"inProgress": "In progress",
 		"done": "Done",
-		"emptyTitle": "Title cannot be empty"
+		"titleRequired": "Title is required"
 	},
 	"Navigation": {
 		"login": "Login",

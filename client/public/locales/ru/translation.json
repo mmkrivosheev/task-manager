@@ -24,7 +24,7 @@
 		"todo": "Ожидает",
 		"inProgress": "В процессе",
 		"done": "Выполнено",
-		"emptyTitle": "Название не может быть пустым"
+		"titleRequired": "Название обязателено"
 	},
 	"Navigation": {
 		"login": "Вход",

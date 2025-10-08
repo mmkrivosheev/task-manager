@@ -60,7 +60,7 @@ export function LoginForm() {
 					</Button>
 				</div>
 				{isLoading && <Loader delay={500} />}
-				{authError && <p className={styles.errorMessage}>{t(authError)}</p>}
+				{authError && <p className={styles.errorMessage}>{authError}</p>}
 			</form>
 		</>
 	);

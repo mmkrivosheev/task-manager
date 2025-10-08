@@ -5,13 +5,14 @@
 	display: flex;
 	justify-content: center;
 	background-color: rgba(0, 0, 0, 0.3);
-	animation: appear 0.2s ease-in-out;
+	animation: fadeIn 0.5s;
 }
 
 .content {
 	width: 800px;
+	min-width: 350px;
 	max-height: calc(100vh - 160px);
-	margin-top: 80px;
+	margin: 80px 20px;
 	margin-bottom: auto;
 	padding: 10px;
 	overflow-y: auto;
@@ -33,11 +34,11 @@
 }
 
 .title {
-	font-size: var(--font-size-base);
+	font-size: var(--font-size-sm);
 	font-weight: var(--font-weight-normal);
 }
 
-@keyframes appear {
+@keyframes fadeIn {
 	from {
 		opacity: 0;
 	}

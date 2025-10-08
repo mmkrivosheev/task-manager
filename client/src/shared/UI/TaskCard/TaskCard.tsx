@@ -27,14 +27,14 @@ export function TaskCard({ id, title, description, status, createdAt, updatedAt,
 			description: descRef.current?.value ?? description,
 			status: statusRef.current ?? status,
 		};
+		if (!updates.title.length) {
+			setErrors({ title: t("TasksPage.titleRequired") });
+			return;
+		}
+		onClick();
 		const diff = getDiff(updates, { title, description, status }) as ITask;
-		if (updates.title.length > 0) {
-			if (Object.keys(diff).length > 0) {
-				dispatch(updateTaskById(id, diff));
-			}
-			onClick();
-		} else {
-			setErrors({ title: t("TasksPage.emptyTitle") });
+		if (Object.keys(diff).length > 0) {
+			dispatch(updateTaskById(id, diff));
 		}
 	};
 
@@ -54,13 +54,15 @@ export function TaskCard({ id, title, description, status, createdAt, updatedAt,
 						{t("TasksPage.updated")} {formatDate(updatedAt)}
 					</p>
 				)}
-				<p className={styles.statusLabel}>{t("TasksPage.status")} </p>
-				<div className={styles.statusSelect}>
-					<Select
-						value={status}
-						options={statuses.map(item => ({ ...item, label: t(item.label) }))}
-						onChange={value => (statusRef.current = value)}
-					/>
+				<div className={styles.status}>
+					<p className={styles.statusLabel}>{t("TasksPage.status")} </p>
+					<div className={styles.statusSelect}>
+						<Select
+							value={status}
+							options={statuses.map(item => ({ ...item, label: t(item.label) }))}
+							onChange={value => (statusRef.current = value)}
+						/>
+					</div>
 				</div>
 			</div>
 
