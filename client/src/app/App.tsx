@@ -4,12 +4,12 @@ import { useAppDispatch } from "app/store/hooks";
 import { fetchCurrentUser } from "entities/auth/authThunk";
 
 export default function App() {
-	const [authCheck, setAuthCheck] = useState(true);
+	const [isAuthChecking, setIsAuthChecking] = useState(true);
 	const dispatch = useAppDispatch();
 
 	useEffect(() => {
-		dispatch(fetchCurrentUser()).then(() => setAuthCheck(false));
+		dispatch(fetchCurrentUser()).finally(() => setIsAuthChecking(false));
 	}, [dispatch]);
 
-	return authCheck || <Router />;
+	return isAuthChecking || <Router />;
 }

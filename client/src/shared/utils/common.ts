@@ -15,12 +15,9 @@ export function normalizePath(path: string): string {
 	return path.replace(/\/$/, "");
 }
 
-export function getDiff<T extends Record<string, string | number | undefined>>(
-	updated: T,
-	original: T
-): Partial<T> {
+export function getDiff<T extends Record<string, unknown>>(updated: T, original: T): Partial<T> {
 	return (Object.entries(updated) as [keyof T, T[keyof T]][]).reduce((acc, [key, value]) => {
-		if (isDefined(value) && value !== original[key]) {
+		if (value !== original[key]) {
 			acc[key] = value;
 		}
 		return acc;

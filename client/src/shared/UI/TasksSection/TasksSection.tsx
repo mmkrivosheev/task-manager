@@ -6,12 +6,12 @@ import styles from "./TasksSection.module.scss";
 import { TasksList } from "shared/UI/TasksList";
 
 export function TasksSection() {
-	const [tasksCheck, setTasksCheck] = useState(true);
+	const [isFetching, setIsFetching] = useState(true);
 	const { isLoading, error, items } = useAppSelector(state => state.tasks);
 	const dispatch = useAppDispatch();
 
 	useEffect(() => {
-		dispatch(fetchTasks()).then(() => setTasksCheck(false));
+		dispatch(fetchTasks()).finally(() => setIsFetching(false));
 	}, [dispatch]);
 
 	if (isLoading) {
@@ -22,12 +22,11 @@ export function TasksSection() {
 		);
 	}
 	if (error) return <div className={styles.error}>{error}</div>;
+	if (isFetching) return;
 
 	return (
-		tasksCheck || (
-			<section className={styles.tasks} tabIndex={0}>
-				<TasksList items={items} />
-			</section>
-		)
+		<section className={styles.tasks} tabIndex={0}>
+			<TasksList items={items} />
+		</section>
 	);
 }
