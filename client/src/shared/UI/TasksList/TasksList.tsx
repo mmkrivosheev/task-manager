@@ -1,32 +1,16 @@
-import { useEffect, useState } from "react";
+import { memo, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { useAppDispatch, useAppSelector } from "app/store/hooks";
-import { fetchTasks } from "entities/tasks/tasksThunk";
 import { TaskItem } from "shared/UI/TaskItem";
 import { Modal } from "shared/UI/Modal";
-import { Loader } from "shared/UI/Loader";
-import styles from "./TasksList.module.scss";
 import { TaskCard } from "shared/UI/TaskCard";
+import { ITasksListProps } from "shared/UI/TasksList/types";
 import { ITask } from "entities/tasks/types";
+import styles from "./TasksList.module.scss";
 
-export function TasksList() {
-	const { isLoading, error, items } = useAppSelector(state => state.tasks);
+export const TasksList = memo(function TasksList({ items }: ITasksListProps) {
 	const [selectedTaskId, setSelectedTaskId] = useState<string | null>(null);
-	const dispatch = useAppDispatch();
 	const { t } = useTranslation();
 
-	useEffect(() => {
-		dispatch(fetchTasks());
-	}, [dispatch]);
-
-	if (isLoading) {
-		return (
-			<div className={styles.loader}>
-				<Loader delay={500} />
-			</div>
-		);
-	}
-	if (error) return <div className={styles.error}>{error}</div>;
 	if (!items.length) return <div className={styles.empty}>{t("TasksPage.emptyList")}</div>;
 
 	return (
@@ -43,8 +27,11 @@ export function TasksList() {
 				onClose={() => setSelectedTaskId(null)}
 				title={t("TasksPage.card")}
 			>
-				<TaskCard onClick={() => setSelectedTaskId(null)} {...(items.find(item => item.id === selectedTaskId) as ITask)} />
+				<TaskCard
+					onClick={() => setSelectedTaskId(null)}
+					{...(items.find(item => item.id === selectedTaskId) as ITask)}
+				/>
 			</Modal>
 		</>
 	);
-}
+});

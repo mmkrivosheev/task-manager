@@ -1,0 +1,11 @@
+.tasks {
+	flex: 1;
+	padding: var(--app-padding-x);
+	overflow: auto;
+	border: none;
+
+	&:focus-visible {
+		outline: 1px solid var(--color-text-hover);
+		outline-offset: -1px
+	}
+}
