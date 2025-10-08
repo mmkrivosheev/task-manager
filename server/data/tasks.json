@@ -1,0 +1,210 @@
+[
+  {
+    "id": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "title": "Спроектировать taskSlice",
+    "description": "Разработать структуру taskSlice для CRUD-операций.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-10-01T10:00:00Z",
+    "updatedAt": "2025-10-02T09:15:00Z",
+    "status": "done"
+  },
+  {
+    "id": "2b1f8c5c-db51-4398-94bf-dbee9f2dc03f",
+    "title": "Настроить маршрутизацию в React-приложении",
+    "description": "Установить react-router-dom и определить приватные и публичные маршруты.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-08-02T11:30:00Z",
+    "status": "inProgress"
+  },
+  {
+    "id": "3c2g9d6d-ec62-4409-a5cg-ecef0g3ed14a",
+    "title": "Интегрировать API для регистрации пользователя",
+    "description": "Подключить `registerUser` thunk к форме регистрации и обработать ошибки.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-10-03T14:45:00Z",
+    "updatedAt": "2025-10-04T08:00:00Z",
+    "status": "inProgress"
+  },
+  {
+    "id": "4d3h0e7e-fd73-4510-b6dh-fdfg1h4fe25b",
+    "title": "Создать компонент TasksList",
+    "description": "Разработать UI-компонент для отображения списка задач с возможностью переключения статуса.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-10-04T08:15:00Z",
+    "status": "todo"
+  },
+  {
+    "id": "5e4i1f8f-ge84-4621-c7ei-gegh2i5gf36c",
+    "title": "Написать юнит-тесты для редьюсеров",
+    "description": "Покрыть тестами синхронные редьюсеры: toggleTask и removeTask.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-10-05T09:00:00Z",
+    "status": "todo"
+  },
+  {
+    "id": "6f5j2g9g-hf95-4732-d8fj-hfgj3j6hg47d",
+    "title": "Оптимизировать загрузку данных профиля",
+    "description": "Пересмотреть логику получения данных профиля после входа в систему для минимизации запросов.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-09-28T16:20:00Z",
+    "updatedAt": "2025-09-29T12:00:00Z",
+    "status": "done"
+  },
+  {
+    "id": "7g6k3h0h-ig06-4843-e9gk-ighk4k7ih58e",
+    "title": "Документировать API-эндпоинты",
+    "description": "Обновить документацию Swagger/OpenAPI для всех task-эндпоинтов.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-10-06T13:10:00Z",
+    "status": "todo"
+  },
+  {
+    "id": "8h7l4i1i-jh17-4954-f0hl-jhlm5l8ji69f",
+    "title": "Code Review: модуль аутентификации",
+    "description": "Провести тщательный анализ кода аутентификации перед мержем в master.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-10-07T10:00:00Z",
+    "status": "inProgress"
+  },
+  {
+    "id": "9i8m5j2j-ki28-4a65-g1im-kino6m9kj70g",
+    "title": "Исправить баг с бесконечным рендерингом",
+    "description": "Найти причину циклического обновления состояния в компоненте TaskList.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-09-29T19:35:00Z",
+    "status": "done"
+  },
+  {
+    "id": "0j9n6k3k-lj39-4b76-h2jn-lopq7na0lk8h",
+    "title": "Подготовить демо-версию приложения",
+    "description": "Убедиться, что все основные функции работают, и развернуть на тестовом сервере.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-10-08T15:00:00Z",
+    "updatedAt": "2025-10-08T18:00:00Z",
+    "status": "todo"
+  },
+  {
+    "id": "10k0o7l4-mk40-4c87-i3ko-mpq18ob1ml9i",
+    "title": "Добавить фильтрацию задач по статусу",
+    "description": "Реализовать возможность фильтрации задач по статусам: todo, inProgress, done.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-10-09T09:20:00Z",
+    "status": "inProgress"
+  },
+  {
+    "id": "11l1p8m5-nl51-4d98-j4lp-nqr29pc2nm0j",
+    "title": "Добавить поиск по названию задачи",
+    "description": "Реализовать текстовый поиск по полю title с дебаунсом 300 мс.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-10-10T10:45:00Z",
+    "status": "todo"
+  },
+  {
+    "id": "12m2q9n6-om62-4e09-k5mq-ors30qd3on1k",
+    "title": "Реализовать сортировку задач",
+    "description": "Добавить возможность сортировки по дате создания и статусу.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-10-11T11:15:00Z",
+    "updatedAt": "2025-10-11T12:30:00Z",
+    "status": "todo"
+  },
+  {
+    "id": "13n3r0o7-pn73-4f10-l6nr-pst41re4po2l",
+    "title": "Создать модальное окно для редактирования задачи",
+    "description": "Добавить компонент с формой редактирования title и description.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-10-12T13:00:00Z",
+    "status": "inProgress"
+  },
+  {
+    "id": "14o4s1p8-qq84-4g21-m7os-qtu52sf5qp3m",
+    "title": "Добавить подтверждение удаления задачи",
+    "description": "Перед удалением задачи показывать диалог подтверждения с кнопками OK/Cancel.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-10-13T08:45:00Z",
+    "status": "todo"
+  },
+  {
+    "id": "15p5t2q9-rr95-4h32-n8pt-ruv63tg6rq4n",
+    "title": "Добавить индикатор загрузки задач",
+    "description": "Отображать спиннер во время выполнения fetchTasks.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-10-14T09:30:00Z",
+    "updatedAt": "2025-10-14T10:10:00Z",
+    "status": "done"
+  },
+  {
+    "id": "16q6u3r0-ss06-4i43-o9qu-svw74uh7sr5o",
+    "title": "Интегрировать dnd для сортировки задач",
+    "description": "Добавить возможность менять порядок задач перетаскиванием.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-10-15T12:15:00Z",
+    "status": "todo"
+  },
+  {
+    "id": "17r7v4s1-tt17-4j54-p0rv-twx85vi8ts6p",
+    "title": "Добавить уведомления об ошибках",
+    "description": "Показывать всплывающее уведомление при ошибке запроса к API.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-10-16T14:00:00Z",
+    "status": "inProgress"
+  },
+  {
+    "id": "18s8w5t2-uu28-4k65-q1sw-uxy96wj9ut7q",
+    "title": "Добавить пагинацию списка задач",
+    "description": "Ограничить отображение до 10 задач на страницу с кнопками навигации.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-10-17T15:45:00Z",
+    "updatedAt": "2025-10-17T17:10:00Z",
+    "status": "todo"
+  },
+  {
+    "id": "19t9x6u3-vv39-4l76-r2tx-vyz07xk0vu8r",
+    "title": "Добавить сохранение фильтров в localStorage",
+    "description": "Запоминать выбранные фильтры между перезагрузками страницы.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-10-18T17:00:00Z",
+    "status": "todo"
+  },
+  {
+    "id": "1k0o7l4l-mk40-4c87-i3ko-mopq8ob1lm9i",
+    "title": "Добавить фильтр по статусу задач",
+    "description": "Реализовать возможность фильтрации задач по статусу (todo, inProgress, done) в UI.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-10-09T10:00:00Z",
+    "status": "inProgress"
+  },
+  {
+    "id": "2l1p8m5m-nl51-4d98-j4lp-npqr9pc2mn0j",
+    "title": "Добавить локализацию интерфейса",
+    "description": "Интегрировать i18next и добавить поддержку русского и английского языков.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-10-10T11:45:00Z",
+    "status": "todo"
+  },
+  {
+    "id": "3m2q9n6n-op62-4e09-k5mq-opqs0qd3no1k",
+    "title": "Настроить сортировку задач по дате",
+    "description": "Добавить сортировку задач по дате создания — от новых к старым и наоборот.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-10-11T09:30:00Z",
+    "status": "todo"
+  },
+  {
+    "id": "4n3r0o7o-pq73-4f10-l6nr-pqrt1re4op2l",
+    "title": "Реализовать dnd для задач",
+    "description": "Добавить возможность перетаскивания задач между статусами с помощью react-beautiful-dnd.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92е",
+    "createdAt": "2025-10-12T14:15:00Z",
+    "updatedAt": "2025-10-13T09:30:00Z",
+    "status": "inProgress"
+  },
+  {
+    "id": "5o4s1p8p-qr84-4g21-m7os-qrst2sf5pq3m",
+    "title": "Настроить уведомления о дедлайнах",
+    "description": "Добавить уведомления о приближающихся дедлайнах задач с использованием Web Notifications API.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92е",
+    "createdAt": "2025-10-13T16:00:00Z",
+    "status": "todo"
+  }
+]
