@@ -8,7 +8,7 @@ export function generateJwtToken(user) {
 export function getJwtCookieOptions(maxAge = 3600000) {
 	return {
 		httpOnly: true,
-		secure: process.env.NODE_ENV === "production",
+		// secure: process.env.NODE_ENV === "production",
 		sameSite: "Lax",
 		path: "/",
 		maxAge,
