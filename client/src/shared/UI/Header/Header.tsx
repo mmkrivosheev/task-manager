@@ -4,6 +4,9 @@ import { Button } from "shared/UI/Button";
 import { Navigation } from "shared/UI/Navigation";
 import { useAppDispatch, useAppSelector } from "app/store/hooks";
 import { logoutUser } from "entities/auth/authThunk";
+import { openTaskModal } from "entities/app/appSlice";
+import { createSizedIcon } from "shared/HOC/createSizedIcon";
+import PencilIcon from "assets/icons/pencil.svg";
 import logo from "assets/img/logo.png";
 import styles from "./Header.module.scss";
 
@@ -12,10 +15,17 @@ export function Header() {
 	const dispatch = useAppDispatch();
 	const { t } = useTranslation();
 
-	const logoutBtn = (
-		<Button variant="link" onClick={() => dispatch(logoutUser())}>
-			{t("Navigation.logout")}
-		</Button>
+	const btnGroup = (
+		<div className={styles.btnGroup}>
+			<Button
+				variant="link"
+				icon={createSizedIcon(PencilIcon, 20, 20)}
+				onClick={() => dispatch(openTaskModal())}
+			/>
+			<Button variant="link" onClick={() => dispatch(logoutUser())}>
+				{t("Navigation.logout")}
+			</Button>
+		</div>
 	);
 
 	return (
@@ -27,7 +37,7 @@ export function Header() {
 							<img className={styles.logo} src={logo} alt="logo" />
 						</RouterLink>
 					</div>
-					{user ? logoutBtn : <Navigation />}
+					{user ? btnGroup : <Navigation />}
 				</div>
 			</div>
 		</header>
