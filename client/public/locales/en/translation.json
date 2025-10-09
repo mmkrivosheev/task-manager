@@ -19,7 +19,7 @@
 		"title": "Title:",
 		"description": "Description:",
 		"save": "Save",
-		"close": "Close",
+		"cancel": "Cancel",
 		"delete": "Delete",
 		"todo": "Todo",
 		"inProgress": "In progress",

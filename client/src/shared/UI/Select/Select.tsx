@@ -5,7 +5,7 @@ import { ISelectProps } from "shared/UI/Select/types";
 import styles from "./Select.module.scss";
 import clsx from "clsx";
 
-export function Select({ options, onChange, value: initValue, placeholder }: ISelectProps) {
+export function Select({ options, onChange, value: initValue, placeholder, name }: ISelectProps) {
 	const [value, setValue] = useState<string | undefined>(initValue);
 	const [selectedIndex, setSelectedIndex] = useState(0);
 	const [isOpen, setIsOpen] = useState(false);
@@ -29,7 +29,7 @@ export function Select({ options, onChange, value: initValue, placeholder }: ISe
 	};
 
 	const handleSelect = (value: string) => {
-		onChange(value);
+		onChange?.(value);
 		setValue(value);
 	};
 
@@ -57,31 +57,34 @@ export function Select({ options, onChange, value: initValue, placeholder }: ISe
 	};
 
 	return (
-		<div
-			className={styles.select}
-			ref={ref}
-			tabIndex={0}
-			onClick={handleToggle}
-			onKeyDown={handleKeyDown}
-		>
-			<div className={styles.label}>
-				{options.find(option => option.value === value)?.label ?? placeholder}
+		<>
+			<div
+				className={styles.select}
+				ref={ref}
+				tabIndex={0}
+				onClick={handleToggle}
+				onKeyDown={handleKeyDown}
+			>
+				<div className={styles.label}>
+					{options.find(option => option.value === value)?.label ?? placeholder}
+				</div>
+				{<ArrowDownIcon className={clsx(styles.icon, isOpen && styles.up)} />}
+				{isOpen && (
+					<ul className={clsx(styles.options, styles[dropdownDir(options, ref.current)])}>
+						{options.map((option, index) => (
+							<li
+								key={option.value}
+								className={clsx(index === selectedIndex && styles.selected)}
+								onClick={() => handleSelect(option.value)}
+								onMouseEnter={() => setSelectedIndex(index)}
+							>
+								{option.label}
+							</li>
+						))}
+					</ul>
+				)}
 			</div>
-			{<ArrowDownIcon className={clsx(styles.icon, isOpen && styles.up)} />}
-			{isOpen && (
-				<ul className={clsx(styles.options, styles[dropdownDir(options, ref.current)])}>
-					{options.map((option, index) => (
-						<li
-							key={option.value}
-							className={clsx(index === selectedIndex && styles.selected)}
-							onClick={() => handleSelect(option.value)}
-							onMouseEnter={() => setSelectedIndex(index)}
-						>
-							{option.label}
-						</li>
-					))}
-				</ul>
-			)}
-		</div>
+			<input type="hidden" name={name} value={value ?? ""} />
+		</>
 	);
 }

@@ -1,7 +1,7 @@
 import { ITask } from "entities/tasks/types";
 
 export interface ITaskCardProps extends ITask {
-	onClick: () => void;
+	onSubmit: () => void;
 }
 
 export interface ITaskCardErrors {

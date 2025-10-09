@@ -1,4 +1,4 @@
-import { isDefined, isEmptyObj, isValidEmail } from "shared/utils/common";
+import { getFormData, isDefined, isEmptyObj, isValidEmail } from "shared/utils/common";
 import { IPayload, IRegistrationFormErrors } from "./types";
 
 export function validateForm(form: HTMLFormElement): {
@@ -43,8 +43,4 @@ export function validateForm(form: HTMLFormElement): {
 	}
 
 	return { errors: isEmptyObj(errors) ? null : errors, payload };
-}
-
-function getFormData(form: HTMLFormElement): Record<string, string> {
-	return Object.fromEntries(new FormData(form).entries()) as Record<string, string>;
 }

@@ -28,7 +28,7 @@ export const TasksList = memo(function TasksList({ items }: ITasksListProps) {
 				title={t("TasksPage.card")}
 			>
 				<TaskCard
-					onClick={() => setSelectedTaskId(null)}
+					onSubmit={() => setSelectedTaskId(null)}
 					{...(items.find(item => item.id === selectedTaskId) as ITask)}
 				/>
 			</Modal>

@@ -23,3 +23,7 @@ export function getDiff<T extends Record<string, unknown>>(updated: T, original:
 		return acc;
 	}, {} as Partial<T>);
 }
+
+export function getFormData(form: HTMLFormElement): Record<string, string> {
+	return Object.fromEntries(new FormData(form).entries()) as Record<string, string>;
+}

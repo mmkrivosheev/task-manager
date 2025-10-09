@@ -1,8 +1,8 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useFormatDate } from "shared/hooks/useFormatDate";
 import { deleteTaskById, updateTaskById } from "entities/tasks/tasksThunk";
-import { getDiff } from "shared/utils/common";
+import { getDiff, getFormData } from "shared/utils/common";
 import { useAppDispatch } from "app/store/hooks";
 import { statuses } from "shared/UI/TaskCard/statuses";
 import { Select } from "shared/UI/Select";
@@ -12,39 +12,36 @@ import { ITask } from "entities/tasks/types";
 import { ITaskCardErrors, ITaskCardProps } from "shared/UI/TaskCard/types";
 import styles from "./TaskCard.module.scss";
 
-export function TaskCard({ id, title, description, status, createdAt, updatedAt, onClick }: ITaskCardProps) {
+export function TaskCard({ id, title, description, status, createdAt, updatedAt, onSubmit }: ITaskCardProps) {
 	const [errors, setErrors] = useState<ITaskCardErrors>({});
-	const titleRef = useRef<HTMLTextAreaElement>(null);
-	const descRef = useRef<HTMLTextAreaElement>(null);
-	const statusRef = useRef<string>(status);
 	const formatDate = useFormatDate();
 	const dispatch = useAppDispatch();
 	const { t } = useTranslation();
 
-	const saveTask = () => {
-		const updates = {
-			title: titleRef.current?.value ?? title,
-			description: descRef.current?.value ?? description,
-			status: statusRef.current ?? status,
-		};
-		if (!updates.title.length) {
+	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+		e.preventDefault();
+		const action = (e.nativeEvent as SubmitEvent).submitter as HTMLButtonElement;
+		const credentials = getFormData(e.currentTarget) as Partial<ITask>;
+
+		if (action.name === "cancel") onSubmit();
+		if (action.name === "delete") {
+			dispatch(deleteTaskById(id));
+			onSubmit();
+		}
+		if (!credentials.title?.length) {
 			setErrors({ title: t("TasksPage.titleRequired") });
 			return;
 		}
-		onClick();
-		const diff = getDiff(updates, { title, description, status }) as ITask;
-		if (Object.keys(diff).length > 0) {
+
+		const diff = getDiff(credentials, { title, description, status });
+		if (action.name === "save" && Object.keys(diff).length > 0) {
 			dispatch(updateTaskById(id, diff));
 		}
-	};
-
-	const deleteTask = () => {
-		dispatch(deleteTaskById(id));
-		onClick();
+		onSubmit();
 	};
 
 	return (
-		<div className={styles.wrapper}>
+		<form className={styles.wrapper} onSubmit={handleSubmit}>
 			<div className={styles.header}>
 				<p className={styles.createdAtLabel}>
 					{t("TasksPage.created")} {formatDate(createdAt)}
@@ -60,22 +57,28 @@ export function TaskCard({ id, title, description, status, createdAt, updatedAt,
 						<Select
 							value={status}
 							options={statuses.map(item => ({ ...item, label: t(item.label) }))}
-							onChange={value => (statusRef.current = value)}
+							name="status"
 						/>
 					</div>
 				</div>
 			</div>
 
-			<Textarea value={title} label={t("TasksPage.title")} ref={titleRef} error={errors.title} />
-			<Textarea value={description} label={t("TasksPage.description")} ref={descRef} />
+			<Textarea name="title" value={title} label={t("TasksPage.title")} error={errors.title} />
+			<Textarea name="description" value={description} label={t("TasksPage.description")} />
 
 			<div className={styles.btnGroup}>
-				<Button onClick={saveTask}>{t("TasksPage.save")}</Button>
-				<Button onClick={() => onClick()}>{t("TasksPage.close")}</Button>
+				<Button type="submit" name="save">
+					{t("TasksPage.save")}
+				</Button>
+				<Button type="submit" name="cancel">
+					{t("TasksPage.cancel")}
+				</Button>
 				<div className={styles.btnDelete}>
-					<Button onClick={deleteTask}>{t("TasksPage.delete")}</Button>
+					<Button type="submit" name="delete">
+						{t("TasksPage.delete")}
+					</Button>
 				</div>
 			</div>
-		</div>
+		</form>
 	);
 }
