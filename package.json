@@ -14,10 +14,7 @@
     "build:client": "npm run build -w client",
     "start:server": "npm run start -w server",
     "serve:client": "npm run build:client && npm run serve -w client",
-    "serve:all": "npm-run-all -p start:server serve:client",
-
-    "render-build": "npm install && npm run build:client",
-    "start": "npm run start:server"
+    "serve:all": "npm-run-all -p start:server serve:client"
   },
   "devDependencies": {
     "eslint": "^8.56.0",
