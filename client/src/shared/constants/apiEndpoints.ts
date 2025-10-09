@@ -6,7 +6,7 @@ export const API_ENDPOINTS = {
 		LOGOUT: "/api/auth/logout",
 	},
 	TASKS: {
-		ALL: "/api/tasks",
+		BASE: "/api/tasks",
 		BY_ID: (id: string) => `/api/tasks/${id}`,
 	},
 };

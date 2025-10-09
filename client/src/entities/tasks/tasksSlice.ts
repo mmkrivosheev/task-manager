@@ -20,7 +20,7 @@ const tasksSlice = createSlice({
 			state.isLoading = false;
 		},
 		addTaskSuccess(state, action: PayloadAction<ITask>) {
-			state.items.unshift(action.payload);
+			state.items.push(action.payload);
 			state.isLoading = false;
 		},
 		updateTaskSuccess(state, action: PayloadAction<ITask>) {
