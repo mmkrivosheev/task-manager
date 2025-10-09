@@ -6,7 +6,7 @@ import { authMiddleware } from "../middlewares/authMiddleware.js";
 const router = new Router({ prefix: "/api/tasks" });
 
 router.get("/", authMiddleware, getAllTasks);
-router.post("/", authMiddleware, validateBody(["title", "description"]), createNewTask);
+router.post("/", authMiddleware, validateBody(["title", "status"]), createNewTask);
 router.patch("/:id", authMiddleware, validateBody(), patchTask);
 router.delete("/:id", authMiddleware, deleteTask);
 

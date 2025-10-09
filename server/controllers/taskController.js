@@ -7,9 +7,9 @@ export function getAllTasks(ctx) {
 
 export function createNewTask(ctx) {
 	try {
-		const { title, description } = ctx.request.body;
+		const { title, description = "", status } = ctx.request.body;
 		const userId = ctx.state.user.id;
-		const task = taskService.createTask(title, description, userId);
+		const task = taskService.createTask(title, description, status, userId);
 		ctx.body = { message: "Task created", task };
 	} catch (err) {
 		ctx.status = 400;
