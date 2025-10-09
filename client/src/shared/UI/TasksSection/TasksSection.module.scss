@@ -3,6 +3,7 @@
 	padding: var(--app-padding-x);
 	overflow: auto;
 	border: none;
+	scrollbar-color: var(--scrollbar-thumb-color) var(--scrollbar-track-color);
 
 	&:focus-visible {
 		outline: 1px solid var(--color-text-hover);
