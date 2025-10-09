@@ -1,13 +1,14 @@
 import { AxiosError } from "axios";
 import { AppDispatch } from "app/store/store";
 import {
+	addTaskSuccess,
 	deleteTaskSuccess,
 	fetchTasksSuccess,
 	tasksFailure,
 	tasksStart,
 	updateTaskSuccess,
 } from "./tasksSlice";
-import { deleteTTaskAPI, getTasksAPI, updateTaskAPI } from "./tasksAPI";
+import { addTaskAPI, deleteTTaskAPI, getTasksAPI, updateTaskAPI } from "./tasksAPI";
 import { ITask } from "entities/tasks/types";
 
 export function fetchTasks() {
@@ -16,6 +17,19 @@ export function fetchTasks() {
 			dispatch(tasksStart());
 			const data = await getTasksAPI();
 			dispatch(fetchTasksSuccess(data.tasks));
+		} catch (err) {
+			const error = err as AxiosError<{ error: string }>;
+			dispatch(tasksFailure(error.response?.data.error || error.message));
+		}
+	};
+}
+
+export function addTask(addedData: Partial<ITask>) {
+	return async (dispatch: AppDispatch) => {
+		try {
+			dispatch(tasksStart());
+			const data = await addTaskAPI(addedData);
+			dispatch(addTaskSuccess(data.task));
 		} catch (err) {
 			const error = err as AxiosError<{ error: string }>;
 			dispatch(tasksFailure(error.response?.data.error || error.message));
