@@ -1,0 +1,39 @@
+.toast {
+	position: absolute;
+	bottom: calc(var(--footer-height) + 6px);
+	left: 6px;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	margin-right: 6px;
+	padding: 6px;
+	padding-left: 8px;
+	border: 1px solid var(--color-border);
+	font-size: var(--font-size-sm);
+	background-color: var(--color-bg-footer);
+	animation: slideIn 0.3s ease-out;
+
+	&.success {
+		color: var(--color-text-success);
+	}
+	&.error {
+		color: var(--color-text-danger);
+	}
+	&.info {
+		color: var(--color-text-base);
+	}
+	p {
+		line-height: 1.6;
+	}
+}
+
+@keyframes slideIn {
+	from {
+		transform: translateY(100%);
+		opacity: 0;
+	}
+	to {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}

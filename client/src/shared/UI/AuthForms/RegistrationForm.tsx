@@ -5,20 +5,20 @@ import { Button } from "shared/UI/Button";
 import { validateForm } from "./utils";
 import { useAppDispatch, useAppSelector } from "app/store/hooks";
 import { registerUser } from "entities/auth/authThunk";
-import { clearError } from "entities/auth/authSlice";
+import { clearToast } from "entities/app/appSlice";
 import { IRegistrationFormErrors } from "./types";
 import styles from "./AuthForms.module.scss";
 import { Loader } from "shared/UI/Loader";
 
 export function RegistrationForm() {
 	const [errors, setErrors] = useState<IRegistrationFormErrors>({});
-	const { isLoading, error: authError } = useAppSelector(state => state.auth);
+	const { isLoading } = useAppSelector(state => state.auth);
 	const dispatch = useAppDispatch();
 	const { t } = useTranslation();
 
 	useLayoutEffect(() => {
 		return () => {
-			dispatch(clearError());
+			dispatch(clearToast());
 		};
 	}, [dispatch]);
 
@@ -67,7 +67,6 @@ export function RegistrationForm() {
 					</Button>
 				</div>
 				{isLoading && <Loader delay={500} />}
-				{authError && <p className={styles.errorMessage}>{authError}</p>}
 			</form>
 		</>
 	);

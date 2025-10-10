@@ -5,20 +5,20 @@ import { Button } from "shared/UI/Button";
 import { ILoginFormErrors } from "./types";
 import { useAppDispatch, useAppSelector } from "app/store/hooks";
 import { loginUser } from "entities/auth/authThunk";
-import { clearError } from "entities/auth/authSlice";
+import { clearToast } from "entities/app/appSlice";
 import { validateForm } from "./utils";
 import styles from "./AuthForms.module.scss";
 import { Loader } from "shared/UI/Loader";
 
 export function LoginForm() {
 	const [errors, setErrors] = useState<ILoginFormErrors>({});
-	const { isLoading, error: authError } = useAppSelector(state => state.auth);
+	const { isLoading } = useAppSelector(state => state.auth);
 	const dispatch = useAppDispatch();
 	const { t } = useTranslation();
 
 	useLayoutEffect(() => {
 		return () => {
-			dispatch(clearError());
+			dispatch(clearToast());
 		};
 	}, [dispatch]);
 
@@ -60,7 +60,6 @@ export function LoginForm() {
 					</Button>
 				</div>
 				{isLoading && <Loader delay={500} />}
-				{authError && <p className={styles.errorMessage}>{authError}</p>}
 			</form>
 		</>
 	);
