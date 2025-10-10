@@ -9,6 +9,11 @@
 	overflow: auto;
 }
 
+.title {
+	font-size: var(--font-size-base);
+	font-weight: var(--font-weight-normal);
+}
+
 .errorMessage {
 	font-size: var(--font-size-sm);
 	color: var(--color-text-danger);
