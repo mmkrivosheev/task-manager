@@ -1,4 +1,3 @@
-import { AxiosError } from "axios";
 import { AppDispatch } from "app/store/store";
 import {
 	addTaskSuccess,
@@ -9,6 +8,7 @@ import {
 	updateTaskSuccess,
 } from "./tasksSlice";
 import { addTaskAPI, deleteTTaskAPI, getTasksAPI, updateTaskAPI } from "./tasksAPI";
+import { handleAxiosError } from "shared/utils/axiosError";
 import { ITask } from "entities/tasks/types";
 
 export function fetchTasks() {
@@ -18,8 +18,7 @@ export function fetchTasks() {
 			const data = await getTasksAPI();
 			dispatch(fetchTasksSuccess(data.tasks));
 		} catch (err) {
-			const error = err as AxiosError<{ error: string }>;
-			dispatch(tasksFailure(error.response?.data.error || error.message));
+			dispatch(tasksFailure(handleAxiosError(err)));
 		}
 	};
 }
@@ -31,8 +30,7 @@ export function addTask(addedData: Partial<ITask>) {
 			const data = await addTaskAPI(addedData);
 			dispatch(addTaskSuccess(data.task));
 		} catch (err) {
-			const error = err as AxiosError<{ error: string }>;
-			dispatch(tasksFailure(error.response?.data.error || error.message));
+			dispatch(tasksFailure(handleAxiosError(err)));
 		}
 	};
 }
@@ -44,8 +42,7 @@ export function updateTaskById(id: string, updatedData: Partial<ITask>) {
 			const data = await updateTaskAPI(id, updatedData);
 			dispatch(updateTaskSuccess(data.task));
 		} catch (err) {
-			const error = err as AxiosError<{ error: string }>;
-			dispatch(tasksFailure(error.response?.data.error || error.message));
+			dispatch(tasksFailure(handleAxiosError(err)));
 		}
 	};
 }
@@ -57,8 +54,7 @@ export function deleteTaskById(id: string) {
 			await deleteTTaskAPI(id);
 			dispatch(deleteTaskSuccess(id));
 		} catch (err) {
-			const error = err as AxiosError<{ error: string }>;
-			dispatch(tasksFailure(error.response?.data.error || error.message));
+			dispatch(tasksFailure(handleAxiosError(err)));
 		}
 	};
 }

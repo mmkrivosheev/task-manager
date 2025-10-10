@@ -1,9 +1,9 @@
-import { AxiosError } from "axios";
 import { AppDispatch } from "app/store/store";
 import { authAPI, currentUserAPI, logoutAPI } from "./authAPI";
 import { authStart, authSuccess, authFailure, logout } from "./authSlice";
 import { IPayload } from "shared/UI/AuthForms/types";
 import { API_ENDPOINTS } from "shared/constants/apiEndpoints";
+import { handleAxiosError } from "shared/utils/axiosError";
 
 function authUser(url: string, payload: IPayload) {
 	return async (dispatch: AppDispatch) => {
@@ -13,8 +13,7 @@ function authUser(url: string, payload: IPayload) {
 			dispatch(authSuccess(data.user));
 			return true;
 		} catch (err) {
-			const error = err as AxiosError<{ error: string }>;
-			dispatch(authFailure(error.response?.data.error || error.message));
+			dispatch(authFailure(handleAxiosError(err)));
 		}
 	};
 }
@@ -34,8 +33,7 @@ export function logoutUser() {
 			await logoutAPI();
 			dispatch(logout());
 		} catch (err) {
-			const error = err as AxiosError<{ error: string }>;
-			dispatch(authFailure(error.response?.data.error || error.message));
+			dispatch(authFailure(handleAxiosError(err)));
 		}
 	};
 }
