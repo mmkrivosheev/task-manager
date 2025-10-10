@@ -14,7 +14,7 @@ export function TasksSection() {
 	const [isFetching, setIsFetching] = useState(true);
 	const [selectedTaskId, setSelectedTaskId] = useState<string | null>(null);
 	const isTaskModalOpen = useAppSelector(state => state.app.isTaskModalOpen);
-	const { isLoading, error, items } = useAppSelector(state => state.tasks);
+	const { isLoading, items } = useAppSelector(state => state.tasks);
 	const dispatch = useAppDispatch();
 	const { t } = useTranslation();
 	const cardData = selectedTaskId ? items.find(item => item.id === selectedTaskId) : ({} as ITask);
@@ -27,6 +27,7 @@ export function TasksSection() {
 		if (!isTaskModalOpen) setSelectedTaskId(null);
 	}, [isTaskModalOpen]);
 
+	if (isFetching) return;
 	if (isLoading) {
 		return (
 			<div className={styles.loader}>
@@ -34,8 +35,6 @@ export function TasksSection() {
 			</div>
 		);
 	}
-	if (error) return <div className={styles.error}>{error}</div>;
-	if (isFetching) return;
 
 	const handleTaskItemClick = (id: string) => {
 		setSelectedTaskId(id);

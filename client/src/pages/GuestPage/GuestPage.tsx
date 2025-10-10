@@ -10,7 +10,7 @@ import styles from "./GuestPage.module.scss";
 export const demo = { email: "demo@example.com", password: "123456" };
 
 export function GuestPage() {
-	const { error, isLoading } = useAppSelector(state => state.auth);
+	const { isLoading } = useAppSelector(state => state.auth);
 	const dispatch = useAppDispatch();
 	const { t } = useTranslation();
 
@@ -31,7 +31,6 @@ export function GuestPage() {
 				<Trans i18nKey="GuestPage.demoInfo" components={[<i key="italic" />]} />
 			</p>
 			<Button onClick={handleClick}>{t("GuestPage.demoButton")}</Button>
-			{error && <p className={styles.errorMessage}>{t(error)}</p>}
 			{isLoading && <Loader />}
 		</main>
 	);

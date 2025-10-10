@@ -1,8 +1,9 @@
 .content {
 	position: relative;
-	padding: 8px 20px 8px 24px;
+	padding: 8px 20px 8px 26px;
 	font-size: var(--font-size-base);
 	font-weight: var(--font-weight-normal);
+	white-space: nowrap;
 
 	&::before {
 		content: "\231B";

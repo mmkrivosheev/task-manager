@@ -8,7 +8,7 @@ export const TasksList = memo(function TasksList({ items, onItemClick }: ITasksL
 	const { t } = useTranslation();
 
 	if (!items.length) {
-		return <div className={styles.empty}>{t("TasksPage.emptyList")}</div>;
+		return <p className={styles.empty}>{t("TasksPage.emptyList")}</p>;
 	}
 
 	return (
