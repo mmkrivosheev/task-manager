@@ -4,7 +4,6 @@ import { useFormatDate } from "shared/hooks/useFormatDate";
 import { addTask, deleteTaskById, updateTaskById } from "entities/tasks/tasksThunk";
 import { getDiff, getFormData } from "shared/utils/common";
 import { useAppDispatch } from "app/store/hooks";
-import { closeTaskModal } from "entities/app/appSlice";
 import { statuses } from "shared/UI/TaskCard/statuses";
 import { Select } from "shared/UI/Select";
 import { Textarea } from "shared/UI/Textarea";
@@ -13,7 +12,7 @@ import { ITask } from "entities/tasks/types";
 import { ITaskCardErrors, ITaskCardProps } from "shared/UI/TaskCard/types";
 import styles from "./TaskCard.module.scss";
 
-export function TaskCard({ id, title, description, status, createdAt, updatedAt }: ITaskCardProps) {
+export function TaskCard({ task, onSubmit }: ITaskCardProps) {
 	const [errors, setErrors] = useState<ITaskCardErrors>({});
 	const formatDate = useFormatDate();
 	const dispatch = useAppDispatch();
@@ -29,19 +28,20 @@ export function TaskCard({ id, title, description, status, createdAt, updatedAt 
 			return;
 		}
 
-		dispatch(closeTaskModal());
-
 		switch (action.name) {
+			case "cancel":
+				onSubmit();
+				break;
 			case "delete":
-				dispatch(deleteTaskById(id as string));
+				dispatch(deleteTaskById((task as ITask).id)).then(success => success && onSubmit());
 				break;
 			case "add":
-				dispatch(addTask(credentials));
+				dispatch(addTask(credentials)).then(success => success && onSubmit());
 				break;
 			case "save": {
-				const diff = getDiff(credentials, { title, description, status });
+				const diff = getDiff(credentials, task as ITask);
 				if (Object.keys(diff).length > 0) {
-					dispatch(updateTaskById(id as string, diff));
+					dispatch(updateTaskById((task as ITask).id, diff)).then(success => success && onSubmit());
 				}
 			}
 		}
@@ -50,39 +50,38 @@ export function TaskCard({ id, title, description, status, createdAt, updatedAt 
 	return (
 		<form className={styles.wrapper} onSubmit={handleSubmit}>
 			<div className={styles.header}>
-				{createdAt && (
+				{task && (
 					<p className={styles.createdAt}>
-						{t("TasksPage.created")} {formatDate(createdAt)}
+						{t("TasksPage.created")} {formatDate(task?.createdAt)}
 					</p>
 				)}
-				{updatedAt && (
+				{task?.updatedAt && (
 					<p className={styles.updatedAt}>
-						{t("TasksPage.updated")} {formatDate(updatedAt)}
+						{t("TasksPage.updated")} {formatDate(task.updatedAt)}
 					</p>
 				)}
 				<div className={styles.status}>
 					<p className={styles.statusLabel}>{t("TasksPage.status")} </p>
-					<div className={styles.statusSelect}>
-						<Select
-							value={status || "todo"}
-							options={statuses.map(item => ({ ...item, label: t(item.label) }))}
-							name="status"
-						/>
-					</div>
+					<Select
+						className={styles.statusSelect}
+						value={status || "todo"}
+						options={statuses.map(item => ({ ...item, label: t(item.label) }))}
+						name="status"
+					/>
 				</div>
 			</div>
 
-			<Textarea name="title" value={title} label={t("TasksPage.title")} error={errors.title} />
-			<Textarea name="description" value={description} label={t("TasksPage.description")} />
+			<Textarea name="title" value={task?.title} label={t("TasksPage.title")} error={errors.title} />
+			<Textarea name="description" value={task?.description} label={t("TasksPage.description")} />
 
 			<div className={styles.btnGroup}>
-				<Button type="submit" name={createdAt ? "save" : "add"}>
+				<Button type="submit" name={task ? "save" : "add"}>
 					{t("TasksPage.save")}
 				</Button>
 				<Button type="submit" name="cancel">
 					{t("TasksPage.cancel")}
 				</Button>
-				{createdAt && (
+				{task && (
 					<Button type="submit" name="delete">
 						{t("TasksPage.delete")}
 					</Button>

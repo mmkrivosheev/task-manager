@@ -8,7 +8,7 @@ export default function App() {
 	const dispatch = useAppDispatch();
 
 	useEffect(() => {
-		dispatch(fetchCurrentUser()).finally(() => setIsAuthChecking(false));
+		dispatch(fetchCurrentUser()).then(() => setIsAuthChecking(false));
 	}, [dispatch]);
 
 	return isAuthChecking || <Router />;

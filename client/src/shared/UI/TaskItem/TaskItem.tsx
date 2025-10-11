@@ -10,9 +10,7 @@ export function TaskItem({ id, title, createdAt, status, onClick }: ITaskProps) 
 	const formatDate = useFormatDate();
 
 	const handleKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
-		if (e.key === "Enter") {
-			onClick(id);
-		}
+		if (e.key === "Enter") onClick(id);
 	};
 
 	return (
@@ -24,15 +22,14 @@ export function TaskItem({ id, title, createdAt, status, onClick }: ITaskProps) 
 				</div>
 				<div className={styles.title}>{title}</div>
 			</div>
-			<div className={styles.openBtn}>
-				<Button
-					icon={createSizedIcon(OpenIcon, 24, 24)}
-					variant="link"
-					color="light"
-					tabIndex={-1}
-					onClick={() => onClick(id)}
-				/>
-			</div>
+			<Button
+				className={styles.openBtn}
+				icon={createSizedIcon(OpenIcon, 24, 24)}
+				variant="link"
+				color="light"
+				tabIndex={-1}
+				onClick={() => onClick(id)}
+			/>
 		</article>
 	);
 }

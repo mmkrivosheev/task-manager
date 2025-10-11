@@ -5,7 +5,7 @@ import { ISelectProps } from "shared/UI/Select/types";
 import styles from "./Select.module.scss";
 import clsx from "clsx";
 
-export function Select({ options, onChange, value: initValue, placeholder, name }: ISelectProps) {
+export function Select({ options, onChange, value: initValue, placeholder, name, className }: ISelectProps) {
 	const [value, setValue] = useState<string | undefined>(initValue);
 	const [selectedIndex, setSelectedIndex] = useState(0);
 	const [isOpen, setIsOpen] = useState(false);
@@ -59,7 +59,7 @@ export function Select({ options, onChange, value: initValue, placeholder, name 
 	return (
 		<>
 			<div
-				className={styles.select}
+				className={clsx(styles.select, className)}
 				ref={ref}
 				tabIndex={0}
 				onClick={handleToggle}

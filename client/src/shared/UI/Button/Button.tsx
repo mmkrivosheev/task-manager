@@ -4,6 +4,7 @@ import styles from "./Button.module.scss";
 
 export function Button({
 	children,
+	className,
 	icon: Icon,
 	block = false,
 	variant = "outlined",
@@ -20,7 +21,8 @@ export function Button({
 				block && styles.block,
 				styles[variant],
 				styles[color],
-				children && styles.text
+				children && styles.text,
+				className
 			)}
 			type="button"
 			onClick={onClick}

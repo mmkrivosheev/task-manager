@@ -1,5 +1,4 @@
 export interface IAppState {
-	isTaskModalOpen: boolean;
 	toast: IToast | null;
 }
 

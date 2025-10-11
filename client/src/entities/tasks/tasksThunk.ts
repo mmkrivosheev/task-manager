@@ -29,6 +29,7 @@ export function addTask(addedData: Partial<ITask>) {
 			dispatch(tasksStart());
 			const data = await addTaskAPI(addedData);
 			dispatch(addTaskSuccess(data.task));
+			return true;
 		} catch (err) {
 			dispatch(tasksFailure(handleAxiosError(err)));
 		}
@@ -41,6 +42,7 @@ export function updateTaskById(id: string, updatedData: Partial<ITask>) {
 			dispatch(tasksStart());
 			const data = await updateTaskAPI(id, updatedData);
 			dispatch(updateTaskSuccess(data.task));
+			return true;
 		} catch (err) {
 			dispatch(tasksFailure(handleAxiosError(err)));
 		}
@@ -53,6 +55,7 @@ export function deleteTaskById(id: string) {
 			dispatch(tasksStart());
 			await deleteTTaskAPI(id);
 			dispatch(deleteTaskSuccess(id));
+			return true;
 		} catch (err) {
 			dispatch(tasksFailure(handleAxiosError(err)));
 		}

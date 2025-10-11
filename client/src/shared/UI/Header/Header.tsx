@@ -1,16 +1,21 @@
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { RouterLink } from "shared/UI/Links";
+import { setSearchQuery } from "entities/tasks/tasksSlice";
+import { useAppDispatch, useAppSelector } from "app/store/hooks";
 import { Button } from "shared/UI/Button";
 import { Navigation } from "shared/UI/Navigation";
-import { useAppDispatch, useAppSelector } from "app/store/hooks";
+import { SearchBar } from "shared/UI/SearchBar";
 import { logoutUser } from "entities/auth/authThunk";
-import { openTaskModal } from "entities/app/appSlice";
 import { createSizedIcon } from "shared/HOC/createSizedIcon";
 import PencilIcon from "assets/icons/pencil.svg";
 import logo from "assets/img/logo.png";
 import styles from "./Header.module.scss";
+import { TaskCard } from "shared/UI/TaskCard";
+import { Modal } from "shared/UI/Modal";
 
 export function Header() {
+	const [isModalOpen, setIsModalOpen] = useState(false);
 	const { user } = useAppSelector(state => state.auth);
 	const dispatch = useAppDispatch();
 	const { t } = useTranslation();
@@ -20,7 +25,7 @@ export function Header() {
 			<Button
 				variant="link"
 				icon={createSizedIcon(PencilIcon, 20, 20)}
-				onClick={() => dispatch(openTaskModal())}
+				onClick={() => setIsModalOpen(true)}
 			/>
 			<Button variant="link" onClick={() => dispatch(logoutUser())}>
 				{t("Navigation.logout")}
@@ -32,14 +37,22 @@ export function Header() {
 		<header className={styles.header}>
 			<div className={styles.wrapper}>
 				<div className={styles.content}>
-					<div className={styles.logo}>
-						<RouterLink to="/">
-							<img className={styles.logo} src={logo} alt="logo" />
-						</RouterLink>
-					</div>
+					<RouterLink className={styles.logo} to="/">
+						<img className={styles.logo} src={logo} alt="logo" />
+					</RouterLink>
+					{user && (
+						<SearchBar
+							className={styles.searchBar}
+							placeholder={t("TasksPage.search")}
+							onSearch={value => dispatch(setSearchQuery(value))}
+						/>
+					)}
 					{user ? btnGroup : <Navigation />}
 				</div>
 			</div>
+			<Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} title={t("TasksPage.card")}>
+				<TaskCard onSubmit={() => setIsModalOpen(false)} />
+			</Modal>
 		</header>
 	);
 }

@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 import clsx from "clsx";
-import { createSizedIcon } from "shared/HOC/createSizedIcon";
+import { clearToast } from "entities/app/appSlice";
 import { useAppDispatch, useAppSelector } from "app/store/hooks";
+import { createSizedIcon } from "shared/HOC/createSizedIcon";
 import { Button } from "shared/UI/Button";
 import CloseIcon from "assets/icons/close.svg";
+import { IToastProps } from "shared/UI/Toast/types";
 import styles from "./Toast.module.scss";
-import { clearToast } from "entities/app/appSlice";
 
-export function Toast() {
+export function Toast({ closable = false }: IToastProps) {
 	const [isVisible, setIsVisible] = useState(false);
 	const toast = useAppSelector(state => state.app.toast);
 	const dispatch = useAppDispatch();
@@ -28,9 +29,11 @@ export function Toast() {
 	if (!isVisible || !toast) return;
 
 	return (
-		<div className={clsx(styles.toast, styles[toast.type])}>
-			<p>{toast.message}</p>
-			<Button variant="link" icon={createSizedIcon(CloseIcon, 22, 22)} onClick={handleClose} />
+		<div className={clsx(styles.wrapper, styles[toast.type])}>
+			<p className={styles.message}>{toast.message}</p>
+			{closable && (
+				<Button variant="link" icon={createSizedIcon(CloseIcon, 22, 22)} onClick={handleClose} />
+			)}
 		</div>
 	);
 }

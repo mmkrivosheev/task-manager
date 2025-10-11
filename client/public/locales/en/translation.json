@@ -27,7 +27,8 @@
 		"todo": "Todo",
 		"inProgress": "In progress",
 		"done": "Done",
-		"titleRequired": "Title is required"
+		"titleRequired": "Title is required",
+		"search": "Search by tasks"
 	},
 	"Navigation": {
 		"login": "Login",

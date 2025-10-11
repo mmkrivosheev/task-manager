@@ -2,13 +2,13 @@ import { useLayoutEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Input } from "shared/UI/Input";
 import { Button } from "shared/UI/Button";
-import { ILoginFormErrors } from "./types";
+import { Loader } from "shared/UI/Loader";
 import { useAppDispatch, useAppSelector } from "app/store/hooks";
 import { loginUser } from "entities/auth/authThunk";
 import { clearToast } from "entities/app/appSlice";
 import { validateForm } from "./utils";
+import { ILoginFormErrors } from "./types";
 import styles from "./AuthForms.module.scss";
-import { Loader } from "shared/UI/Loader";
 
 export function LoginForm() {
 	const [errors, setErrors] = useState<ILoginFormErrors>({});
@@ -54,13 +54,11 @@ export function LoginForm() {
 					}
 					required
 				/>
-				<div className={styles.buttonWrapper}>
-					<Button type="submit" block>
-						{t("Login.submit")}
-					</Button>
-				</div>
-				{isLoading && <Loader delay={500} />}
+				<Button className={styles.button} type="submit" block>
+					{t("Login.submit")}
+				</Button>
 			</form>
+			{isLoading && <Loader delay={500} />}
 		</>
 	);
 }

@@ -2,13 +2,13 @@ import { useLayoutEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Input } from "shared/UI/Input";
 import { Button } from "shared/UI/Button";
+import { Loader } from "shared/UI/Loader";
 import { validateForm } from "./utils";
 import { useAppDispatch, useAppSelector } from "app/store/hooks";
 import { registerUser } from "entities/auth/authThunk";
 import { clearToast } from "entities/app/appSlice";
 import { IRegistrationFormErrors } from "./types";
 import styles from "./AuthForms.module.scss";
-import { Loader } from "shared/UI/Loader";
 
 export function RegistrationForm() {
 	const [errors, setErrors] = useState<IRegistrationFormErrors>({});
@@ -61,13 +61,11 @@ export function RegistrationForm() {
 					error={t(errors.passwordRepeat || "")}
 					required
 				/>
-				<div className={styles.buttonWrapper}>
-					<Button type="submit" block>
-						{t("Registration.submit")}
-					</Button>
-				</div>
-				{isLoading && <Loader delay={500} />}
+				<Button className={styles.button} type="submit" block>
+					{t("Registration.submit")}
+				</Button>
 			</form>
+			{isLoading && <Loader delay={500} />}
 		</>
 	);
 }

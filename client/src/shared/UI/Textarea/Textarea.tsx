@@ -1,18 +1,12 @@
 import { useId, useLayoutEffect, useRef, useState } from "react";
 import { ITextareaProps } from "shared/UI/Textarea/types";
 import styles from "./Textarea.module.scss";
+import clsx from "clsx";
 
-export function Textarea({
-	value: initValue = "",
-	label,
-	error,
-	ref: externalRef,
-	...props
-}: ITextareaProps) {
+export function Textarea({ value: initValue = "", label, error, className, ...props }: ITextareaProps) {
 	const [value, setValue] = useState(initValue);
-	const innerRef = useRef<HTMLTextAreaElement>(null);
+	const ref = useRef<HTMLTextAreaElement>(null);
 	const id = useId();
-	const ref = externalRef || innerRef;
 
 	useLayoutEffect(() => {
 		const textarea = ref.current;
@@ -23,7 +17,7 @@ export function Textarea({
 	}, [value]);
 
 	return (
-		<div className={styles.wrapper}>
+		<div className={clsx(styles.wrapper, className)}>
 			{label && (
 				<label className={styles.label} htmlFor={id}>
 					{label}

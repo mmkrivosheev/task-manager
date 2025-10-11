@@ -2,7 +2,7 @@ import { AppDispatch } from "app/store/store";
 import { authAPI, currentUserAPI, logoutAPI } from "./authAPI";
 import { authStart, authSuccess, authFailure, logout } from "./authSlice";
 import { IPayload } from "shared/UI/AuthForms/types";
-import { API_ENDPOINTS } from "shared/constants/apiEndpoints";
+import { API_ENDPOINTS } from "shared/constants/urls";
 import { handleAxiosError } from "shared/utils/axiosError";
 
 function authUser(url: string, payload: IPayload) {

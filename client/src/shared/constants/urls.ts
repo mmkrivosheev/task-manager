@@ -1,3 +1,6 @@
+export const GITHUB_REPO_URL = "https://github.com/mmkrivosheev/task-manager";
+export const AUTH_PATHS = ["/login", "/register"];
+
 export const API_ENDPOINTS = {
 	AUTH: {
 		LOGIN: "/api/auth/login",

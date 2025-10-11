@@ -27,7 +27,8 @@
 		"todo": "Ожидает",
 		"inProgress": "В процессе",
 		"done": "Выполнено",
-		"titleRequired": "Название обязателено"
+		"titleRequired": "Название обязателено",
+		"search": "Поиск по задачам"
 	},
 	"Navigation": {
 		"login": "Вход",

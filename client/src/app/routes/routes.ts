@@ -7,13 +7,13 @@ import { AppRoute } from "app/routes/types";
 export const privateRoutes: AppRoute[] = [
 	{ path: "/", to: "/tasks" },
 	{ path: "/login", to: "/tasks" },
-	{ path: "/registration", to: "/tasks" },
+	{ path: "/register", to: "/tasks" },
 	{ path: "/tasks", component: TasksPage },
 ];
 
 export const publicRoutes: AppRoute[] = [
 	{ path: "/", component: GuestPage },
 	{ path: "/login", component: LoginPage },
-	{ path: "/registration", component: RegistrationPage },
+	{ path: "/register", component: RegistrationPage },
 	{ path: "/tasks", to: "/" },
 ];

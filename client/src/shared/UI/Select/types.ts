@@ -5,6 +5,7 @@ export interface IOption {
 
 export interface ISelectProps {
 	options: IOption[];
+	className?: string;
 	onChange?: (value: string) => void;
 	value?: string;
 	placeholder?: string;
