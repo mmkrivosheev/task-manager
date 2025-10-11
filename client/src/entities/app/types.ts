@@ -1,5 +1,3 @@
-import { ITaskCardProps } from "shared/UI/TaskCard/types";
-
 export interface IAppState {
 	toast: IToast | null;
 	modal: IModal;
@@ -10,10 +8,12 @@ export interface IToast {
 	type: "success" | "error" | "info";
 	duration?: number;
 }
+export interface IOpenModalPayload {
+	title: string;
+	type: "editCard" | "createCard" | string;
+	props: object;
+}
 
-export interface IModal {
+export interface IModal extends IOpenModalPayload {
 	isOpen: boolean;
-	title: string | null;
-	type: "editCard" | "createCard" | null;
-	props: ITaskCardProps | null;
 }

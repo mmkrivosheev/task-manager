@@ -1,13 +1,13 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { IAppState, IToast } from "entities/app/types";
+import { IAppState, IOpenModalPayload, IToast } from "entities/app/types";
 
 const initialState: IAppState = {
 	toast: null,
 	modal: {
 		isOpen: false,
 		title: "",
-		type: null,
-		props: null,
+		type: "",
+		props: {},
 	},
 };
 
@@ -21,17 +21,16 @@ const appSlice = createSlice({
 		clearToast(state) {
 			state.toast = null;
 		},
-		openModal: (state, action) => {
-			state.modal.isOpen = true;
+		openModal: (state, action: PayloadAction<IOpenModalPayload>) => {
 			state.modal.title = action.payload.title;
 			state.modal.type = action.payload.type;
 			state.modal.props = action.payload.props;
 		},
 		closeModal: state => {
 			state.modal.isOpen = false;
-			state.modal.title = null;
-			state.modal.type = null;
-			state.modal.props = null;
+			state.modal.title = "";
+			state.modal.type = "";
+			state.modal.props = {};
 		},
 	},
 });

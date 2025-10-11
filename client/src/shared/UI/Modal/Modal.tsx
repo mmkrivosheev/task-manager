@@ -10,11 +10,11 @@ import CloseIcon from "assets/icons/close.svg";
 import { ITaskCardProps } from "shared/UI/TaskCard/types";
 import styles from "./Modal.module.scss";
 
-const getModalContent = (type: string, props: ITaskCardProps) => {
+const getModalElement = (type: string, props: object) => {
 	switch (type) {
 		case "editCard":
 		case "createCard":
-			return <TaskCard {...props} />;
+			return <TaskCard {...(props as ITaskCardProps)} />;
 	}
 };
 
@@ -84,7 +84,7 @@ export function Modal() {
 							onClick={() => dispatch(closeModal())}
 						/>
 					</div>
-					<div>{getModalContent(type as string, props as ITaskCardProps)}</div>
+					<div>{getModalElement(type, props)}</div>
 				</div>
 			</div>
 		</Portal>
