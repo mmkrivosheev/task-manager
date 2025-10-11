@@ -42,6 +42,8 @@ export function TaskCard({ task, onSubmit }: ITaskCardProps) {
 				const diff = getDiff(credentials, task as ITask);
 				if (Object.keys(diff).length > 0) {
 					dispatch(updateTaskById((task as ITask).id, diff)).then(success => success && onSubmit());
+				} else {
+					onSubmit();
 				}
 			}
 		}

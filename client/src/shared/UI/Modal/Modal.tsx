@@ -1,13 +1,26 @@
 import { useEffect, useRef } from "react";
-import { createPortal } from "react-dom";
 import { createSizedIcon } from "shared/HOC/createSizedIcon";
 import { getFocusableElements } from "shared/UI/Modal/utils";
+import { Portal } from "shared/UI/Portal";
 import { Button } from "shared/UI/Button";
+import { useAppDispatch, useAppSelector } from "app/store/hooks";
+import { closeModal } from "entities/app/appSlice";
+import { TaskCard } from "shared/UI/TaskCard";
 import CloseIcon from "assets/icons/close.svg";
-import { IModalProps } from "shared/UI/Modal/types";
+import { ITaskCardProps } from "shared/UI/TaskCard/types";
 import styles from "./Modal.module.scss";
 
-export function Modal({ isOpen, onClose, children, title }: IModalProps) {
+const getModalContent = (type: string, props: ITaskCardProps) => {
+	switch (type) {
+		case "editCard":
+		case "createCard":
+			return <TaskCard {...props} />;
+	}
+};
+
+export function Modal() {
+	const { isOpen, title, type, props } = useAppSelector(state => state.app.modal);
+	const dispatch = useAppDispatch();
 	const modalContentRef = useRef<HTMLDivElement>(null);
 	const downTargetRef = useRef<EventTarget | null>(null);
 
@@ -15,7 +28,9 @@ export function Modal({ isOpen, onClose, children, title }: IModalProps) {
 		const prevActive = isOpen && (document.activeElement as HTMLElement);
 		const focusableEls = modalContentRef.current && getFocusableElements(modalContentRef.current);
 		const handleKeyDown = (e: KeyboardEvent) => {
-			if (isOpen && e.key === "Escape") onClose();
+			if (isOpen && e.key === "Escape") {
+				dispatch(closeModal());
+			}
 			if (isOpen && e.key === "Tab") {
 				if (!focusableEls?.length) {
 					e.preventDefault();
@@ -42,30 +57,36 @@ export function Modal({ isOpen, onClose, children, title }: IModalProps) {
 			if (prevActive) prevActive.focus();
 			document.removeEventListener("keydown", handleKeyDown);
 		};
-	}, [isOpen, onClose]);
+	}, [isOpen]);
 
 	if (!isOpen) return;
 
 	const handleOverlayClick = (e: React.MouseEvent<HTMLDivElement>) => {
-		if (e.target === e.currentTarget && e.target === downTargetRef.current) onClose();
+		if (e.target === e.currentTarget && e.target === downTargetRef.current) {
+			dispatch(closeModal());
+		}
 		downTargetRef.current = null;
 	};
 
-	const modalContent = (
-		<div
-			className={styles.overlay}
-			onMouseDown={e => (downTargetRef.current = e.target)}
-			onClick={handleOverlayClick}
-		>
-			<div ref={modalContentRef} tabIndex={-1} className={styles.content}>
-				<div className={styles.header}>
-					<h2 className={styles.title}>{title}</h2>
-					<Button variant="link" icon={createSizedIcon(CloseIcon, 22, 22)} onClick={onClose} />
+	return (
+		<Portal id="modal-root">
+			<div
+				className={styles.overlay}
+				onMouseDown={e => (downTargetRef.current = e.target)}
+				onClick={handleOverlayClick}
+			>
+				<div ref={modalContentRef} tabIndex={-1} className={styles.content}>
+					<div className={styles.header}>
+						<h2 className={styles.title}>{title}</h2>
+						<Button
+							variant="link"
+							icon={createSizedIcon(CloseIcon, 22, 22)}
+							onClick={() => dispatch(closeModal())}
+						/>
+					</div>
+					<div>{getModalContent(type as string, props as ITaskCardProps)}</div>
 				</div>
-				<div>{children}</div>
 			</div>
-		</div>
+		</Portal>
 	);
-
-	return createPortal(modalContent, document.getElementById("modal-root") as HTMLDivElement);
 }

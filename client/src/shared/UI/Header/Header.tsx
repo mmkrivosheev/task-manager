@@ -1,8 +1,8 @@
-import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { RouterLink } from "shared/UI/Links";
 import { setSearchQuery } from "entities/tasks/tasksSlice";
 import { useAppDispatch, useAppSelector } from "app/store/hooks";
+import { closeModal, openModal } from "entities/app/appSlice";
 import { Button } from "shared/UI/Button";
 import { Navigation } from "shared/UI/Navigation";
 import { SearchBar } from "shared/UI/SearchBar";
@@ -11,22 +11,27 @@ import { createSizedIcon } from "shared/HOC/createSizedIcon";
 import PencilIcon from "assets/icons/pencil.svg";
 import logo from "assets/img/logo.png";
 import styles from "./Header.module.scss";
-import { TaskCard } from "shared/UI/TaskCard";
-import { Modal } from "shared/UI/Modal";
 
 export function Header() {
-	const [isModalOpen, setIsModalOpen] = useState(false);
 	const { user } = useAppSelector(state => state.auth);
 	const dispatch = useAppDispatch();
 	const { t } = useTranslation();
 
+	const handleIconClick = () => {
+		dispatch(
+			openModal({
+				title: t("TasksPage.card"),
+				type: "editCard",
+				props: {
+					onSubmit: () => dispatch(closeModal()),
+				},
+			})
+		);
+	};
+
 	const btnGroup = (
 		<div className={styles.btnGroup}>
-			<Button
-				variant="link"
-				icon={createSizedIcon(PencilIcon, 20, 20)}
-				onClick={() => setIsModalOpen(true)}
-			/>
+			<Button variant="link" icon={createSizedIcon(PencilIcon, 20, 20)} onClick={handleIconClick} />
 			<Button variant="link" onClick={() => dispatch(logoutUser())}>
 				{t("Navigation.logout")}
 			</Button>
@@ -50,9 +55,6 @@ export function Header() {
 					{user ? btnGroup : <Navigation />}
 				</div>
 			</div>
-			<Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} title={t("TasksPage.card")}>
-				<TaskCard onSubmit={() => setIsModalOpen(false)} />
-			</Modal>
 		</header>
 	);
 }

@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import { Router } from "./routes/Router";
+import { Modal } from "shared/UI/Modal";
 import { useAppDispatch } from "app/store/hooks";
 import { fetchCurrentUser } from "entities/auth/authThunk";
+import { Toast } from "shared/UI/Toast";
 
 export default function App() {
 	const [isAuthChecking, setIsAuthChecking] = useState(true);
@@ -11,5 +13,13 @@ export default function App() {
 		dispatch(fetchCurrentUser()).then(() => setIsAuthChecking(false));
 	}, [dispatch]);
 
-	return isAuthChecking || <Router />;
+	if (isAuthChecking) return;
+
+	return (
+		<>
+			<Router />
+			<Modal />
+			<Toast />
+		</>
+	);
 }
