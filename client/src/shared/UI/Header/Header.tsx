@@ -2,7 +2,7 @@ import { useTranslation } from "react-i18next";
 import { RouterLink } from "shared/UI/Links";
 import { setSearchQuery } from "entities/tasks/tasksSlice";
 import { useAppDispatch, useAppSelector } from "app/store/hooks";
-import { closeModal, openModal } from "entities/app/appSlice";
+import { openModal } from "entities/app/appSlice";
 import { Button } from "shared/UI/Button";
 import { Navigation } from "shared/UI/Navigation";
 import { SearchBar } from "shared/UI/SearchBar";
@@ -18,15 +18,7 @@ export function Header() {
 	const { t } = useTranslation();
 
 	const handleIconClick = () => {
-		dispatch(
-			openModal({
-				title: t("TasksPage.card"),
-				type: "editCard",
-				props: {
-					onSubmit: () => dispatch(closeModal()),
-				},
-			})
-		);
+		dispatch(openModal({ type: "createCard", title: t("TasksPage.card") }));
 	};
 
 	const btnGroup = (

@@ -10,28 +10,20 @@ import CloseIcon from "assets/icons/close.svg";
 import { ITaskCardProps } from "shared/UI/TaskCard/types";
 import styles from "./Modal.module.scss";
 
-const getModalElement = (type: string, props: object) => {
-	switch (type) {
-		case "editCard":
-		case "createCard":
-			return <TaskCard {...(props as ITaskCardProps)} />;
-	}
-};
-
 export function Modal() {
-	const { isOpen, title, type, props } = useAppSelector(state => state.app.modal);
+	const modal = useAppSelector(state => state.app.modal);
 	const dispatch = useAppDispatch();
 	const modalContentRef = useRef<HTMLDivElement>(null);
 	const downTargetRef = useRef<EventTarget | null>(null);
 
 	useEffect(() => {
-		const prevActive = isOpen && (document.activeElement as HTMLElement);
+		const prevActive = modal && (document.activeElement as HTMLElement);
 		const focusableEls = modalContentRef.current && getFocusableElements(modalContentRef.current);
 		const handleKeyDown = (e: KeyboardEvent) => {
-			if (isOpen && e.key === "Escape") {
+			if (modal && e.key === "Escape") {
 				dispatch(closeModal());
 			}
-			if (isOpen && e.key === "Tab") {
+			if (modal && e.key === "Tab") {
 				if (!focusableEls?.length) {
 					e.preventDefault();
 					return;
@@ -50,22 +42,36 @@ export function Modal() {
 			}
 		};
 
-		if (isOpen) modalContentRef.current?.focus();
+		if (modal) modalContentRef.current?.focus();
 		document.addEventListener("keydown", handleKeyDown);
 
 		return () => {
 			if (prevActive) prevActive.focus();
 			document.removeEventListener("keydown", handleKeyDown);
 		};
-	}, [isOpen]);
+	}, [modal, dispatch]);
 
-	if (!isOpen) return;
+	if (!modal) return;
 
 	const handleOverlayClick = (e: React.MouseEvent<HTMLDivElement>) => {
 		if (e.target === e.currentTarget && e.target === downTargetRef.current) {
 			dispatch(closeModal());
 		}
 		downTargetRef.current = null;
+	};
+
+	const getModalContent = (type: string, data?: object) => {
+		switch (type) {
+			case "editCard":
+				return (
+					<TaskCard
+						task={(data as Partial<ITaskCardProps>).task}
+						onSubmit={() => dispatch(closeModal())}
+					/>
+				);
+			case "createCard":
+				return <TaskCard onSubmit={() => dispatch(closeModal())} />;
+		}
 	};
 
 	return (
@@ -77,14 +83,14 @@ export function Modal() {
 			>
 				<div ref={modalContentRef} tabIndex={-1} className={styles.content}>
 					<div className={styles.header}>
-						<h2 className={styles.title}>{title}</h2>
+						<h2 className={styles.title}>{modal.title}</h2>
 						<Button
 							variant="link"
 							icon={createSizedIcon(CloseIcon, 22, 22)}
 							onClick={() => dispatch(closeModal())}
 						/>
 					</div>
-					<div>{getModalElement(type, props)}</div>
+					<div>{getModalContent(modal.type, modal.data)}</div>
 				</div>
 			</div>
 		</Portal>

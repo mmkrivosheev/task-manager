@@ -1,6 +1,6 @@
 export interface IAppState {
 	toast: IToast | null;
-	modal: IModal;
+	modal: IModal | null;
 }
 
 export interface IToast {
@@ -8,12 +8,8 @@ export interface IToast {
 	type: "success" | "error" | "info";
 	duration?: number;
 }
-export interface IOpenModalPayload {
+export interface IModal {
 	title: string;
 	type: "editCard" | "createCard" | string;
-	props: object;
-}
-
-export interface IModal extends IOpenModalPayload {
-	isOpen: boolean;
+	data?: object;
 }

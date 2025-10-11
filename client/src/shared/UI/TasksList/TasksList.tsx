@@ -1,7 +1,7 @@
 import { memo } from "react";
 import { useTranslation } from "react-i18next";
 import { TaskItem } from "shared/UI/TaskItem";
-import { closeModal, openModal } from "entities/app/appSlice";
+import { openModal } from "entities/app/appSlice";
 import { useAppDispatch } from "app/store/hooks";
 import { ITasksListProps } from "shared/UI/TasksList/types";
 import styles from "./TasksList.module.scss";
@@ -17,11 +17,10 @@ export const TasksList = memo(function TasksList({ items }: ITasksListProps) {
 	const handleItemClick = (id: string) => {
 		dispatch(
 			openModal({
-				title: t("TasksPage.card"),
 				type: "editCard",
-				props: {
+				title: t("TasksPage.card"),
+				data: {
 					task: items.find(item => item.id === id),
-					onSubmit: () => dispatch(closeModal()),
 				},
 			})
 		);
