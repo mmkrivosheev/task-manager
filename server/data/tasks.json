@@ -1,210 +1,832 @@
 [
   {
-    "id": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
-    "title": "Спроектировать taskSlice",
-    "description": "Разработать структуру taskSlice для CRUD-операций.",
+    "id": "6bc060f3-6226-4bd9-842e-bf5d11bbfbf1",
+    "title": "Добавить восстановление пароля",
+    "description": "Реализовать процесс восстановления пароля через email с токеном подтверждения.",
     "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
-    "createdAt": "2025-10-01T10:00:00Z",
-    "updatedAt": "2025-10-02T09:15:00Z",
+    "createdAt": "2025-09-29T00:00:00Z",
+    "status": "todo"
+  },
+  {
+    "id": "0cd130f5-3465-47af-8804-0ebbcda25a61",
+    "title": "Оптимизировать загрузку списка задач",
+    "description": "Использовать пагинацию и lazy-loading для ускорения рендеринга.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-08-09T00:00:00Z",
     "status": "done"
   },
   {
-    "id": "2b1f8c5c-db51-4398-94bf-dbee9f2dc03f",
-    "title": "Настроить маршрутизацию в React-приложении",
-    "description": "Установить react-router-dom и определить приватные и публичные маршруты.",
+    "id": "4a509b68-e20d-4919-8d24-4b87dbd8ce68",
+    "title": "Создать дашборд задач",
+    "description": "Отобразить статистику задач по статусам и активности пользователя.",
     "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
-    "createdAt": "2025-08-02T11:30:00Z",
-    "status": "inProgress"
+    "createdAt": "2025-09-04T00:00:00Z",
+    "status": "todo",
+    "updatedAt": "2025-09-07T00:00:00Z"
   },
   {
-    "id": "3c2g9d6d-ec62-4409-a5cg-ecef0g3ed14a",
-    "title": "Интегрировать API для регистрации пользователя",
-    "description": "Подключить `registerUser` thunk к форме регистрации и обработать ошибки.",
+    "id": "239af4d6-ca0c-49f0-9a94-3eb0b0423c3d",
+    "title": "Реализовать аутентификацию",
+    "description": "Добавить регистрацию и вход пользователей с использованием JWT.",
     "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
-    "createdAt": "2025-10-03T14:45:00Z",
-    "updatedAt": "2025-10-04T08:00:00Z",
-    "status": "inProgress"
-  },
-  {
-    "id": "4d3h0e7e-fd73-4510-b6dh-fdfg1h4fe25b",
-    "title": "Создать компонент TasksList",
-    "description": "Разработать UI-компонент для отображения списка задач с возможностью переключения статуса.",
-    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
-    "createdAt": "2025-10-04T08:15:00Z",
-    "status": "todo"
-  },
-  {
-    "id": "5e4i1f8f-ge84-4621-c7ei-gegh2i5gf36c",
-    "title": "Написать юнит-тесты для редьюсеров",
-    "description": "Покрыть тестами синхронные редьюсеры: toggleTask и removeTask.",
-    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
-    "createdAt": "2025-10-05T09:00:00Z",
-    "status": "todo"
-  },
-  {
-    "id": "6f5j2g9g-hf95-4732-d8fj-hfgj3j6hg47d",
-    "title": "Оптимизировать загрузку данных профиля",
-    "description": "Пересмотреть логику получения данных профиля после входа в систему для минимизации запросов.",
-    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
-    "createdAt": "2025-09-28T16:20:00Z",
-    "updatedAt": "2025-09-29T12:00:00Z",
+    "createdAt": "2025-08-07T00:00:00Z",
     "status": "done"
   },
   {
-    "id": "7g6k3h0h-ig06-4843-e9gk-ighk4k7ih58e",
-    "title": "Документировать API-эндпоинты",
-    "description": "Обновить документацию Swagger/OpenAPI для всех task-эндпоинтов.",
+    "id": "a8e3b9c8-7ffd-419b-be6c-1a386d3af65e",
+    "title": "Создать дашборд задач",
+    "description": "Отобразить статистику задач по статусам и активности пользователя.",
     "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
-    "createdAt": "2025-10-06T13:10:00Z",
-    "status": "todo"
-  },
-  {
-    "id": "8h7l4i1i-jh17-4954-f0hl-jhlm5l8ji69f",
-    "title": "Code Review: модуль аутентификации",
-    "description": "Провести тщательный анализ кода аутентификации перед мержем в master.",
-    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
-    "createdAt": "2025-10-07T10:00:00Z",
+    "createdAt": "2025-08-28T00:00:00Z",
     "status": "inProgress"
   },
   {
-    "id": "9i8m5j2j-ki28-4a65-g1im-kino6m9kj70g",
-    "title": "Исправить баг с бесконечным рендерингом",
-    "description": "Найти причину циклического обновления состояния в компоненте TaskList.",
+    "id": "791b4984-40f7-47c7-aeaf-7f1d26033525",
+    "title": "Реализовать фильтры задач",
+    "description": "Позволить пользователю фильтровать задачи по статусу и дате создания.",
     "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
-    "createdAt": "2025-09-29T19:35:00Z",
+    "createdAt": "2025-09-06T00:00:00Z",
+    "status": "inProgress"
+  },
+  {
+    "id": "82bb4c10-e137-4e89-9bfb-7a46eb9bee3c",
+    "title": "Добавить локализацию",
+    "description": "Внедрить поддержку нескольких языков с помощью i18next.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-10-19T00:00:00Z",
+    "status": "todo",
+    "updatedAt": "2025-10-22T00:00:00Z"
+  },
+  {
+    "id": "e643170c-e719-46fe-b280-89c9a846ef99",
+    "title": "Оптимизировать загрузку списка задач",
+    "description": "Использовать пагинацию и lazy-loading для ускорения рендеринга.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-10-07T00:00:00Z",
+    "status": "todo"
+  },
+  {
+    "id": "da57031c-1fd5-42da-ab7c-ca90635accaf",
+    "title": "Добавить тестирование компонентов",
+    "description": "Написать юнит-тесты на компоненты с помощью React Testing Library.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-10-02T00:00:00Z",
     "status": "done"
   },
   {
-    "id": "0j9n6k3k-lj39-4b76-h2jn-lopq7na0lk8h",
-    "title": "Подготовить демо-версию приложения",
-    "description": "Убедиться, что все основные функции работают, и развернуть на тестовом сервере.",
+    "id": "b8b33b16-eb51-4f9d-8638-d0da37f8745c",
+    "title": "Добавить восстановление пароля",
+    "description": "Реализовать процесс восстановления пароля через email с токеном подтверждения.",
     "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
-    "createdAt": "2025-10-08T15:00:00Z",
-    "updatedAt": "2025-10-08T18:00:00Z",
+    "createdAt": "2025-08-22T00:00:00Z",
+    "status": "done",
+    "updatedAt": "2025-08-23T00:00:00Z"
+  },
+  {
+    "id": "047dca79-50e8-45c8-8087-20181bae51f8",
+    "title": "Реализовать аутентификацию",
+    "description": "Добавить регистрацию и вход пользователей с использованием JWT.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-08-21T00:00:00Z",
     "status": "todo"
   },
   {
-    "id": "10k0o7l4-mk40-4c87-i3ko-mpq18ob1ml9i",
-    "title": "Добавить фильтрацию задач по статусу",
-    "description": "Реализовать возможность фильтрации задач по статусам: todo, inProgress, done.",
+    "id": "bfe7e65e-9522-46fd-82ba-91fc3a16e15a",
+    "title": "Добавить поддержку тёмной темы",
+    "description": "Реализовать переключение светлой и тёмной темы с сохранением состояния.",
     "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
-    "createdAt": "2025-10-09T09:20:00Z",
+    "createdAt": "2025-10-11T00:00:00Z",
     "status": "inProgress"
   },
   {
-    "id": "11l1p8m5-nl51-4d98-j4lp-nqr29pc2nm0j",
-    "title": "Добавить поиск по названию задачи",
-    "description": "Реализовать текстовый поиск по полю title с дебаунсом 300 мс.",
+    "id": "7d883fe6-d1ec-4ed5-a4db-57fb6bd40f1c",
+    "title": "Добавить восстановление пароля",
+    "description": "Реализовать процесс восстановления пароля через email с токеном подтверждения.",
     "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
-    "createdAt": "2025-10-10T10:45:00Z",
+    "createdAt": "2025-08-06T00:00:00Z",
     "status": "todo"
   },
   {
-    "id": "12m2q9n6-om62-4e09-k5mq-ors30qd3on1k",
-    "title": "Реализовать сортировку задач",
-    "description": "Добавить возможность сортировки по дате создания и статусу.",
+    "id": "6ab0a18d-bba2-486f-99a6-d21261b7c6b3",
+    "title": "Добавить локализацию",
+    "description": "Внедрить поддержку нескольких языков с помощью i18next.",
     "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
-    "createdAt": "2025-10-11T11:15:00Z",
-    "updatedAt": "2025-10-11T12:30:00Z",
+    "createdAt": "2025-09-10T00:00:00Z",
     "status": "todo"
   },
   {
-    "id": "13n3r0o7-pn73-4f10-l6nr-pst41re4po2l",
-    "title": "Создать модальное окно для редактирования задачи",
-    "description": "Добавить компонент с формой редактирования title и description.",
+    "id": "bd172816-f8eb-4b6e-a547-587967e1939e",
+    "title": "Создать дашборд задач",
+    "description": "Отобразить статистику задач по статусам и активности пользователя.",
     "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
-    "createdAt": "2025-10-12T13:00:00Z",
-    "status": "inProgress"
-  },
-  {
-    "id": "14o4s1p8-qq84-4g21-m7os-qtu52sf5qp3m",
-    "title": "Добавить подтверждение удаления задачи",
-    "description": "Перед удалением задачи показывать диалог подтверждения с кнопками OK/Cancel.",
-    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
-    "createdAt": "2025-10-13T08:45:00Z",
-    "status": "todo"
-  },
-  {
-    "id": "15p5t2q9-rr95-4h32-n8pt-ruv63tg6rq4n",
-    "title": "Добавить индикатор загрузки задач",
-    "description": "Отображать спиннер во время выполнения fetchTasks.",
-    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
-    "createdAt": "2025-10-14T09:30:00Z",
-    "updatedAt": "2025-10-14T10:10:00Z",
+    "createdAt": "2025-08-04T00:00:00Z",
     "status": "done"
   },
   {
-    "id": "16q6u3r0-ss06-4i43-o9qu-svw74uh7sr5o",
-    "title": "Интегрировать dnd для сортировки задач",
-    "description": "Добавить возможность менять порядок задач перетаскиванием.",
+    "id": "a13d3dd9-a036-43fe-87f3-67a7fa0c070b",
+    "title": "Добавить поддержку тёмной темы",
+    "description": "Реализовать переключение светлой и тёмной темы с сохранением состояния.",
     "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
-    "createdAt": "2025-10-15T12:15:00Z",
-    "status": "todo"
+    "createdAt": "2025-10-04T00:00:00Z",
+    "status": "done"
   },
   {
-    "id": "17r7v4s1-tt17-4j54-p0rv-twx85vi8ts6p",
-    "title": "Добавить уведомления об ошибках",
-    "description": "Показывать всплывающее уведомление при ошибке запроса к API.",
+    "id": "75d14d4c-b3da-4dd2-9240-5074c07744b8",
+    "title": "Реализовать фильтры задач",
+    "description": "Позволить пользователю фильтровать задачи по статусу и дате создания.",
     "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
-    "createdAt": "2025-10-16T14:00:00Z",
+    "createdAt": "2025-09-05T00:00:00Z",
+    "status": "done"
+  },
+  {
+    "id": "552c802f-b596-4458-8deb-182b9a4cd47a",
+    "title": "Добавить локализацию",
+    "description": "Внедрить поддержку нескольких языков с помощью i18next.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-09-30T00:00:00Z",
+    "status": "todo",
+    "updatedAt": "2025-10-05T00:00:00Z"
+  },
+  {
+    "id": "23da35ff-e7a2-4498-8c2b-be8ab36e13c9",
+    "title": "Интегрировать drag-and-drop",
+    "description": "Добавить возможность менять порядок задач с помощью drag-and-drop.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-08-13T00:00:00Z",
     "status": "inProgress"
   },
   {
-    "id": "18s8w5t2-uu28-4k65-q1sw-uxy96wj9ut7q",
-    "title": "Добавить пагинацию списка задач",
-    "description": "Ограничить отображение до 10 задач на страницу с кнопками навигации.",
+    "id": "7ad10c46-70d9-4e66-ae9c-39b5a244d17e",
+    "title": "Добавить локализацию",
+    "description": "Внедрить поддержку нескольких языков с помощью i18next.",
     "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
-    "createdAt": "2025-10-17T15:45:00Z",
-    "updatedAt": "2025-10-17T17:10:00Z",
-    "status": "todo"
+    "createdAt": "2025-08-28T00:00:00Z",
+    "status": "done"
   },
   {
-    "id": "19t9x6u3-vv39-4l76-r2tx-vyz07xk0vu8r",
-    "title": "Добавить сохранение фильтров в localStorage",
-    "description": "Запоминать выбранные фильтры между перезагрузками страницы.",
+    "id": "197a2db0-4a77-4907-8c3c-3f7f6b8ecd9e",
+    "title": "Реализовать фильтры задач",
+    "description": "Позволить пользователю фильтровать задачи по статусу и дате создания.",
     "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
-    "createdAt": "2025-10-18T17:00:00Z",
-    "status": "todo"
-  },
-  {
-    "id": "1k0o7l4l-mk40-4c87-i3ko-mopq8ob1lm9i",
-    "title": "Добавить фильтр по статусу задач",
-    "description": "Реализовать возможность фильтрации задач по статусу (todo, inProgress, done) в UI.",
-    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
-    "createdAt": "2025-10-09T10:00:00Z",
+    "createdAt": "2025-10-22T00:00:00Z",
     "status": "inProgress"
   },
   {
-    "id": "2l1p8m5m-nl51-4d98-j4lp-npqr9pc2mn0j",
-    "title": "Добавить локализацию интерфейса",
-    "description": "Интегрировать i18next и добавить поддержку русского и английского языков.",
+    "id": "7835c782-c574-4eef-af91-66e95e20cb85",
+    "title": "Добавить поддержку тёмной темы",
+    "description": "Реализовать переключение светлой и тёмной темы с сохранением состояния.",
     "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
-    "createdAt": "2025-10-10T11:45:00Z",
-    "status": "todo"
+    "createdAt": "2025-09-13T00:00:00Z",
+    "status": "done"
   },
   {
-    "id": "3m2q9n6n-op62-4e09-k5mq-opqs0qd3no1k",
-    "title": "Настроить сортировку задач по дате",
-    "description": "Добавить сортировку задач по дате создания — от новых к старым и наоборот.",
+    "id": "7da77d83-b6f3-4492-8577-88859ffd7190",
+    "title": "Добавить восстановление пароля",
+    "description": "Реализовать процесс восстановления пароля через email с токеном подтверждения.",
     "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
-    "createdAt": "2025-10-11T09:30:00Z",
-    "status": "todo"
+    "createdAt": "2025-09-07T00:00:00Z",
+    "status": "done"
   },
   {
-    "id": "4n3r0o7o-pq73-4f10-l6nr-pqrt1re4op2l",
-    "title": "Реализовать dnd для задач",
-    "description": "Добавить возможность перетаскивания задач между статусами с помощью react-beautiful-dnd.",
-    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92е",
-    "createdAt": "2025-10-12T14:15:00Z",
-    "updatedAt": "2025-10-13T09:30:00Z",
+    "id": "e036cc91-22b3-4f3f-acb4-f4712cbc93d5",
+    "title": "Интегрировать push-уведомления",
+    "description": "Подключить Web Push API для уведомлений о новых задачах.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-09-04T00:00:00Z",
     "status": "inProgress"
   },
   {
-    "id": "5o4s1p8p-qr84-4g21-m7os-qrst2sf5pq3m",
-    "title": "Настроить уведомления о дедлайнах",
-    "description": "Добавить уведомления о приближающихся дедлайнах задач с использованием Web Notifications API.",
-    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92е",
-    "createdAt": "2025-10-13T16:00:00Z",
+    "id": "a30fa599-e4ca-4b77-a426-13191b0ec40e",
+    "title": "Добавить восстановление пароля",
+    "description": "Реализовать процесс восстановления пароля через email с токеном подтверждения.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-09-10T00:00:00Z",
+    "status": "inProgress",
+    "updatedAt": "2025-09-15T00:00:00Z"
+  },
+  {
+    "id": "2e03ee68-0625-4f30-8e04-17d1c6468691",
+    "title": "Интегрировать push-уведомления",
+    "description": "Подключить Web Push API для уведомлений о новых задачах.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-10-20T00:00:00Z",
+    "status": "done",
+    "updatedAt": "2025-10-23T00:00:00Z"
+  },
+  {
+    "id": "65151450-0024-46aa-bd37-b32ccfc48dac",
+    "title": "Создать дашборд задач",
+    "description": "Отобразить статистику задач по статусам и активности пользователя.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-09-24T00:00:00Z",
+    "status": "done"
+  },
+  {
+    "id": "8a0d1777-3c6f-4f42-9fd1-45312dc49c4b",
+    "title": "Оптимизировать загрузку списка задач",
+    "description": "Использовать пагинацию и lazy-loading для ускорения рендеринга.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-09-12T00:00:00Z",
+    "status": "done"
+  },
+  {
+    "id": "c3170d49-e2ac-4415-ad93-0297c59b1c9d",
+    "title": "Добавить восстановление пароля",
+    "description": "Реализовать процесс восстановления пароля через email с токеном подтверждения.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-08-10T00:00:00Z",
+    "status": "inProgress"
+  },
+  {
+    "id": "d3650ff6-09ca-4e5b-a139-255b5305fe02",
+    "title": "Оптимизировать загрузку списка задач",
+    "description": "Использовать пагинацию и lazy-loading для ускорения рендеринга.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-09-12T00:00:00Z",
     "status": "todo"
+  },
+  {
+    "id": "79904544-49f2-4375-836d-9783e85469b7",
+    "title": "Добавить восстановление пароля",
+    "description": "Реализовать процесс восстановления пароля через email с токеном подтверждения.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-09-15T00:00:00Z",
+    "status": "todo"
+  },
+  {
+    "id": "f81e995b-5c57-4c95-aaf2-8a55a7ce51a2",
+    "title": "Реализовать фильтры задач",
+    "description": "Позволить пользователю фильтровать задачи по статусу и дате создания.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-09-06T00:00:00Z",
+    "status": "todo"
+  },
+  {
+    "id": "811025a3-048e-4bcf-87c7-68db8f69a595",
+    "title": "Интегрировать drag-and-drop",
+    "description": "Добавить возможность менять порядок задач с помощью drag-and-drop.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-10-12T00:00:00Z",
+    "status": "inProgress",
+    "updatedAt": "2025-10-17T00:00:00Z"
+  },
+  {
+    "id": "3076dcfb-3232-44da-9660-9f6a35afc72c",
+    "title": "Добавить локализацию",
+    "description": "Внедрить поддержку нескольких языков с помощью i18next.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-08-06T00:00:00Z",
+    "status": "inProgress"
+  },
+  {
+    "id": "36744926-1943-453b-bc6b-b02646d7d745",
+    "title": "Добавить поддержку тёмной темы",
+    "description": "Реализовать переключение светлой и тёмной темы с сохранением состояния.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-08-26T00:00:00Z",
+    "status": "inProgress"
+  },
+  {
+    "id": "d27a2ee5-55a8-435f-8ae6-f19aeacf6525",
+    "title": "Добавить локализацию",
+    "description": "Внедрить поддержку нескольких языков с помощью i18next.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-08-09T00:00:00Z",
+    "status": "todo",
+    "updatedAt": "2025-08-13T00:00:00Z"
+  },
+  {
+    "id": "d72c5cff-6ec0-4dbf-95bb-0fd6df5cf317",
+    "title": "Добавить восстановление пароля",
+    "description": "Реализовать процесс восстановления пароля через email с токеном подтверждения.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-08-14T00:00:00Z",
+    "status": "done"
+  },
+  {
+    "id": "0128d3b6-5171-415f-835e-10e10287ba51",
+    "title": "Создать дашборд задач",
+    "description": "Отобразить статистику задач по статусам и активности пользователя.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-08-21T00:00:00Z",
+    "status": "todo",
+    "updatedAt": "2025-08-24T00:00:00Z"
+  },
+  {
+    "id": "278642c9-bb90-49b3-97a5-744391bafe35",
+    "title": "Добавить поддержку тёмной темы",
+    "description": "Реализовать переключение светлой и тёмной темы с сохранением состояния.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-08-16T00:00:00Z",
+    "status": "todo",
+    "updatedAt": "2025-08-19T00:00:00Z"
+  },
+  {
+    "id": "36363910-6aa9-4fdd-96cb-3cb732772c1a",
+    "title": "Интегрировать drag-and-drop",
+    "description": "Добавить возможность менять порядок задач с помощью drag-and-drop.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-09-30T00:00:00Z",
+    "status": "done",
+    "updatedAt": "2025-10-02T00:00:00Z"
+  },
+  {
+    "id": "7a9ebd8c-bab3-4ca7-8525-044a44cb79d5",
+    "title": "Реализовать аутентификацию",
+    "description": "Добавить регистрацию и вход пользователей с использованием JWT.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-10-29T00:00:00Z",
+    "status": "todo"
+  },
+  {
+    "id": "de789758-c92c-4d73-8ff0-bed3baf31c3d",
+    "title": "Реализовать фильтры задач",
+    "description": "Позволить пользователю фильтровать задачи по статусу и дате создания.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-09-25T00:00:00Z",
+    "status": "done"
+  },
+  {
+    "id": "09a39cf4-21e3-4230-92bf-5d9df85b7a08",
+    "title": "Интегрировать push-уведомления",
+    "description": "Подключить Web Push API для уведомлений о новых задачах.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-09-13T00:00:00Z",
+    "status": "inProgress",
+    "updatedAt": "2025-09-18T00:00:00Z"
+  },
+  {
+    "id": "c9f2a445-5065-4ebe-8f18-7fc7d659737b",
+    "title": "Создать дашборд задач",
+    "description": "Отобразить статистику задач по статусам и активности пользователя.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-08-23T00:00:00Z",
+    "status": "inProgress",
+    "updatedAt": "2025-08-25T00:00:00Z"
+  },
+  {
+    "id": "b991c5b8-4c7a-449c-be21-78c9522f060e",
+    "title": "Добавить восстановление пароля",
+    "description": "Реализовать процесс восстановления пароля через email с токеном подтверждения.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-09-27T00:00:00Z",
+    "status": "todo"
+  },
+  {
+    "id": "722466b1-d9de-4b0f-ad81-1420acbaeb8c",
+    "title": "Интегрировать drag-and-drop",
+    "description": "Добавить возможность менять порядок задач с помощью drag-and-drop.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-10-14T00:00:00Z",
+    "status": "inProgress",
+    "updatedAt": "2025-10-17T00:00:00Z"
+  },
+  {
+    "id": "bcd39522-92fb-432c-aea8-0df4302559b4",
+    "title": "Интегрировать drag-and-drop",
+    "description": "Добавить возможность менять порядок задач с помощью drag-and-drop.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-09-20T00:00:00Z",
+    "status": "todo"
+  },
+  {
+    "id": "6dc0e7ab-c88f-45e3-93fe-6637cca3e3af",
+    "title": "Создать дашборд задач",
+    "description": "Отобразить статистику задач по статусам и активности пользователя.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-09-09T00:00:00Z",
+    "status": "done"
+  },
+  {
+    "id": "51984da3-a592-4597-b8f2-91d89861dcd0",
+    "title": "Добавить восстановление пароля",
+    "description": "Реализовать процесс восстановления пароля через email с токеном подтверждения.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-09-14T00:00:00Z",
+    "status": "todo"
+  },
+  {
+    "id": "46c0d74b-91f2-4d65-80b8-2357a10d6b42",
+    "title": "Интегрировать drag-and-drop",
+    "description": "Добавить возможность менять порядок задач с помощью drag-and-drop.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-08-21T00:00:00Z",
+    "status": "done",
+    "updatedAt": "2025-08-24T00:00:00Z"
+  },
+  {
+    "id": "b671a8d0-e330-4475-8c6c-95f35094a285",
+    "title": "Добавить поддержку тёмной темы",
+    "description": "Реализовать переключение светлой и тёмной темы с сохранением состояния.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-10-30T00:00:00Z",
+    "status": "done"
+  },
+  {
+    "id": "b8bb280c-e8be-4d3d-beac-cee0a596f682",
+    "title": "Оптимизировать загрузку списка задач",
+    "description": "Использовать пагинацию и lazy-loading для ускорения рендеринга.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-08-06T00:00:00Z",
+    "status": "todo"
+  },
+  {
+    "id": "bd145823-3b82-4329-9f54-b345ff717e24",
+    "title": "Оптимизировать загрузку списка задач",
+    "description": "Использовать пагинацию и lazy-loading для ускорения рендеринга.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-10-11T00:00:00Z",
+    "status": "done",
+    "updatedAt": "2025-10-16T00:00:00Z"
+  },
+  {
+    "id": "b851d3de-5bc1-4743-98e2-a745e13193bf",
+    "title": "Интегрировать push-уведомления",
+    "description": "Подключить Web Push API для уведомлений о новых задачах.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-09-30T00:00:00Z",
+    "status": "done"
+  },
+  {
+    "id": "707fcb62-4d9e-4777-9932-b0182ab54b87",
+    "title": "Реализовать аутентификацию",
+    "description": "Добавить регистрацию и вход пользователей с использованием JWT.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-08-08T00:00:00Z",
+    "status": "done"
+  },
+  {
+    "id": "72cddca9-78d1-4edb-86d4-4287acf71c9b",
+    "title": "Создать дашборд задач",
+    "description": "Отобразить статистику задач по статусам и активности пользователя.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-08-16T00:00:00Z",
+    "status": "todo"
+  },
+  {
+    "id": "7408699f-c9c9-44a9-98d6-cb24eb582551",
+    "title": "Добавить тестирование компонентов",
+    "description": "Написать юнит-тесты на компоненты с помощью React Testing Library.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-09-15T00:00:00Z",
+    "status": "inProgress"
+  },
+  {
+    "id": "89964de6-7674-41f0-8f77-6b858f5d7032",
+    "title": "Реализовать аутентификацию",
+    "description": "Добавить регистрацию и вход пользователей с использованием JWT.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-10-13T00:00:00Z",
+    "status": "done"
+  },
+  {
+    "id": "654de6f3-ee11-41fb-889f-2057721a22fe",
+    "title": "Добавить локализацию",
+    "description": "Внедрить поддержку нескольких языков с помощью i18next.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-09-07T00:00:00Z",
+    "status": "done"
+  },
+  {
+    "id": "fcbfe921-bef6-47df-b079-28cf34c10d57",
+    "title": "Интегрировать drag-and-drop",
+    "description": "Добавить возможность менять порядок задач с помощью drag-and-drop.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-10-16T00:00:00Z",
+    "status": "inProgress"
+  },
+  {
+    "id": "d29b03ad-e4c9-49c6-90ab-d3bd49eaf0d7",
+    "title": "Реализовать аутентификацию",
+    "description": "Добавить регистрацию и вход пользователей с использованием JWT.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-08-12T00:00:00Z",
+    "status": "inProgress"
+  },
+  {
+    "id": "82cf9d7f-f8b5-4b2c-929f-3a0674e5115e",
+    "title": "Создать дашборд задач",
+    "description": "Отобразить статистику задач по статусам и активности пользователя.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-08-18T00:00:00Z",
+    "status": "todo",
+    "updatedAt": "2025-08-23T00:00:00Z"
+  },
+  {
+    "id": "79902cc9-8a4f-4514-a27a-70e0255369ae",
+    "title": "Создать дашборд задач",
+    "description": "Отобразить статистику задач по статусам и активности пользователя.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-09-16T00:00:00Z",
+    "status": "todo"
+  },
+  {
+    "id": "f641af07-ee8d-4be7-8658-c2f9f6aa8485",
+    "title": "Реализовать фильтры задач",
+    "description": "Позволить пользователю фильтровать задачи по статусу и дате создания.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-08-17T00:00:00Z",
+    "status": "inProgress"
+  },
+  {
+    "id": "a79ed6fd-3080-47d3-80a6-1c3a6531ee82",
+    "title": "Добавить восстановление пароля",
+    "description": "Реализовать процесс восстановления пароля через email с токеном подтверждения.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-08-31T00:00:00Z",
+    "status": "todo",
+    "updatedAt": "2025-09-02T00:00:00Z"
+  },
+  {
+    "id": "c8485f36-917e-481d-ad65-49389963ddf8",
+    "title": "Интегрировать drag-and-drop",
+    "description": "Добавить возможность менять порядок задач с помощью drag-and-drop.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-10-28T00:00:00Z",
+    "status": "todo",
+    "updatedAt": "2025-10-31T00:00:00Z"
+  },
+  {
+    "id": "deb0e6d5-7ae2-40bc-aac6-4038fdc521a0",
+    "title": "Добавить тестирование компонентов",
+    "description": "Написать юнит-тесты на компоненты с помощью React Testing Library.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-09-24T00:00:00Z",
+    "status": "todo"
+  },
+  {
+    "id": "edba708a-ad61-4ecd-b06c-6dd2f30cd3fe",
+    "title": "Добавить восстановление пароля",
+    "description": "Реализовать процесс восстановления пароля через email с токеном подтверждения.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-09-25T00:00:00Z",
+    "status": "todo",
+    "updatedAt": "2025-09-29T00:00:00Z"
+  },
+  {
+    "id": "3463872f-d0e6-4d1c-8fe8-4a9094edb7b1",
+    "title": "Добавить тестирование компонентов",
+    "description": "Написать юнит-тесты на компоненты с помощью React Testing Library.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-09-10T00:00:00Z",
+    "status": "todo"
+  },
+  {
+    "id": "9d9ce4c9-026a-489d-bcd0-0d08c8123d6e",
+    "title": "Реализовать фильтры задач",
+    "description": "Позволить пользователю фильтровать задачи по статусу и дате создания.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-09-27T00:00:00Z",
+    "status": "done"
+  },
+  {
+    "id": "1df31eab-ed49-4a82-87a7-d429433bc96b",
+    "title": "Оптимизировать загрузку списка задач",
+    "description": "Использовать пагинацию и lazy-loading для ускорения рендеринга.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-10-22T00:00:00Z",
+    "status": "inProgress"
+  },
+  {
+    "id": "0b6e2ca0-c554-4479-8a60-f845abbf945f",
+    "title": "Реализовать фильтры задач",
+    "description": "Позволить пользователю фильтровать задачи по статусу и дате создания.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-08-10T00:00:00Z",
+    "status": "done"
+  },
+  {
+    "id": "15808e0d-211a-4427-b86f-da832bef3bcf",
+    "title": "Реализовать фильтры задач",
+    "description": "Позволить пользователю фильтровать задачи по статусу и дате создания.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-08-06T00:00:00Z",
+    "status": "inProgress"
+  },
+  {
+    "id": "7bb628a8-a3d9-466b-96e3-26017d235a3d",
+    "title": "Реализовать аутентификацию",
+    "description": "Добавить регистрацию и вход пользователей с использованием JWT.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-10-04T00:00:00Z",
+    "status": "inProgress",
+    "updatedAt": "2025-10-08T00:00:00Z"
+  },
+  {
+    "id": "5d78a993-cf5a-478e-949a-a068bcf8979d",
+    "title": "Создать дашборд задач",
+    "description": "Отобразить статистику задач по статусам и активности пользователя.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-10-05T00:00:00Z",
+    "status": "inProgress"
+  },
+  {
+    "id": "a2462758-99c4-4063-b481-ad4678745faa",
+    "title": "Добавить тестирование компонентов",
+    "description": "Написать юнит-тесты на компоненты с помощью React Testing Library.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-08-08T00:00:00Z",
+    "status": "done"
+  },
+  {
+    "id": "b2aa97a8-b6f9-4134-af4c-071af83f51f3",
+    "title": "Интегрировать drag-and-drop",
+    "description": "Добавить возможность менять порядок задач с помощью drag-and-drop.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-09-08T00:00:00Z",
+    "status": "inProgress",
+    "updatedAt": "2025-09-11T00:00:00Z"
+  },
+  {
+    "id": "35ed0c78-4c4b-46b9-9d64-53d49d4cd61a",
+    "title": "Оптимизировать загрузку списка задач",
+    "description": "Использовать пагинацию и lazy-loading для ускорения рендеринга.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-09-05T00:00:00Z",
+    "status": "inProgress"
+  },
+  {
+    "id": "dc60e443-75a1-40e7-b729-58da053ac537",
+    "title": "Реализовать аутентификацию",
+    "description": "Добавить регистрацию и вход пользователей с использованием JWT.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-08-09T00:00:00Z",
+    "status": "inProgress"
+  },
+  {
+    "id": "e8e2b3fe-a489-4b2d-9a4c-0fc69f0ef1d5",
+    "title": "Интегрировать drag-and-drop",
+    "description": "Добавить возможность менять порядок задач с помощью drag-and-drop.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-08-24T00:00:00Z",
+    "status": "inProgress",
+    "updatedAt": "2025-08-26T00:00:00Z"
+  },
+  {
+    "id": "9dd4fd33-fd18-42e7-a9a9-691b3bcf7067",
+    "title": "Добавить локализацию",
+    "description": "Внедрить поддержку нескольких языков с помощью i18next.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-08-15T00:00:00Z",
+    "status": "todo",
+    "updatedAt": "2025-08-18T00:00:00Z"
+  },
+  {
+    "id": "acab92f3-ee49-450a-b240-db76c4efbcc9",
+    "title": "Оптимизировать загрузку списка задач",
+    "description": "Использовать пагинацию и lazy-loading для ускорения рендеринга.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-10-15T00:00:00Z",
+    "status": "todo"
+  },
+  {
+    "id": "038d2950-e5a2-47f7-836d-138aca954c2b",
+    "title": "Создать дашборд задач",
+    "description": "Отобразить статистику задач по статусам и активности пользователя.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-08-09T00:00:00Z",
+    "status": "inProgress",
+    "updatedAt": "2025-08-13T00:00:00Z"
+  },
+  {
+    "id": "fa4d6abb-457d-4fa1-8d6d-647802366004",
+    "title": "Добавить локализацию",
+    "description": "Внедрить поддержку нескольких языков с помощью i18next.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-10-02T00:00:00Z",
+    "status": "inProgress"
+  },
+  {
+    "id": "ad408a4d-e907-4fff-9c46-8b14a7910881",
+    "title": "Оптимизировать загрузку списка задач",
+    "description": "Использовать пагинацию и lazy-loading для ускорения рендеринга.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-09-27T00:00:00Z",
+    "status": "todo"
+  },
+  {
+    "id": "52429726-ac09-46d9-bdc7-6a0db75dbfdd",
+    "title": "Реализовать фильтры задач",
+    "description": "Позволить пользователю фильтровать задачи по статусу и дате создания.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-10-15T00:00:00Z",
+    "status": "todo"
+  },
+  {
+    "id": "0556aca3-7123-4a05-818e-d03c9eaf5793",
+    "title": "Реализовать аутентификацию",
+    "description": "Добавить регистрацию и вход пользователей с использованием JWT.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-09-07T00:00:00Z",
+    "status": "done"
+  },
+  {
+    "id": "fdb3e52b-ecf3-4bf0-9835-4b55944e3689",
+    "title": "Интегрировать push-уведомления",
+    "description": "Подключить Web Push API для уведомлений о новых задачах.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-08-18T00:00:00Z",
+    "status": "inProgress",
+    "updatedAt": "2025-08-19T00:00:00Z"
+  },
+  {
+    "id": "ecd5bdc8-dc53-41c2-ab48-ad54abf35ac9",
+    "title": "Интегрировать drag-and-drop",
+    "description": "Добавить возможность менять порядок задач с помощью drag-and-drop.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-09-30T00:00:00Z",
+    "status": "todo"
+  },
+  {
+    "id": "f25e8d54-d9ab-4466-abf6-4cebae202230",
+    "title": "Добавить тестирование компонентов",
+    "description": "Написать юнит-тесты на компоненты с помощью React Testing Library.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-09-27T00:00:00Z",
+    "status": "todo"
+  },
+  {
+    "id": "1c495ba7-3580-4cd2-8f2c-45fe42d0f8f6",
+    "title": "Интегрировать push-уведомления",
+    "description": "Подключить Web Push API для уведомлений о новых задачах.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-09-22T00:00:00Z",
+    "status": "done"
+  },
+  {
+    "id": "9dae1fc5-79fe-4c44-aa17-3b50f286cd51",
+    "title": "Интегрировать drag-and-drop",
+    "description": "Добавить возможность менять порядок задач с помощью drag-and-drop.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-09-11T00:00:00Z",
+    "status": "done"
+  },
+  {
+    "id": "1840ecd7-59a1-4dc9-a6f6-ef4a564bae96",
+    "title": "Создать дашборд задач",
+    "description": "Отобразить статистику задач по статусам и активности пользователя.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-09-21T00:00:00Z",
+    "status": "inProgress"
+  },
+  {
+    "id": "c8445e2a-3fac-4fcc-bd7a-2615b5b4a684",
+    "title": "Добавить поддержку тёмной темы",
+    "description": "Реализовать переключение светлой и тёмной темы с сохранением состояния.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-09-30T00:00:00Z",
+    "status": "done",
+    "updatedAt": "2025-10-02T00:00:00Z"
+  },
+  {
+    "id": "0ef70987-f835-4d63-9b58-a78a7f91000d",
+    "title": "Добавить тестирование компонентов",
+    "description": "Написать юнит-тесты на компоненты с помощью React Testing Library.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-10-11T00:00:00Z",
+    "status": "done"
+  },
+  {
+    "id": "f02a7de1-085f-4c97-9a5a-78ba13c8b508",
+    "title": "Добавить восстановление пароля",
+    "description": "Реализовать процесс восстановления пароля через email с токеном подтверждения.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-08-14T00:00:00Z",
+    "status": "todo",
+    "updatedAt": "2025-08-16T00:00:00Z"
+  },
+  {
+    "id": "bd188792-7a0d-4dd8-8e81-a2146e9a730f",
+    "title": "Добавить локализацию",
+    "description": "Внедрить поддержку нескольких языков с помощью i18next.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-09-14T00:00:00Z",
+    "status": "inProgress",
+    "updatedAt": "2025-09-16T00:00:00Z"
+  },
+  {
+    "id": "aebd83f4-8940-47e5-936a-884892a72e87",
+    "title": "Добавить восстановление пароля",
+    "description": "Реализовать процесс восстановления пароля через email с токеном подтверждения.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-08-07T00:00:00Z",
+    "status": "done",
+    "updatedAt": "2025-08-11T00:00:00Z"
+  },
+  {
+    "id": "c6cb6821-5c48-458a-aa2d-9db3c8ad8333",
+    "title": "Интегрировать push-уведомления",
+    "description": "Подключить Web Push API для уведомлений о новых задачах.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-10-30T00:00:00Z",
+    "status": "done"
+  },
+  {
+    "id": "8dac9fe4-539d-43ed-bb5d-b41a37acbeb6",
+    "title": "Добавить восстановление пароля",
+    "description": "Реализовать процесс восстановления пароля через email с токеном подтверждения.",
+    "userId": "1a0e7b4b-ca40-4287-83ae-cae8d51cb92e",
+    "createdAt": "2025-09-24T00:00:00Z",
+    "status": "done"
   }
 ]
