@@ -6,18 +6,8 @@
 	cursor: pointer;
 	transition: box-shadow 0.1s;
 
-	&:hover {
-		background-color: var(--color-bg-item-hover);
-
-		.openBtn {
-			display: initial;
-		}
-	}
-	&:focus {
-		background-color: var(--color-bg-item-hover);
-	}
-	&:focus-visible {
-		outline: none;
+	&:hover .openBtn {
+		display: initial;
 	}
 }
 

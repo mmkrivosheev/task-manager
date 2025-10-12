@@ -9,12 +9,8 @@ import styles from "./TaskItem.module.scss";
 export function TaskItem({ id, title, createdAt, status, onClick }: ITaskProps) {
 	const formatDate = useFormatDate();
 
-	const handleKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
-		if (e.key === "Enter") onClick(id);
-	};
-
 	return (
-		<article className={styles.wrapper} onDoubleClick={() => onClick(id)} onKeyDown={handleKeyDown}>
+		<article className={styles.wrapper}>
 			<div className={styles.taskInfo}>
 				<div className={styles.header}>
 					<div className={clsx(styles.status, styles[status])}></div>

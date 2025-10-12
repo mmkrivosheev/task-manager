@@ -1,20 +1,19 @@
-import { memo } from "react";
+import { memo, useCallback, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
+import clsx from "clsx";
 import { TaskItem } from "shared/UI/TaskItem";
 import { openModal } from "entities/app/appSlice";
 import { useAppDispatch } from "app/store/hooks";
 import { ITasksListProps } from "shared/UI/TasksList/types";
 import styles from "./TasksList.module.scss";
 
+
 export const TasksList = memo(function TasksList({ items }: ITasksListProps) {
+	const [focusedIndex, setFocusedIndex] = useState<number | null>(null);
 	const dispatch = useAppDispatch();
 	const { t } = useTranslation();
 
-	if (!items.length) {
-		return <p className={styles.empty}>{t("TasksPage.emptyList")}</p>;
-	}
-
-	const handleItemClick = (id: string) => {
+	const openItemCard = (id: string) => {
 		dispatch(
 			openModal({
 				type: "editCard",
@@ -26,15 +25,54 @@ export const TasksList = memo(function TasksList({ items }: ITasksListProps) {
 		);
 	};
 
+	const handleKeyDown = useCallback(
+		(e: React.KeyboardEvent<HTMLUListElement>) => {
+			if (!items.length) return;
+
+			if (e.key === "ArrowDown") {
+				e.preventDefault();
+				setFocusedIndex(prev => prev === null ? 0 : Math.min(prev + 1, items.length - 1));
+			}
+			if (e.key === "ArrowUp") {
+				e.preventDefault();
+				setFocusedIndex(prev => prev === null ? items.length - 1 : Math.max(prev - 1, 0));
+			}
+			if (e.key === "Enter" && focusedIndex !== null) {
+				e.preventDefault();
+				openItemCard(items[focusedIndex].id);
+			}
+		},
+		[focusedIndex, items, openItemCard]
+	);
+
+	useEffect(() => {
+		if (focusedIndex === null) return;
+		const listItems = document.querySelectorAll<HTMLLIElement>(`.${styles.taskItem}`);
+		listItems[focusedIndex].focus();
+	}, [focusedIndex]);
+
+	if (!items.length) {
+		return <p className={styles.empty}>{t("TasksPage.emptyList")}</p>;
+	}
+
 	return (
-		<>
-			<ul className={styles.tasksList}>
-				{items.map(item => (
-					<li key={item.id}>
-						<TaskItem {...item} onClick={id => handleItemClick(id)} />
-					</li>
-				))}
-			</ul>
-		</>
+		<ul
+			className={styles.tasksList}
+			tabIndex={0}
+			onKeyDown={handleKeyDown}
+		>
+			{items.map((item, index) => (
+				<li
+					key={item.id}
+					tabIndex={-1}
+					className={clsx(styles.taskItem, index === focusedIndex && styles.focused)}
+					onClick={() => setFocusedIndex(index)}
+					onDoubleClick={() => openItemCard(item.id)}
+				>
+					<TaskItem {...item} onClick={id => openItemCard(id)} />
+				</li>
+			))}
+		</ul>
 	);
 });
+

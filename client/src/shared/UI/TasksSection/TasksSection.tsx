@@ -23,7 +23,7 @@ export function TasksSection() {
 	if (isFetching) return <Loader className={styles.loader} delay={500} />;
 
 	return (
-		<section className={styles.tasks} tabIndex={0}>
+		<section className={styles.tasks} tabIndex={-1}>
 			<TasksList items={filteredTasks} />
 		</section>
 	);
