@@ -44,8 +44,8 @@ export const TasksList = memo(function TasksList({ items }: ITasksListProps) {
 	useEffect(() => {
 		if (focusedIndex === null) return;
 		const listItems = document.querySelectorAll<HTMLLIElement>(`.${styles.taskItem}`);
-		listItems[focusedIndex].focus();
-	}, [focusedIndex]);
+		listItems[focusedIndex]?.focus();
+	}, [focusedIndex, items]);
 
 	if (!items.length) {
 		return <p className={styles.empty}>{t("TasksPage.emptyList")}</p>;
