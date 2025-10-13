@@ -11,6 +11,7 @@ export interface ITask {
 export interface ITasksState {
 	items: ITask[];
 	searchQuery: string;
+	filterByStatus: "todo" | "inProgress" | "done" | "";
 	isLoading: boolean;
 	error: string | null;
 }

@@ -24,11 +24,13 @@
 		"save": "Save",
 		"cancel": "Cancel",
 		"delete": "Delete",
+		"allTasks": "All tasks",
 		"todo": "Todo",
 		"inProgress": "In progress",
 		"done": "Done",
+		"doneOfList": "Done",
 		"titleRequired": "Title is required",
-		"search": "Search by tasks"
+		"search": "Search by title"
 	},
 	"Navigation": {
 		"login": "Login",

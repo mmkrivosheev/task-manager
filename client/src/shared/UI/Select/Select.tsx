@@ -62,6 +62,7 @@ export function Select({ options, onChange, value: initValue, placeholder, name,
 				className={clsx(styles.select, className)}
 				ref={ref}
 				tabIndex={0}
+				role="listbox"
 				onClick={handleToggle}
 				onKeyDown={handleKeyDown}
 			>

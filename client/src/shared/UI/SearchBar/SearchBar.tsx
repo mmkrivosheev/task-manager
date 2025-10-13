@@ -6,7 +6,7 @@ import ClearIcon from "assets/icons/close.svg";
 import { ISearchBarProps } from "shared/UI/SearchBar/types";
 import styles from "./SearchBar.module.scss";
 
-export function SearchBar({ onSearch, placeholder, className }: ISearchBarProps) {
+export function SearchBar({ onSearch, placeholder, className, ...props }: ISearchBarProps) {
 	const [query, setQuery] = useState("");
 
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -27,6 +27,7 @@ export function SearchBar({ onSearch, placeholder, className }: ISearchBarProps)
 				value={query}
 				placeholder={placeholder}
 				onChange={handleChange}
+				{...props}
 			/>
 			{query && (
 				<Button

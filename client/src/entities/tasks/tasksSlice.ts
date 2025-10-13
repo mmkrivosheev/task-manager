@@ -4,6 +4,7 @@ import { ITask, ITasksState } from "entities/tasks/types";
 const initialState: ITasksState = {
 	items: [],
 	searchQuery: "",
+	filterByStatus: "",
 	isLoading: false,
 	error: null,
 };
@@ -43,6 +44,9 @@ const tasksSlice = createSlice({
 		setSearchQuery(state, action: PayloadAction<string>) {
 			state.searchQuery = action.payload;
 		},
+		setFilterByStatus(state, action: PayloadAction<ITasksState["filterByStatus"]>) {
+			state.filterByStatus = action.payload;
+		},
 	},
 });
 
@@ -55,5 +59,6 @@ export const {
 	tasksFailure,
 	clearError,
 	setSearchQuery,
+	setFilterByStatus,
 } = tasksSlice.actions;
 export default tasksSlice.reducer;
