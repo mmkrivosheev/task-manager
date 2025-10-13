@@ -66,7 +66,7 @@ export function TaskCard({ task, onSubmit }: ITaskCardProps) {
 					<p className={styles.statusLabel}>{t("TasksPage.status")} </p>
 					<Select
 						className={styles.statusSelect}
-						value={status || "todo"}
+						value={task?.status || "todo"}
 						options={statuses.map(item => ({ ...item, label: t(item.label) }))}
 						name="status"
 					/>
