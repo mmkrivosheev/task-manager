@@ -7,14 +7,19 @@ import styles from "./TasksSection.module.scss";
 
 export function TasksSection() {
 	const [isFetching, setIsFetching] = useState(true);
-	const { searchQuery, items } = useAppSelector(state => state.tasks);
+	const { searchQuery, filterByStatus, items } = useAppSelector(state => state.tasks);
 	const dispatch = useAppDispatch();
 
 	const filteredTasks = useMemo(() => {
-		if (!searchQuery) return items;
+		if (!searchQuery && !filterByStatus) return items;
+
 		const query = searchQuery.toLowerCase();
-		return items.filter(item => item.title.toLowerCase().includes(query));
-	}, [items, searchQuery]);
+		return items.filter(
+			item =>
+				(!query || item.title.toLowerCase().includes(query)) &&
+				(!filterByStatus || item.status === filterByStatus)
+		);
+	}, [searchQuery, filterByStatus, items]);
 
 	useEffect(() => {
 		dispatch(fetchTasks()).then(() => setIsFetching(false));

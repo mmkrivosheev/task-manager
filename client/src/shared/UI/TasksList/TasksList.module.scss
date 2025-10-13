@@ -1,20 +1,33 @@
 .tasksList {
 	display: flex;
 	flex-direction: column;
+	height: 100%;
 	padding: var(--app-padding-x);
+	overflow: auto;
 	list-style: none;
 
 	&:focus-visible {
 		outline: 1px solid var(--color-text-hover);
-		outline-offset: -1px
+		outline-offset: -1px;
 	}
 }
 
 .taskItem {
+	position: relative;
 	border-top: 1px solid var(--color-border-app);
 
 	&.focused {
 		background-color: var(--color-bg-item-hover);
+
+		&::before {
+			content: "";
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: -6px;
+			width: 2px;
+			background-color: var(--color-text-hover);
+		}
 	}
 	&:last-child {
 		border-bottom: 1px solid var(--color-border-app);

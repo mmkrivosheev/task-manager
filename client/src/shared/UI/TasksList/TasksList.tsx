@@ -1,4 +1,4 @@
-import { memo, useEffect, useState } from "react";
+import { memo, useLayoutEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import clsx from "clsx";
 import { TaskItem } from "shared/UI/TaskItem";
@@ -33,7 +33,7 @@ export const TasksList = memo(function TasksList({ items }: ITasksListProps) {
 		}
 		if (e.key === "ArrowUp") {
 			e.preventDefault();
-			setFocusedIndex(prev => (prev === null ? items.length - 1 : Math.max(prev - 1, 0)));
+			setFocusedIndex(prev => (prev === null ? 0 : Math.max(prev - 1, 0)));
 		}
 		if (e.key === "Enter" && focusedIndex !== null) {
 			e.preventDefault();
@@ -41,10 +41,16 @@ export const TasksList = memo(function TasksList({ items }: ITasksListProps) {
 		}
 	};
 
-	useEffect(() => {
-		if (focusedIndex === null) return;
-		const listItems = document.querySelectorAll<HTMLLIElement>(`.${styles.taskItem}`);
-		listItems[focusedIndex]?.focus();
+	useLayoutEffect(() => {
+		const activeEl = document.activeElement;
+		if (focusedIndex === null || activeEl?.role === "searchbox" || activeEl?.role === "listbox") return;
+
+		if (items[focusedIndex]) {
+			const listItems = document.querySelectorAll<HTMLLIElement>(`.${styles.taskItem}`);
+			listItems[focusedIndex].focus();
+		} else if (focusedIndex > 0) {
+			setFocusedIndex(focusedIndex - 1);
+		}
 	}, [focusedIndex, items]);
 
 	if (!items.length) {
