@@ -37,22 +37,6 @@
 	height: 20px;
 	margin-right: auto;
 	overflow: hidden;
-
-	&::after {
-		content: "";
-		position: absolute;
-		inset: -50%;
-		background: linear-gradient(
-				to bottom,
-				rgba(229, 172, 142, 0),
-				rgba(255, 255, 255, 0.5) 50%,
-				rgba(229, 172, 142, 0)
-		);
-		transform: rotateZ(60deg) translate(-5em, 7.5em);
-	}
-	:is(&:hover, &:focus)::after {
-		animation: sheen 1s forwards;
-	}
 }
 
 .searchBar {
@@ -62,10 +46,4 @@
 .btnGroup {
 	display: flex;
 	gap: 20px
-}
-
-@keyframes sheen {
-	100% {
-		transform: rotateZ(60deg) translate(1em, -9em);
-	}
 }

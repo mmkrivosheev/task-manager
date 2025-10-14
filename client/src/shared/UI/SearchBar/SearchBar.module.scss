@@ -9,7 +9,7 @@
 	background-color: var(--color-bg-app);
 
 	&::placeholder {
-		color: var(--color-border);
+		color: var(--color-border-footer);
 	}
 	&:focus {
 		border-color: var(--color-text-hover);
