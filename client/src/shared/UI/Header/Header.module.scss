@@ -15,7 +15,6 @@
 
 .content {
 	display: flex;
-	justify-content: space-between;
 	align-items: center;
 	gap: 30px;
 	height: var(--header-height);
@@ -34,13 +33,15 @@
 
 .logo {
 	position: relative;
+	flex-shrink: 0;
 	height: 20px;
 	margin-right: auto;
 	overflow: hidden;
 }
 
 .searchBar {
-	width: 300px;
+	flex-basis: 500px;
+	min-width: 200px;
 }
 
 .btnGroup {

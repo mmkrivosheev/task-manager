@@ -21,9 +21,9 @@ export function SearchBar({ onSearch, placeholder, className, ...props }: ISearc
 	};
 
 	return (
-		<div className={styles.wrapper}>
+		<div className={clsx(styles.wrapper, className)}>
 			<input
-				className={clsx(styles.input, className)}
+				className={styles.input}
 				value={query}
 				placeholder={placeholder}
 				onChange={handleChange}
