@@ -1,6 +1,6 @@
 .content {
 	position: relative;
-	padding: 8px 20px 8px 26px;
+	padding: 8px 20px 8px 28px;
 	font-size: var(--font-size-base);
 	font-weight: var(--font-weight-normal);
 	white-space: nowrap;
@@ -14,12 +14,13 @@
 		transform: translateY(-50%);
 	}
 	&::after {
-		content: "";
+		content: "...";
 		position: absolute;
-		top: 50%;
-		left: calc(100% - 20px);
+		top: calc(50% - 3px);
+		left: calc(100% - 19px);
+		font-size: 24px;
 		transform: translateY(-50%);
-		animation: dots 1.5s steps(3, end) infinite;
+		animation: dots 2.4s steps(3, end) 0.8s infinite;
 	}
 }
 
