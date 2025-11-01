@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import { RouterLink } from "shared/UI/Links";
+import { Link, RouterLink } from "shared/UI/Links";
 import { setFilterByStatus, setSearchQuery } from "entities/tasks/tasksSlice";
 import { useAppDispatch, useAppSelector } from "app/store/hooks";
 import { openModal } from "entities/app/appSlice";
@@ -13,6 +13,8 @@ import { statuses } from "shared/UI/Header/statuses";
 import PencilIcon from "assets/icons/pencil.svg";
 import logo from "assets/img/logo.png";
 import { ITasksState } from "entities/tasks/types";
+import { GITHUB_REPO_URL } from "shared/constants/urls";
+import GithubIcon from "assets/icons/github.svg";
 import styles from "./Header.module.scss";
 
 export function Header() {
@@ -40,6 +42,13 @@ export function Header() {
 					<RouterLink className={styles.logo} to="/">
 						<img className={styles.logo} src={logo} alt="logo" />
 					</RouterLink>
+					<Link
+						className={styles.repoLink}
+						target="_blank"
+						rel="noopener noreferrer"
+						href={GITHUB_REPO_URL}
+						icon={createSizedIcon(GithubIcon, 26, 26)}
+					></Link>
 					{user && (
 						<>
 							<SearchBar

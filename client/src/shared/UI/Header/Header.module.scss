@@ -35,8 +35,11 @@
 	position: relative;
 	flex-shrink: 0;
 	height: 20px;
-	margin-right: auto;
 	overflow: hidden;
+}
+
+.repoLink {
+	margin-right: auto;
 }
 
 .searchBar {
