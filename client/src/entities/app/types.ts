@@ -1,6 +1,7 @@
 export interface IAppState {
 	toast: IToast | null;
 	modal: IModal | null;
+	isSidebarOpen: boolean;
 }
 
 export interface IToast {

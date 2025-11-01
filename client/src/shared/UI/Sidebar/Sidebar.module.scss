@@ -10,23 +10,15 @@
 	border-right: 1px solid var(--color-border-app);
 	overflow: hidden;
 	white-space: nowrap;
-	transition: width 0.3s;
+	transition: all 0.3s;
 
 	&.collapsed {
-		width: 40px;
+		width: 0;
+		padding: 0;
+		border-right-color: transparent;
 
-		.chevronIcon {
-			transform: none;
-		}
-		.asideContent {
+		.content {
 			display: none;
 		}
 	}
-}
-
-.chevronIcon {
-	position: absolute;
-	top: 2px;
-	right: 8px;
-	transform: rotate(180deg);
 }

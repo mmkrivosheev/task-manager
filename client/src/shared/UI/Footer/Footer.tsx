@@ -1,21 +1,27 @@
-import { Link } from "shared/UI/Links";
 import { Settings } from "shared/UI/Settings";
+import { Button } from "shared/UI/Button";
 import { createSizedIcon } from "shared/HOC/createSizedIcon";
-import { GITHUB_REPO_URL } from "shared/constants/urls";
-import GithubIcon from "assets/icons/github.svg";
+import { useAppDispatch, useAppSelector } from "app/store/hooks";
+import { toggleSidebar } from "entities/app/appSlice";
+import SidebarIcon from "assets/icons/sidebar.svg";
 import styles from "./Footer.module.scss";
 
 export function Footer() {
+	const user = useAppSelector(state => state.auth.user);
+	const dispatch = useAppDispatch();
+
 	return (
 		<footer className={styles.footer}>
 			<div className={styles.wrapper}>
 				<div className={styles.content}>
-					<Link
-						target="_blank"
-						rel="noopener noreferrer"
-						href={GITHUB_REPO_URL}
-						icon={createSizedIcon(GithubIcon, 26, 26)}
-					></Link>
+					{user && (
+						<Button
+							className={styles.sidebarToggle}
+							icon={createSizedIcon(SidebarIcon, 24, 24)}
+							variant="link"
+							onClick={() => dispatch(toggleSidebar())}
+						/>
+					)}
 					<Settings />
 				</div>
 			</div>

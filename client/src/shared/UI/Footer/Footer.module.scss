@@ -16,7 +16,11 @@
 
 .content {
 	display: flex;
-	justify-content: space-between;
+	justify-content: flex-end;
 	align-items: center;
 	height: var(--footer-height);
+}
+
+.sidebarToggle {
+	margin-right: auto;
 }

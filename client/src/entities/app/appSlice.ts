@@ -4,6 +4,7 @@ import { IAppState, IModal, IToast } from "entities/app/types";
 const initialState: IAppState = {
 	toast: null,
 	modal: null,
+	isSidebarOpen: true,
 };
 
 const appSlice = createSlice({
@@ -22,8 +23,18 @@ const appSlice = createSlice({
 		closeModal: state => {
 			state.modal = null;
 		},
+		openSidebar(state) {
+			state.isSidebarOpen = true;
+		},
+		closeSidebar(state) {
+			state.isSidebarOpen = false;
+		},
+		toggleSidebar(state) {
+			state.isSidebarOpen = !state.isSidebarOpen;
+		},
 	},
 });
 
-export const { showToast, clearToast, openModal, closeModal } = appSlice.actions;
+export const { showToast, clearToast, openModal, closeModal, openSidebar, closeSidebar, toggleSidebar } =
+	appSlice.actions;
 export default appSlice.reducer;
