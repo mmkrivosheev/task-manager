@@ -8,7 +8,7 @@ export function Sidebar() {
 	const { t } = useTranslation();
 
 	return (
-		<aside className={clsx(styles.sidebar, isSidebarOpen || styles.collapsed)}>
+		<aside className={clsx(styles.sidebar, !isSidebarOpen && styles.collapsed)}>
 			<div className={styles.content}>{t("TasksPage.development")}</div>
 		</aside>
 	);

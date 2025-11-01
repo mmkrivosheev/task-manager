@@ -1,10 +1,15 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { IAppState, IModal, IToast } from "entities/app/types";
 
+const getInitialSidebar = (): boolean => {
+	const saved = localStorage.getItem("isSidebarOpen");
+	return saved === null ? true : saved === "true";
+};
+
 const initialState: IAppState = {
 	toast: null,
 	modal: null,
-	isSidebarOpen: true,
+	isSidebarOpen: getInitialSidebar(),
 };
 
 const appSlice = createSlice({
@@ -23,18 +28,11 @@ const appSlice = createSlice({
 		closeModal: state => {
 			state.modal = null;
 		},
-		openSidebar(state) {
-			state.isSidebarOpen = true;
-		},
-		closeSidebar(state) {
-			state.isSidebarOpen = false;
-		},
 		toggleSidebar(state) {
 			state.isSidebarOpen = !state.isSidebarOpen;
 		},
 	},
 });
 
-export const { showToast, clearToast, openModal, closeModal, openSidebar, closeSidebar, toggleSidebar } =
-	appSlice.actions;
+export const { showToast, clearToast, openModal, closeModal, toggleSidebar } = appSlice.actions;
 export default appSlice.reducer;

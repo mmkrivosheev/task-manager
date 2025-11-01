@@ -2,7 +2,7 @@ import { Settings } from "shared/UI/Settings";
 import { Button } from "shared/UI/Button";
 import { createSizedIcon } from "shared/HOC/createSizedIcon";
 import { useAppDispatch, useAppSelector } from "app/store/hooks";
-import { toggleSidebar } from "entities/app/appSlice";
+import { toggleAndPersistSidebar } from "entities/app/appThunk";
 import SidebarIcon from "assets/icons/sidebar.svg";
 import styles from "./Footer.module.scss";
 
@@ -19,7 +19,7 @@ export function Footer() {
 							className={styles.sidebarToggle}
 							icon={createSizedIcon(SidebarIcon, 24, 24)}
 							variant="link"
-							onClick={() => dispatch(toggleSidebar())}
+							onClick={() => dispatch(toggleAndPersistSidebar())}
 						/>
 					)}
 					<Settings />

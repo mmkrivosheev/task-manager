@@ -3,12 +3,12 @@ import { useState, useEffect } from "react";
 export function useLocalStorage(key: string, initialValue: string | boolean) {
 	const [value, setValue] = useState<string | boolean>(() => {
 		try {
-			const stored = localStorage.getItem(key);
-			if (stored === null) return initialValue;
+			const saved = localStorage.getItem(key);
+			if (saved === null) return initialValue;
 			if (typeof initialValue === "boolean") {
-				return stored === "true";
+				return saved === "true";
 			}
-			return stored;
+			return saved;
 		} catch (error) {
 			console.error("Error reading from localStorage:", error);
 			return initialValue;
