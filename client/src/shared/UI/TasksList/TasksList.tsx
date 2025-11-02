@@ -43,7 +43,14 @@ export const TasksList = memo(function TasksList({ items }: ITasksListProps) {
 
 	useLayoutEffect(() => {
 		const activeEl = document.activeElement;
-		if (focusedIndex === null || activeEl?.role === "searchbox" || activeEl?.role === "listbox") return;
+		if (
+			focusedIndex === null ||
+			(!activeEl?.closest("#modal-root") &&
+				activeEl?.className !== styles.tasksList &&
+				activeEl?.className !== styles.taskItem)
+		) {
+			return;
+		}
 
 		if (items[focusedIndex]) {
 			const listItems = document.querySelectorAll<HTMLLIElement>(`.${styles.taskItem}`);

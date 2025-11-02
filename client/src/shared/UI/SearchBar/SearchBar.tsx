@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import clsx from "clsx";
 import { createSizedIcon } from "shared/HOC/createSizedIcon";
 import { Button } from "shared/UI/Button";
@@ -8,6 +8,7 @@ import styles from "./SearchBar.module.scss";
 
 export function SearchBar({ onSearch, placeholder, className, ...props }: ISearchBarProps) {
 	const [query, setQuery] = useState("");
+	const input = useRef<HTMLInputElement>(null);
 
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		const value = e.target.value;
@@ -16,6 +17,7 @@ export function SearchBar({ onSearch, placeholder, className, ...props }: ISearc
 	};
 
 	const handleClear = () => {
+		input.current?.focus();
 		setQuery("");
 		onSearch("");
 	};
@@ -23,6 +25,7 @@ export function SearchBar({ onSearch, placeholder, className, ...props }: ISearc
 	return (
 		<div className={clsx(styles.wrapper, className)}>
 			<input
+				ref={input}
 				className={styles.input}
 				value={query}
 				placeholder={placeholder}
@@ -34,6 +37,7 @@ export function SearchBar({ onSearch, placeholder, className, ...props }: ISearc
 					className={styles.button}
 					variant="link"
 					icon={createSizedIcon(ClearIcon, 20, 20)}
+					onMouseDown={e => e.preventDefault()}
 					onClick={handleClear}
 				/>
 			)}
