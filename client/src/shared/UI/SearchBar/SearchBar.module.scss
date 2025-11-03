@@ -1,19 +1,30 @@
 .wrapper {
 	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 34px;
+	padding: 3px;
+	border: 1px solid var(--color-border-footer);
+	background-color: var(--color-bg-app);
+
+	.select {
+		flex: 0 0 140px;
+		line-height: 1.5;
+		background-color: var(--color-bg-footer);
+	}
 }
 
 .input {
 	width: 100%;
-	padding: 4px 30px 4px 8px;
-	border: 1px solid var(--color-border-footer);
+	margin-left: 3px;
+	padding: 0 30px 0 8px;
+	border: none;
 	appearance: none;
 	background-color: var(--color-bg-app);
 
 	&::placeholder {
 		color: var(--color-border-footer);
-	}
-	&:focus {
-		border-color: var(--color-text-hover);
 	}
 }
 

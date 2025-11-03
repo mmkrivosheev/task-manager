@@ -1,18 +1,15 @@
 import { useTranslation } from "react-i18next";
 import { Link, RouterLink } from "shared/UI/Links";
-import { setFilterByStatus, setSearchQuery } from "entities/tasks/tasksSlice";
+import { setSearchQuery } from "entities/tasks/tasksSlice";
 import { useAppDispatch, useAppSelector } from "app/store/hooks";
 import { openModal } from "entities/app/appSlice";
 import { Button } from "shared/UI/Button";
 import { Navigation } from "shared/UI/Navigation";
 import { SearchBar } from "shared/UI/SearchBar";
-import { Select } from "shared/UI/Select";
 import { logoutUser } from "entities/auth/authThunk";
 import { createSizedIcon } from "shared/HOC/createSizedIcon";
-import { statuses } from "shared/UI/Header/statuses";
 import PencilIcon from "assets/icons/pencil.svg";
 import logo from "assets/img/logo.png";
-import { ITasksState } from "entities/tasks/types";
 import { GITHUB_REPO_URL } from "shared/constants/urls";
 import GithubIcon from "assets/icons/github.svg";
 import styles from "./Header.module.scss";
@@ -56,14 +53,6 @@ export function Header() {
 								placeholder={t("TasksPage.search")}
 								role="searchbox"
 								onSearch={value => dispatch(setSearchQuery(value))}
-							/>
-							<Select
-								className={styles.filterBar}
-								value=""
-								options={statuses.map(item => ({ ...item, label: t(item.label) }))}
-								onChange={value =>
-									dispatch(setFilterByStatus(value as ITasksState["filterByStatus"]))
-								}
 							/>
 						</>
 					)}
